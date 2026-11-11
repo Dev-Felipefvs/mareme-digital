@@ -42,15 +42,21 @@ export function Founder() {
   return (
     <section ref={root} id="sobre" className="relative overflow-hidden py-28 sm:py-36">
       <div aria-hidden="true" className="pointer-events-none absolute -left-40 top-1/3 h-[520px] w-[520px] rounded-full bg-lime/[0.06] blur-[140px]" />
-      <div className="container-x grid gap-14 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
-        <div className="relative isolate mx-auto w-full max-w-[340px] self-start lg:sticky lg:top-28 lg:mx-0">
-          {/* Foto de corpo inteiro: a moldura segue a proporção original da imagem (821×1931) */}
-          <div className="founder-frame relative aspect-[821/1931] overflow-hidden rounded-[28px] border border-line bg-ink-3" style={{ clipPath: "inset(0% 0% 0% 0% round 28px)" }}>
+      <div className="container-x flex flex-col items-center">
+        <Reveal className="mb-10 flex justify-center">
+          <p className="eyebrow">
+            <span className="font-serif text-base italic tracking-normal text-white/80">02</span>
+            <span className="h-px w-8 bg-white/20" />Sobre mim
+          </p>
+        </Reveal>
+        <div className="relative isolate mx-auto w-full max-w-[380px]">
+          {/* Foto de corpo inteiro: a moldura segue a proporção original da imagem (821×1556) */}
+          <div className="founder-frame relative aspect-[821/1556] overflow-hidden rounded-[28px] border border-line bg-ink-3" style={{ clipPath: "inset(0% 0% 0% 0% round 28px)" }}>
             <img
               src={asset(f.photo)}
               alt={`${f.name}, ${f.role}`}
               width={821}
-              height={1931}
+              height={1556}
               loading="lazy"
               decoding="async"
               className="absolute inset-0 h-full w-full object-cover"
@@ -69,13 +75,7 @@ export function Founder() {
           <div aria-hidden="true" className="bg-accent absolute -right-4 -top-4 -z-10 h-full w-full rounded-[32px] opacity-[0.12] blur-2xl" />
         </div>
 
-        <div className="lg:pt-6">
-          <Reveal>
-            <p className="eyebrow mb-6">
-              <span className="font-serif text-base italic tracking-normal text-white/80">02</span>
-              <span className="h-px w-8 bg-white/20" />Sobre mim
-            </p>
-          </Reveal>
+        <div className="mt-14 w-full max-w-3xl">
           <Reveal delay={0.08}>
             <h2 className="text-[clamp(38px,5.2vw,76px)] font-medium leading-[0.98] tracking-[-0.04em]">
               {first} sou <em className="text-accent pr-[0.05em] font-serif font-normal italic tracking-[-0.01em]">{rest.join(" sou ")}</em>
