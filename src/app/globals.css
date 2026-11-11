@@ -4,13 +4,19 @@
    MAREME Digital — design system
    ========================================================= */
 @theme {
-  --color-ink: #080810;
-  --color-ink-2: #0e0e1c;
-  --color-ink-3: #15152a;
-  --color-electric: #008cff;
-  --color-violet: #a020f0;
-  --color-mist: #a3a8c3;
-  --color-line: rgb(255 255 255 / 0.09);
+  /* Paleta MONOCHROME LIME — altere as cores do site somente aqui */
+  --color-ink: #101010;        /* preto principal: fundo do site */
+  --color-graphite: #262626;   /* grafite: cards, menus e superfícies */
+  --color-lime: #c5f277;       /* verde-lima: botões, ícones, links e destaques */
+  --color-mist: rgb(231 231 226 / 0.72); /* cinza claro #E7E7E2: textos secundários */
+  --color-paper: #fafaf7;      /* off-white: títulos e textos principais */
+
+  /* Aliases usados pelos componentes */
+  --color-white: var(--color-paper);
+  --color-accent: var(--color-lime);
+  --color-ink-2: var(--color-graphite);
+  --color-ink-3: var(--color-graphite);
+  --color-line: rgb(250 250 247 / 0.1);
 
   --font-sans: var(--font-inter-tight), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-instrument), ui-serif, Georgia, serif;
@@ -29,7 +35,7 @@
 @layer base {
   html {
     background: var(--color-ink);
-    color: #fff;
+    color: var(--color-paper);
     color-scheme: dark;
     -webkit-text-size-adjust: 100%;
   }
@@ -41,32 +47,20 @@
     text-rendering: optimizeLegibility;
     overflow-x: clip;
   }
-  ::selection { background: var(--color-electric); color: #fff; }
-  :focus-visible { outline: 2px solid var(--color-electric); outline-offset: 3px; border-radius: 6px; }
+  ::selection { background: var(--color-lime); color: var(--color-ink); }
+  :focus-visible { outline: 2px solid var(--color-lime); outline-offset: 3px; border-radius: 6px; }
   img { max-width: 100%; height: auto; }
 }
 
 /* ---------- Utilitários da marca ---------- */
-@utility text-gradient {
-  background-image: linear-gradient(100deg, #36a8ff 0%, #008cff 30%, #a020f0 75%, #c86bff 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-@utility bg-brand {
-  background-image: linear-gradient(120deg, #008cff 0%, #5b4bff 50%, #a020f0 100%);
-}
-
-@utility border-gradient {
-  border: 1px solid transparent;
-  background:
-    linear-gradient(var(--color-ink-2), var(--color-ink-2)) padding-box,
-    linear-gradient(120deg, rgb(0 140 255 / 0.7), rgb(160 32 240 / 0.7)) border-box;
+/* Cartão com contorno em verde-lima (sólido) */
+@utility card-accent {
+  border: 1px solid rgb(197 242 119 / 0.35);
+  background: var(--color-graphite);
 }
 
 @utility glass {
-  background: rgb(14 14 28 / 0.55);
+  background: rgb(16 16 16 / 0.72);
   -webkit-backdrop-filter: blur(18px) saturate(140%);
   backdrop-filter: blur(18px) saturate(140%);
 }
@@ -112,7 +106,7 @@
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgb(0 140 255 / 0.16), rgb(160 32 240 / 0.08) 40%, transparent 70%);
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgb(197 242 119 / 0.09), transparent 65%);
   opacity: 0;
   transition: opacity 0.5s var(--ease-out-quart);
   z-index: -1;
@@ -124,7 +118,7 @@ html.has-cursor, html.has-cursor * { cursor: none !important; }
 html.has-cursor input, html.has-cursor textarea, html.has-cursor select { cursor: text !important; }
 
 /* Scrollbar discreta */
-* { scrollbar-width: thin; scrollbar-color: #2a2a44 transparent; }
+* { scrollbar-width: thin; scrollbar-color: var(--color-graphite) transparent; }
 
 /* Movimento reduzido */
 @media (prefers-reduced-motion: reduce) {

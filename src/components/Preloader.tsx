@@ -66,7 +66,7 @@ export function Preloader() {
             </motion.div>
             <div className="h-px w-40 overflow-hidden bg-white/10">
               <motion.div
-                className="h-full bg-brand"
+                className="h-full bg-accent"
                 initial={{ x: "-100%" }}
                 animate={{ x: "0%" }}
                 transition={{ duration: 1.4, ease: [0.65, 0, 0.35, 1] }}

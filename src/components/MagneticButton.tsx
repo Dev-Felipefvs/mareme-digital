@@ -30,7 +30,7 @@ export function MagneticButton({ href, children, variant = "primary", className 
     "group relative inline-flex h-14 items-center justify-center gap-3 overflow-hidden rounded-full px-8 text-[15px] font-medium tracking-tight transition-colors duration-300";
   const styles =
     variant === "primary"
-      ? "bg-white text-ink hover:text-white"
+      ? "bg-white text-ink hover:text-ink"
       : "border border-white/15 text-white hover:border-white/40";
 
   return (
@@ -47,7 +47,7 @@ export function MagneticButton({ href, children, variant = "primary", className 
       {variant === "primary" && (
         <span
           aria-hidden="true"
-          className="absolute inset-0 -z-0 translate-y-full rounded-full bg-brand transition-transform duration-500 ease-out-expo group-hover:translate-y-0"
+          className="absolute inset-0 -z-0 translate-y-full rounded-full bg-accent transition-transform duration-500 ease-out-expo group-hover:translate-y-0"
         />
       )}
       <span className="relative z-10 inline-flex items-center gap-3">{children}</span>

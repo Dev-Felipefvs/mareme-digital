@@ -74,7 +74,7 @@ export function Header() {
           <div className="flex items-center gap-3">
             <a
               href="#contato"
-              className="border-gradient hidden h-11 items-center gap-2 rounded-full px-5 text-[14px] font-medium transition-transform duration-300 hover:-translate-y-0.5 sm:inline-flex"
+              className="card-accent hidden h-11 items-center gap-2 rounded-full px-5 text-[14px] font-medium transition-transform duration-300 hover:-translate-y-0.5 sm:inline-flex"
             >
               Solicitar orçamento <ArrowUpRight className="h-3.5 w-3.5" />
             </a>
@@ -105,8 +105,8 @@ export function Header() {
             exit={{ clipPath: "circle(0% at calc(100% - 44px) 38px)" }}
             transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1] }}
           >
-            <div aria-hidden="true" className="pointer-events-none absolute -right-40 top-20 h-96 w-96 rounded-full bg-violet/25 blur-[120px]" />
-            <div aria-hidden="true" className="pointer-events-none absolute -left-40 bottom-10 h-96 w-96 rounded-full bg-electric/20 blur-[120px]" />
+            <div aria-hidden="true" className="pointer-events-none absolute -right-40 top-20 h-96 w-96 rounded-full bg-lime/[0.07] blur-[120px]" />
+            <div aria-hidden="true" className="pointer-events-none absolute -left-40 bottom-10 h-96 w-96 rounded-full bg-white/[0.04] blur-[120px]" />
             <nav aria-label="Navegação mobile" className="relative">
               <ul>
                 {nav.map((n, i) => (
@@ -133,7 +133,7 @@ export function Header() {
               transition={{ delay: 0.6, duration: 0.6 }}
             >
               <a href={contactLink("Olá! Vim pelo site da MAREME Digital e quero um orçamento.")} target="_blank" rel="noopener noreferrer"
-                className="bg-brand flex h-14 items-center justify-center rounded-full font-medium">
+                className="bg-accent flex h-14 items-center justify-center rounded-full font-medium text-ink">
                 Falar pelo {contactChannel}
               </a>
               <a href={site.instagram.url} target="_blank" rel="noopener noreferrer" className="text-center text-sm text-mist">

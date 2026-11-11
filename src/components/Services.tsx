@@ -27,7 +27,7 @@ function spot(e: MouseEvent<HTMLElement>) {
 export function Services() {
   return (
     <section id="servicos" className="relative py-28 sm:py-36">
-      <div aria-hidden="true" className="pointer-events-none absolute right-0 top-40 h-[480px] w-[480px] rounded-full bg-violet/15 blur-[150px]" />
+      <div aria-hidden="true" className="pointer-events-none absolute right-0 top-40 h-[480px] w-[480px] rounded-full bg-lime/[0.05] blur-[150px]" />
       <div className="container-x">
         <SectionHeading
           index="04"
@@ -43,7 +43,7 @@ export function Services() {
                 className="spotlight group flex h-full min-h-[260px] flex-col justify-between overflow-hidden rounded-[24px] border border-line bg-ink-2 p-7 transition-[border-color,transform] duration-500 ease-out-expo hover:-translate-y-1 hover:border-white/20"
               >
                 <div className="flex items-start justify-between">
-                  <span className="grid h-14 w-14 place-items-center rounded-2xl border border-line bg-white/[0.03] text-white transition-colors duration-500 group-hover:border-transparent group-hover:bg-brand">
+                  <span className="grid h-14 w-14 place-items-center rounded-2xl border border-line bg-white/[0.03] text-white transition-colors duration-500 group-hover:border-transparent group-hover:bg-accent group-hover:text-ink">
                     {s.i}
                   </span>
                   <span className="font-serif text-lg italic text-white/30">0{i + 1}</span>
@@ -58,9 +58,9 @@ export function Services() {
           <Reveal delay={0.16}>
             <a
               href="#contato"
-              className="bg-brand group flex h-full min-h-[260px] flex-col justify-between rounded-[24px] p-7 transition-transform duration-500 ease-out-expo hover:-translate-y-1"
+              className="bg-accent group flex h-full min-h-[260px] text-ink flex-col justify-between rounded-[24px] p-7 transition-transform duration-500 ease-out-expo hover:-translate-y-1"
             >
-              <span className="text-[13px] uppercase tracking-[0.2em] text-white/80">Tem outra ideia?</span>
+              <span className="text-[13px] uppercase tracking-[0.2em] text-ink/70">Tem outra ideia?</span>
               <span className="text-[28px] font-medium leading-tight tracking-tight">
                 Vamos conversar sobre o seu projeto <span className="inline-block transition-transform duration-500 group-hover:translate-x-2">→</span>
               </span>

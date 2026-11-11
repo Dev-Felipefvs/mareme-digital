@@ -67,13 +67,13 @@ export function CustomCursor() {
       </div>
       <style>{`
         .cursor-ring__inner { position: absolute; left: 0; top: 0; width: 38px; height: 38px; margin: -19px 0 0 -19px; border-radius: 999px;
-          border: 1px solid rgb(255 255 255 / .35); display: grid; place-items: center;
+          border: 1px solid rgb(250 250 247 / .35); display: grid; place-items: center;
           transition: width .45s cubic-bezier(.16,1,.3,1), height .45s cubic-bezier(.16,1,.3,1), margin .45s cubic-bezier(.16,1,.3,1), background-color .3s, border-color .3s; }
-        .cursor-ring.is-hover .cursor-ring__inner { width: 58px; height: 58px; margin: -29px 0 0 -29px; border-color: rgb(0 140 255 / .8); background: rgb(0 140 255 / .08); }
+        .cursor-ring.is-hover .cursor-ring__inner { width: 58px; height: 58px; margin: -29px 0 0 -29px; border-color: rgb(197 242 119 / .9); background: rgb(197 242 119 / .08); }
         .cursor-ring.is-label .cursor-ring__inner { width: 96px; height: 96px; margin: -48px 0 0 -48px; border-color: transparent;
-          background: linear-gradient(120deg, #008cff, #a020f0); }
+          background: #c5f277; }
         .cursor-ring.is-down .cursor-ring__inner { transform: scale(.85); }
-        .cursor-ring__label { font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #fff; }
+        .cursor-ring__label { font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #101010; }
       `}</style>
     </>
   );

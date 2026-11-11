@@ -17,9 +17,9 @@ export function AuroraCanvas({ className = "" }: { className?: string }) {
     let mx = 0, my = 0, tmx = 0, tmy = 0;
 
     const blobs = [
-      { x: 0.78, y: 0.28, r: 0.55, c: [0, 140, 255], sx: 0.13, sy: 0.17, p: 0 },
-      { x: 0.62, y: 0.62, r: 0.5, c: [160, 32, 240], sx: 0.11, sy: 0.09, p: 2 },
-      { x: 0.18, y: 0.15, r: 0.38, c: [70, 60, 255], sx: 0.08, sy: 0.12, p: 4 },
+      { x: 0.78, y: 0.28, r: 0.55, c: [197, 242, 119], a: 0.16, sx: 0.13, sy: 0.17, p: 0 },
+      { x: 0.62, y: 0.62, r: 0.5, c: [231, 231, 226], a: 0.07, sx: 0.11, sy: 0.09, p: 2 },
+      { x: 0.18, y: 0.15, r: 0.38, c: [197, 242, 119], a: 0.08, sx: 0.08, sy: 0.12, p: 4 },
     ];
 
     const resize = () => {
@@ -32,7 +32,7 @@ export function AuroraCanvas({ className = "" }: { className?: string }) {
     const draw = () => {
       mx += (tmx - mx) * 0.04; my += (tmy - my) * 0.04;
       ctx.globalCompositeOperation = "source-over";
-      ctx.fillStyle = "#080810";
+      ctx.fillStyle = "#101010";
       ctx.fillRect(0, 0, w, h);
 
       // Auroras
@@ -42,8 +42,8 @@ export function AuroraCanvas({ className = "" }: { className?: string }) {
         const bx = (b.x + Math.sin(t * b.sx + b.p) * 0.08) * w + mx * 30;
         const by = (b.y + Math.cos(t * b.sy + b.p) * 0.07) * h + my * 20;
         const g = ctx.createRadialGradient(bx, by, 0, bx, by, b.r * s);
-        g.addColorStop(0, `rgba(${b.c[0]},${b.c[1]},${b.c[2]},0.34)`);
-        g.addColorStop(0.45, `rgba(${b.c[0]},${b.c[1]},${b.c[2]},0.09)`);
+        g.addColorStop(0, `rgba(${b.c[0]},${b.c[1]},${b.c[2]},${b.a})`);
+        g.addColorStop(0.45, `rgba(${b.c[0]},${b.c[1]},${b.c[2]},${b.a * 0.28})`);
         g.addColorStop(1, "rgba(0,0,0,0)");
         ctx.fillStyle = g;
         ctx.fillRect(0, 0, w, h);
@@ -65,7 +65,8 @@ export function AuroraCanvas({ className = "" }: { className?: string }) {
           const py = horizon + (camY - wave) * scale * 0.42 + my * 6;
           if (px < -10 || px > w + 10 || py > h + 10) continue;
           const mix = i / cols;
-          const r = Math.round(0 + 160 * mix), gch = Math.round(140 - 108 * mix), bch = Math.round(255 - 15 * mix);
+          // pontos do off-white (#FAFAF7) ao verde-lima (#C5F277)
+          const r = Math.round(250 - 53 * mix), gch = Math.round(250 - 8 * mix), bch = Math.round(247 - 128 * mix);
           ctx.fillStyle = `rgba(${r},${gch},${bch},${alpha})`;
           const size = Math.max(0.6, scale * 0.012);
           ctx.fillRect(px, py, size, size);
@@ -74,8 +75,8 @@ export function AuroraCanvas({ className = "" }: { className?: string }) {
 
       // Vinheta
       const v = ctx.createLinearGradient(0, h * 0.55, 0, h);
-      v.addColorStop(0, "rgba(8,8,16,0)");
-      v.addColorStop(1, "rgba(8,8,16,1)");
+      v.addColorStop(0, "rgba(16,16,16,0)");
+      v.addColorStop(1, "rgba(16,16,16,1)");
       ctx.fillStyle = v;
       ctx.fillRect(0, h * 0.55, w, h * 0.45);
     };

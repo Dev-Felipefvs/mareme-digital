@@ -49,9 +49,9 @@ export function Footer() {
 
       <style>{`
         .footer-word {
-          background: linear-gradient(180deg, rgb(255 255 255 / .12), rgb(255 255 255 / 0) 85%);
+          background: linear-gradient(180deg, rgb(250 250 247 / .12), rgb(250 250 247 / 0) 85%);
           -webkit-background-clip: text; background-clip: text; color: transparent;
-          -webkit-text-stroke: 1px rgb(255 255 255 / .06);
+          -webkit-text-stroke: 1px rgb(250 250 247 / .06);
         }
       `}</style>
     </footer>

@@ -66,12 +66,12 @@ export function Contact() {
   }
 
   const field =
-    "w-full rounded-2xl border bg-white/[0.03] px-5 py-4 text-[16px] text-white placeholder:text-white/30 outline-none transition-[border-color,background-color,box-shadow] duration-300 focus:border-electric focus:bg-white/[0.05] focus:shadow-[0_0_0_4px_rgb(0_140_255/0.15)]";
+    "w-full rounded-2xl border bg-white/[0.03] px-5 py-4 text-[16px] text-white placeholder:text-white/30 outline-none transition-[border-color,background-color,box-shadow] duration-300 focus:border-lime focus:bg-white/[0.05] focus:shadow-[0_0_0_4px_rgb(197_242_119/0.15)]";
   const ok = (k: string) => (errors[k] ? "border-red-400/70" : "border-line");
 
   return (
     <section id="contato" className="relative overflow-hidden py-28 sm:py-36">
-      <div aria-hidden="true" className="pointer-events-none absolute -bottom-40 left-1/2 h-[600px] w-[900px] -translate-x-1/2 rounded-full bg-gradient-to-r from-electric/25 to-violet/25 blur-[160px]" />
+      <div aria-hidden="true" className="pointer-events-none absolute -bottom-40 left-1/2 h-[600px] w-[900px] -translate-x-1/2 rounded-full bg-lime/[0.07] blur-[160px]" />
       <div className="container-x relative grid gap-14 lg:grid-cols-[1fr_1.05fr] lg:gap-20">
         <div>
           <Reveal>
@@ -97,7 +97,7 @@ export function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`inline-flex h-14 items-center gap-3 rounded-full px-7 font-medium transition-transform hover:-translate-y-0.5 ${
-                  site.whatsapp ? "bg-[#25D366] text-[#062e16]" : "bg-brand text-white"
+                  "bg-accent text-ink"
                 }`}
               >
                 {site.whatsapp ? (
@@ -150,7 +150,7 @@ export function Contact() {
                 {TYPES.map((t) => (
                   <label key={t} className="cursor-pointer">
                     <input type="radio" name="tipo" value={t} checked={type === t} onChange={() => setType(t)} className="peer sr-only" />
-                    <span className="inline-block rounded-full border border-line px-4 py-2.5 text-[14px] text-white/75 transition-all duration-300 peer-checked:border-transparent peer-checked:bg-white peer-checked:text-ink peer-focus-visible:ring-2 peer-focus-visible:ring-electric">
+                    <span className="inline-block rounded-full border border-line px-4 py-2.5 text-[14px] text-white/75 transition-all duration-300 peer-checked:border-transparent peer-checked:bg-lime peer-checked:text-ink peer-focus-visible:ring-2 peer-focus-visible:ring-lime">
                       {t}
                     </span>
                   </label>
@@ -166,9 +166,9 @@ export function Contact() {
             <button
               type="submit"
               disabled={status.kind === "sending"}
-              className="group relative mt-7 inline-flex h-14 w-full items-center justify-center gap-3 overflow-hidden rounded-full bg-white font-medium text-ink transition-colors duration-300 hover:text-white disabled:opacity-60"
+              className="group relative mt-7 inline-flex h-14 w-full items-center justify-center gap-3 overflow-hidden rounded-full bg-white font-medium text-ink transition-colors duration-300 hover:text-ink disabled:opacity-60"
             >
-              <span aria-hidden="true" className="bg-brand absolute inset-0 translate-y-full transition-transform duration-500 ease-out-expo group-hover:translate-y-0" />
+              <span aria-hidden="true" className="bg-accent absolute inset-0 translate-y-full transition-transform duration-500 ease-out-expo group-hover:translate-y-0" />
               <span className="relative inline-flex items-center gap-3">
                 {status.kind === "sending" ? "Enviando…" : "Enviar solicitação"} <ArrowIcon />
               </span>

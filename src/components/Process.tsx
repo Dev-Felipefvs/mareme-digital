@@ -54,7 +54,7 @@ export function Process() {
 
   return (
     <section ref={root} id="processo" className="relative overflow-hidden py-28 sm:py-36 lg:flex lg:h-[100svh] lg:items-center lg:py-0">
-      <div aria-hidden="true" className="pointer-events-none absolute left-1/3 top-1/2 h-[420px] w-[620px] -translate-y-1/2 rounded-full bg-electric/10 blur-[140px]" />
+      <div aria-hidden="true" className="pointer-events-none absolute left-1/3 top-1/2 h-[420px] w-[620px] -translate-y-1/2 rounded-full bg-lime/[0.04] blur-[140px]" />
       <div className="w-full">
         <div className="container-x mb-12 flex flex-wrap items-end justify-between gap-6 lg:mb-14">
           <div>
@@ -68,7 +68,7 @@ export function Process() {
           </div>
           <div className="hidden w-64 lg:block">
             <div className="h-px w-full bg-white/10">
-              <div className="process-bar bg-brand h-full origin-left scale-x-0" />
+              <div className="process-bar bg-accent h-full origin-left scale-x-0" />
             </div>
             <p className="mt-3 text-[12px] uppercase tracking-[0.2em] text-mist">Role para avançar →</p>
           </div>
@@ -81,14 +81,14 @@ export function Process() {
               className="process-card group relative flex flex-col justify-between overflow-hidden rounded-[26px] border border-line bg-ink-2 p-7 lg:h-[52vh] lg:min-h-[380px] lg:w-[400px] lg:p-9"
             >
               <div className="flex items-center justify-between">
-                <span className="process-num text-gradient font-serif text-[clamp(64px,7vw,104px)] italic leading-none">0{i + 1}</span>
+                <span className="process-num text-accent font-serif text-[clamp(64px,7vw,104px)] italic leading-none">0{i + 1}</span>
                 {i < STEPS.length - 1 && <span aria-hidden="true" className="hidden text-2xl text-white/25 lg:block">→</span>}
               </div>
               <div className="mt-10">
                 <h3 className="text-[clamp(24px,2.2vw,32px)] font-medium tracking-tight">{s.t}</h3>
                 <p className="mt-3 text-[15.5px] leading-relaxed text-mist">{s.d}</p>
               </div>
-              <div aria-hidden="true" className="bg-brand absolute inset-x-0 bottom-0 h-[2px] origin-left scale-x-0 transition-transform duration-700 ease-out-expo group-hover:scale-x-100" />
+              <div aria-hidden="true" className="bg-accent absolute inset-x-0 bottom-0 h-[2px] origin-left scale-x-0 transition-transform duration-700 ease-out-expo group-hover:scale-x-100" />
             </article>
           ))}
         </div>

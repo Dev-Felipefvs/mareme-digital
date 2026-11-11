@@ -45,7 +45,7 @@ function ProjectCard({ p, index, featured, onOpen }: { p: Project; index: number
           <div
             aria-hidden="true"
             className="absolute inset-0 opacity-0 mix-blend-soft-light transition-opacity duration-700 group-hover:opacity-100"
-            style={{ background: `radial-gradient(600px circle at 70% 120%, ${p.accent}, transparent 60%)` }}
+            style={{ background: "radial-gradient(600px circle at 70% 120%, rgb(197 242 119 / 0.35), transparent 60%)" }}
           />
           {/* Mockup mobile que sobe no hover */}
           <div className="absolute bottom-0 right-[5%] w-[22%] max-w-[170px] translate-y-[38%] transition-transform duration-700 ease-out-expo group-hover:translate-y-[12%] md:w-[16%]">
@@ -64,7 +64,7 @@ function ProjectCard({ p, index, featured, onOpen }: { p: Project; index: number
             </p>
             <h3 className={`mt-2 font-medium tracking-[-0.03em] ${featured ? "text-[clamp(28px,3.2vw,44px)]" : "text-[clamp(24px,2.4vw,32px)]"}`}>{p.name}</h3>
           </div>
-          <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-line transition-all duration-500 ease-out-expo group-hover:rotate-45 group-hover:border-transparent group-hover:bg-white group-hover:text-ink">
+          <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-line transition-all duration-500 ease-out-expo group-hover:rotate-45 group-hover:border-transparent group-hover:bg-lime group-hover:text-ink">
             <ArrowUpRight />
           </span>
         </div>
@@ -122,7 +122,7 @@ function ProjectModal({ p, onClose, onStep }: { p: Project; onClose: () => void;
         exit={{ y: 40, opacity: 0 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       >
-        <div aria-hidden="true" className="pointer-events-none absolute -right-20 -top-20 h-80 w-80 rounded-full blur-[110px]" style={{ background: p.accent, opacity: 0.25 }} />
+        <div aria-hidden="true" className="pointer-events-none absolute -right-20 -top-20 h-80 w-80 rounded-full blur-[110px]" style={{ background: "var(--color-lime)", opacity: 0.08 }} />
         <div className="sticky top-0 z-10 flex items-center justify-between gap-4 border-b border-line bg-ink-2/85 px-5 py-4 backdrop-blur-xl sm:px-8">
           <p className="truncate text-[12px] uppercase tracking-[0.2em] text-mist">{p.segment} · {p.category} · {p.year}</p>
           <div className="flex items-center gap-2">
@@ -138,7 +138,7 @@ function ProjectModal({ p, onClose, onStep }: { p: Project; onClose: () => void;
               <span className="mb-4 inline-block rounded-full border border-line px-3 py-1 text-[11px] tracking-[0.12em] text-white/80">{statusLabel[p.status]}</span>
               <h3 id="project-title" className="text-[clamp(34px,5vw,64px)] font-medium leading-none tracking-[-0.04em]">{p.name}</h3>
             </div>
-            <a href={p.url} target="_blank" rel="noopener noreferrer" className="bg-brand inline-flex h-12 items-center gap-2 rounded-full px-6 text-[15px] font-medium transition-transform hover:-translate-y-0.5">
+            <a href={p.url} target="_blank" rel="noopener noreferrer" className="bg-accent inline-flex h-12 items-center gap-2 rounded-full px-6 text-[15px] font-medium text-ink transition-transform hover:-translate-y-0.5">
               Visitar o site <ArrowUpRight />
             </a>
           </div>
@@ -156,7 +156,7 @@ function ProjectModal({ p, onClose, onStep }: { p: Project; onClose: () => void;
                 <ul className="grid gap-2.5">
                   {p.highlights.map((h) => (
                     <li key={h} className="flex gap-3 text-[15px] text-white/80">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />{h}
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />{h}
                     </li>
                   ))}
                 </ul>

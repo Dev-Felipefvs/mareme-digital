@@ -34,7 +34,7 @@ export function Founder() {
 
   return (
     <section ref={root} id="sobre" className="relative overflow-hidden py-28 sm:py-36">
-      <div aria-hidden="true" className="pointer-events-none absolute -left-40 top-1/3 h-[520px] w-[520px] rounded-full bg-electric/15 blur-[140px]" />
+      <div aria-hidden="true" className="pointer-events-none absolute -left-40 top-1/3 h-[520px] w-[520px] rounded-full bg-lime/[0.06] blur-[140px]" />
       <div className="container-x grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
         <div className="relative isolate mx-auto w-full max-w-[460px] lg:mx-0">
           <div className="founder-frame relative aspect-[4/5] overflow-hidden rounded-[28px] border border-line bg-ink-3" style={{ clipPath: "inset(0% 0% 0% 0% round 28px)" }}>
@@ -58,7 +58,7 @@ export function Founder() {
               </a>
             </div>
           </div>
-          <div aria-hidden="true" className="bg-brand absolute -right-4 -top-4 -z-10 h-full w-full rounded-[32px] opacity-30 blur-2xl" />
+          <div aria-hidden="true" className="bg-accent absolute -right-4 -top-4 -z-10 h-full w-full rounded-[32px] opacity-[0.12] blur-2xl" />
         </div>
 
         <div className="lg:pt-6">
@@ -92,7 +92,7 @@ export function Founder() {
           </Reveal>
 
           <div className="mt-12 grid gap-4 sm:grid-cols-2">
-            <Reveal delay={0.1} className="border-gradient rounded-[22px] p-6">
+            <Reveal delay={0.1} className="card-accent rounded-[22px] p-6">
               <p className="eyebrow mb-3">Visão de trabalho</p>
               <p className="font-serif text-[22px] italic leading-snug text-white/90">{f.vision}</p>
             </Reveal>

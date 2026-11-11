@@ -29,5 +29,5 @@ export function SectionHeading({ index, eyebrow, title, text, align = "split" }:
 }
 
 export function Em({ children }: { children: ReactNode }) {
-  return <em className="text-gradient pr-[0.05em] font-serif font-normal italic tracking-[-0.01em]">{children}</em>;
+  return <em className="text-accent pr-[0.05em] font-serif font-normal italic tracking-[-0.01em]">{children}</em>;
 }

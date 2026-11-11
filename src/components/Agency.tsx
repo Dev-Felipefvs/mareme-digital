@@ -54,7 +54,7 @@ export function Agency() {
         <p className="agency-statement max-w-[22ch] text-[clamp(32px,4.8vw,72px)] font-medium leading-[1.05] tracking-[-0.035em] sm:max-w-[24ch]">
           {STATEMENT.split(" ").map((w, i) => (
             <span key={i} className="agency-word">
-              {w === "experiências" || w === "digitais" ? <span className="text-gradient font-serif italic font-normal">{w}</span> : w}{" "}
+              {w === "experiências" || w === "digitais" ? <span className="text-accent font-serif italic font-normal">{w}</span> : w}{" "}
             </span>
           ))}
         </p>
@@ -72,7 +72,7 @@ export function Agency() {
         </div>
 
         <Reveal>
-          <div className="mt-6 flex flex-col items-start justify-between gap-6 rounded-[24px] border border-line bg-gradient-to-r from-electric/10 via-transparent to-violet/10 p-7 sm:flex-row sm:items-center">
+          <div className="mt-6 flex flex-col items-start justify-between gap-6 rounded-[24px] border border-line bg-ink-2 p-7 sm:flex-row sm:items-center">
             <p className="max-w-2xl text-[17px] leading-relaxed text-white/80">
               <span className="font-medium text-white">Metodologia própria:</span> descoberta, estratégia, design, desenvolvimento, publicação e acompanhamento — um caminho claro do briefing ao site no ar.
             </p>

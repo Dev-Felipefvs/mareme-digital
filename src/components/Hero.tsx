@@ -51,7 +51,7 @@ export function Hero() {
 
       <div className="hero-content container-x relative">
         <p className="hero-fade eyebrow mb-8">
-          <span className="h-px w-10 bg-brand" /> Estúdio de experiências digitais
+          <span className="h-px w-10 bg-accent" /> Estúdio de experiências digitais
         </p>
 
         <h1 className="max-w-[15ch] text-[clamp(44px,8.4vw,132px)] font-medium leading-[0.95] tracking-[-0.045em]">
@@ -66,7 +66,7 @@ export function Hero() {
               <span className="hero-word inline-block">Merece</span>
             </span>
             <span className="word-mask">
-              <span className="hero-word text-gradient inline-block pr-[0.06em] font-serif italic tracking-[-0.02em]">impressionar.</span>
+              <span className="hero-word text-accent inline-block pr-[0.06em] font-serif italic tracking-[-0.02em]">impressionar.</span>
             </span>
           </span>
         </h1>
@@ -90,7 +90,7 @@ export function Hero() {
           <a href="#projetos" className="group inline-flex items-center gap-3 uppercase">
             Role para explorar
             <span className="relative h-8 w-[1px] overflow-hidden bg-white/15">
-              <span className="absolute inset-x-0 top-0 h-1/2 animate-[scrollcue_2s_ease-in-out_infinite] bg-brand" />
+              <span className="absolute inset-x-0 top-0 h-1/2 animate-[scrollcue_2s_ease-in-out_infinite] bg-accent" />
             </span>
           </a>
         </div>
