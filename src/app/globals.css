@@ -113,10 +113,6 @@
 }
 .spotlight:hover::before { opacity: 1; }
 
-/* Cursor personalizado: esconde o nativo apenas quando ativo */
-html.has-cursor, html.has-cursor * { cursor: none !important; }
-html.has-cursor input, html.has-cursor textarea, html.has-cursor select { cursor: text !important; }
-
 /* Scrollbar discreta */
 * { scrollbar-width: thin; scrollbar-color: var(--color-graphite) transparent; }
 

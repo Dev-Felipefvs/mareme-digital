@@ -21,7 +21,7 @@ export const site = {
    * EDITAR: WhatsApp com DDI + DDD, só números (ex.: "5582999999999").
    * Enquanto estiver vazio, os botões de contato abrem o Direct do Instagram.
    */
-  whatsapp: "",
+  whatsapp: "5582987797962",
 
   /** EDITAR: e-mail comercial. Vazio = não aparece no site. */
   email: "",
@@ -33,17 +33,23 @@ export const site = {
    */
   formEndpoint: process.env.NEXT_PUBLIC_FORM_ENDPOINT || "",
 
+  /**
+   * Textos da seção "Sobre mim". Use **negrito** para destacar trechos.
+   * Cada item das listas vira um parágrafo.
+   */
   founder: {
-    /** EDITAR: seu nome completo */
-    name: "Seu Nome",
-    role: "Fundador & diretor criativo da MAREME Digital",
+    name: "Emerson",
+    title: "Prazer, sou Emerson.",
+    role: "Desenvolvedor Web e fundador da MAREME Digital.",
     photo: "/images/fundador.webp",
-    /** EDITAR: sua trajetória (cada item vira um parágrafo) */
     story: [
-      "[Escreva aqui como começou sua trajetória — o que te levou ao design e ao desenvolvimento de sites.]",
-      "[Conte o que você faz hoje, os tipos de projeto que mais gosta de criar e o que te diferencia.]",
+      "Minha trajetória no mundo digital começou com a curiosidade de entender como a tecnologia poderia transformar ideias em negócios reais.",
+      "Com o tempo, fui me aprofundando no desenvolvimento de sites, explorando ferramentas, estudando novas possibilidades e descobrindo como unir tecnologia, design e estratégia para criar experiências digitais.",
+      "Foi dessa visão que nasceu a **MAREME Digital**, um projeto criado com o propósito de ajudar empresas e profissionais a construírem uma presença mais forte e profissional na internet.",
+      "Hoje, trabalho no desenvolvimento de sites institucionais, landing pages, portfólios digitais e soluções personalizadas para diferentes tipos de negócios.",
+      "Meu objetivo vai além de criar páginas bonitas. Busco desenvolver experiências que valorizem a identidade de cada empresa, transmitam credibilidade e facilitem a conexão com novos clientes.",
+      "**Acredito que cada negócio tem uma história única. Meu trabalho é ajudar a contar essa história através do digital.**",
     ],
-    /** Habilidades — ajuste à vontade */
     skills: [
       "Direção de arte digital",
       "UX/UI design",
@@ -52,12 +58,26 @@ export const site = {
       "SEO técnico",
       "Performance web",
     ],
-    /** EDITAR: sua visão de trabalho em uma frase */
-    vision:
-      "[Sua visão de trabalho em uma frase — por exemplo, o que um site precisa entregar para valer a pena.]",
-    /** EDITAR: sua relação com a MAREME Digital */
-    relation:
-      "[Explique por que você criou a MAREME Digital e como participa de cada projeto.]",
+    vision: {
+      title: "Minha visão de trabalho",
+      text: [
+        "Acredito que um site vai muito além de uma página na internet. Ele representa a identidade, a credibilidade e o potencial de um negócio.",
+        "Minha visão é unir **tecnologia, criatividade e estratégia** para desenvolver experiências digitais que não apenas impressionem visualmente, mas que também tenham propósito e funcionalidade.",
+        "Cada projeto é único. Por isso, busco entender a essência de cada marca, suas necessidades e seus objetivos, transformando ideias em soluções modernas, intuitivas e personalizadas.",
+        "Na **MAREME Digital**, meu compromisso é entregar mais do que um site: é criar uma presença digital que transmita confiança, valorize cada negócio e abra portas para novas oportunidades.",
+        "**Não desenvolvo apenas sites. Desenvolvo experiências que conectam marcas a pessoas.**",
+      ],
+    },
+    relation: {
+      title: "A MAREME Digital e eu",
+      text: [
+        "A **MAREME Digital** nasceu da minha vontade de transformar conhecimento, criatividade e tecnologia em soluções que realmente fazem a diferença para empresas e profissionais.",
+        "Mais do que uma agência, a MAREME representa minha visão de futuro, minha dedicação e meu desejo de construir algo próprio, capaz de gerar valor para outras pessoas.",
+        "Sou Emerson, fundador da MAREME Digital, e estou diretamente envolvido no desenvolvimento dos projetos, buscando unir design, tecnologia e estratégia para criar experiências digitais modernas e profissionais.",
+        "Acredito que cada empresa merece uma presença digital à altura do seu potencial. Por isso, cada projeto é uma oportunidade de transformar ideias em realidade, valorizando a identidade de cada negócio.",
+        "**A MAREME Digital não é apenas uma empresa que criei. É a materialização daquilo que acredito: que boas ideias, quando combinadas com tecnologia e dedicação, podem se transformar em grandes oportunidades.**",
+      ],
+    },
   },
 } as const;
 

@@ -5,7 +5,6 @@ import { site } from "@/data/site";
 import { Providers } from "@/components/Providers";
 import { Preloader } from "@/components/Preloader";
 import { ScrollProgress } from "@/components/ScrollProgress";
-import { CustomCursor } from "@/components/CustomCursor";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
@@ -68,7 +67,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Providers>
           <Preloader />
           <ScrollProgress />
-          <CustomCursor />
           <Header />
           {children}
           <Footer />

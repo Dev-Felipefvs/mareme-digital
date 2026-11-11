@@ -1,24 +1,31 @@
 "use client";
 
-import { useRef } from "react";
+import { Fragment, useRef } from "react";
 import { site } from "@/data/site";
 import { asset } from "@/lib/asset";
 import { gsap, useGSAP } from "@/lib/gsap";
 import { Reveal } from "./Reveal";
-import { Em } from "./SectionHeading";
+
+/** Converte **trecho** em negrito. */
+function Rich({ text }: { text: string }) {
+  return (
+    <>
+      {text.split("**").map((part, i) =>
+        i % 2 ? <strong key={i} className="font-medium text-white">{part}</strong> : <Fragment key={i}>{part}</Fragment>
+      )}
+    </>
+  );
+}
 
 export function Founder() {
   const root = useRef<HTMLElement>(null);
   const f = site.founder;
+  const [first, ...rest] = f.title.split(" sou ");
 
   useGSAP(
     () => {
       const mm = gsap.matchMedia();
       mm.add("(prefers-reduced-motion: no-preference)", () => {
-        gsap.fromTo(".founder-photo", { yPercent: 8 }, {
-          yPercent: -8, ease: "none",
-          scrollTrigger: { trigger: root.current, start: "top bottom", end: "bottom top", scrub: true },
-        });
         gsap.fromTo(
           ".founder-frame",
           { clipPath: "inset(100% 0% 0% 0% round 28px)" },
@@ -35,9 +42,10 @@ export function Founder() {
   return (
     <section ref={root} id="sobre" className="relative overflow-hidden py-28 sm:py-36">
       <div aria-hidden="true" className="pointer-events-none absolute -left-40 top-1/3 h-[520px] w-[520px] rounded-full bg-lime/[0.06] blur-[140px]" />
-      <div className="container-x grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
-        <div className="relative isolate mx-auto w-full max-w-[460px] lg:mx-0">
-          <div className="founder-frame relative aspect-[4/5] overflow-hidden rounded-[28px] border border-line bg-ink-3" style={{ clipPath: "inset(0% 0% 0% 0% round 28px)" }}>
+      <div className="container-x grid gap-14 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
+        <div className="relative isolate mx-auto w-full max-w-[340px] self-start lg:sticky lg:top-28 lg:mx-0">
+          {/* Foto de corpo inteiro: a moldura segue a proporção original da imagem (821×1931) */}
+          <div className="founder-frame relative aspect-[821/1931] overflow-hidden rounded-[28px] border border-line bg-ink-3" style={{ clipPath: "inset(0% 0% 0% 0% round 28px)" }}>
             <img
               src={asset(f.photo)}
               alt={`${f.name}, ${f.role}`}
@@ -45,10 +53,10 @@ export function Founder() {
               height={1931}
               loading="lazy"
               decoding="async"
-              className="founder-photo absolute inset-x-0 -top-[8%] h-[116%] w-full object-cover object-[50%_28%]"
+              className="absolute inset-0 h-full w-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-transparent" />
-            <div className="absolute inset-x-5 bottom-5 flex items-center justify-between gap-3 rounded-2xl border border-white/10 bg-ink/50 px-4 py-3 backdrop-blur-xl">
+            <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-ink/90 to-transparent" />
+            <div className="absolute inset-x-4 bottom-4 flex items-center justify-between gap-3 rounded-2xl border border-white/10 bg-ink/50 px-4 py-3 backdrop-blur-xl">
               <div>
                 <p className="text-[15px] font-medium">{f.name}</p>
                 <p className="text-[12px] text-mist">Fundador · MAREME Digital</p>
@@ -70,16 +78,16 @@ export function Founder() {
           </Reveal>
           <Reveal delay={0.08}>
             <h2 className="text-[clamp(38px,5.2vw,76px)] font-medium leading-[0.98] tracking-[-0.04em]">
-              Por trás de cada projeto, <Em>um olhar dedicado.</Em>
+              {first} sou <em className="text-accent pr-[0.05em] font-serif font-normal italic tracking-[-0.01em]">{rest.join(" sou ")}</em>
             </h2>
           </Reveal>
           <Reveal delay={0.14}>
-            <p className="mt-6 text-[15px] uppercase tracking-[0.18em] text-mist">{f.name} — {f.role}</p>
+            <p className="mt-6 text-[15px] uppercase tracking-[0.18em] text-mist">{f.role}</p>
           </Reveal>
 
           <Reveal delay={0.2}>
             <div className="mt-8 grid gap-4 text-[17px] leading-relaxed text-white/75">
-              {f.story.map((p, i) => <p key={i}>{p}</p>)}
+              {f.story.map((p, i) => <p key={i}><Rich text={p} /></p>)}
             </div>
           </Reveal>
 
@@ -91,15 +99,15 @@ export function Founder() {
             </ul>
           </Reveal>
 
-          <div className="mt-12 grid gap-4 sm:grid-cols-2">
-            <Reveal delay={0.1} className="card-accent rounded-[22px] p-6">
-              <p className="eyebrow mb-3">Visão de trabalho</p>
-              <p className="font-serif text-[22px] italic leading-snug text-white/90">{f.vision}</p>
-            </Reveal>
-            <Reveal delay={0.18} className="rounded-[22px] border border-line bg-ink-2 p-6">
-              <p className="eyebrow mb-3">A MAREME e eu</p>
-              <p className="text-[16px] leading-relaxed text-white/75">{f.relation}</p>
-            </Reveal>
+          <div className="mt-12 grid gap-4">
+            {[f.vision, f.relation].map((block, i) => (
+              <Reveal key={block.title} delay={0.1 + i * 0.08} className={i === 0 ? "card-accent rounded-[22px] p-6 sm:p-8" : "rounded-[22px] border border-line bg-ink-2 p-6 sm:p-8"}>
+                <h3 className="eyebrow mb-5">{block.title}</h3>
+                <div className="grid gap-3.5 text-[16px] leading-relaxed text-white/75">
+                  {block.text.map((p, j) => <p key={j}><Rich text={p} /></p>)}
+                </div>
+              </Reveal>
+            ))}
           </div>
         </div>
       </div>

@@ -9,9 +9,7 @@ export function Marquee() {
         {row.map((t, i) => (
           <span key={i} className="flex items-center gap-10 whitespace-nowrap text-[clamp(26px,3.4vw,46px)] font-medium tracking-tight text-white/85">
             {i % 2 ? <span className="font-serif italic text-white/60">{t}</span> : t}
-            <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0 fill-lime">
-              <path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z" />
-            </svg>
+            <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-lime" />
           </span>
         ))}
       </div>
