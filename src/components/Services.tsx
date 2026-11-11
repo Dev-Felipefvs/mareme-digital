@@ -12,7 +12,6 @@ const SERVICES = [
   { t: "Sites institucionais", d: "Presença digital completa para apresentar sua empresa com autoridade, do primeiro clique ao contato.", i: ic(<><rect x="3" y="4" width="18" height="14" rx="2" /><path d="M3 8h18M8 21h8" /></>) },
   { t: "Landing pages", d: "Páginas focadas em um objetivo — vender, captar ou lançar — com narrativa e chamadas que convertem.", i: ic(<><path d="M4 20V10l8-6 8 6v10" /><path d="M9 20v-6h6v6" /></>) },
   { t: "Portfólios profissionais", d: "Vitrines elegantes para profissionais e estúdios mostrarem o melhor do seu trabalho.", i: ic(<><rect x="3" y="3" width="8" height="8" rx="1.5" /><rect x="13" y="3" width="8" height="5" rx="1.5" /><rect x="13" y="10" width="8" height="11" rx="1.5" /><rect x="3" y="13" width="8" height="8" rx="1.5" /></>) },
-  { t: "Cardápios digitais", d: "Menus bonitos, rápidos e fáceis de atualizar, acessados por QR Code e integrados ao WhatsApp.", i: ic(<><path d="M7 3v18M7 3c-2 0-3 2-3 5s1 4 3 4" /><path d="M14 3h6v6a3 3 0 0 1-6 0V3zM17 12v9" /></>) },
   { t: "Design responsivo", d: "Experiências impecáveis em qualquer tela — celular, tablet ou desktop.", i: ic(<><rect x="2" y="5" width="13" height="10" rx="1.5" /><rect x="17" y="8" width="5" height="11" rx="1.2" /><path d="M6 19h5" /></>) },
   { t: "Integrações", d: "WhatsApp, formulários, mapas, redes sociais, analytics e as ferramentas que o seu negócio já usa.", i: ic(<><circle cx="6" cy="6" r="3" /><circle cx="18" cy="18" r="3" /><path d="M9 6h4a5 5 0 0 1 5 5v4M15 18h-4a5 5 0 0 1-5-5V9" /></>) },
   { t: "Manutenção e suporte", d: "Atualizações, ajustes e acompanhamento contínuo para o seu site seguir rápido e seguro.", i: ic(<><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z" /></>) },
@@ -55,7 +54,7 @@ export function Services() {
               </article>
             </Reveal>
           ))}
-          <Reveal delay={0.16}>
+          <Reveal delay={0.16} className="lg:col-span-2">
             <a
               href="#contato"
               className="bg-accent group flex h-full min-h-[260px] text-ink flex-col justify-between rounded-[24px] p-7 transition-transform duration-500 ease-out-expo hover:-translate-y-1"

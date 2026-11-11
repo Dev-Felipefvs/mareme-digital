@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: { default: title, template: "%s · MAREME Digital" },
   description: site.description,
-  keywords: ["criação de sites", "site institucional", "landing page", "portfólio", "cardápio digital", "agência digital", "MAREME Digital"],
+  keywords: ["criação de sites", "site institucional", "landing page", "portfólio", "agência digital", "MAREME Digital"],
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
@@ -46,7 +46,7 @@ const jsonLd = {
   url: site.url,
   description: site.description,
   sameAs: [site.instagram.url],
-  serviceType: ["Criação de sites", "Landing pages", "Portfólios", "Cardápios digitais"],
+  serviceType: ["Criação de sites", "Landing pages", "Portfólios"],
 };
 
 /** Pula a abertura para quem já a viu nesta sessão ou prefere movimento reduzido (evita flash). */

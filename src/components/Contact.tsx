@@ -6,7 +6,7 @@ import { Reveal } from "./Reveal";
 import { Em } from "./SectionHeading";
 import { ArrowIcon } from "./MagneticButton";
 
-const TYPES = ["Site institucional", "Landing page", "Portfólio", "Cardápio digital", "Outro"];
+const TYPES = ["Site institucional", "Landing page", "Portfólio", "Outro"];
 
 type Status = { kind: "idle" | "sending" | "ok" | "error"; msg?: string };
 
