@@ -1,4 +1,4 @@
-const ITEMS = ["Sites institucionais", "Landing pages", "Portfólios", "Cardápios digitais", "Design responsivo", "Integrações", "Manutenção"];
+const ITEMS = ["Sites institucionais", "Landing pages", "Portfólios", "Design responsivo", "Integrações", "Manutenção"];
 
 /** Faixa infinita com os serviços. */
 export function Marquee() {
