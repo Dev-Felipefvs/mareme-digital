@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+/* =========================================================
+   MAREME Digital — design system
+   ========================================================= */
+@theme {
+  --color-ink: #080810;
+  --color-ink-2: #0e0e1c;
+  --color-ink-3: #15152a;
+  --color-electric: #008cff;
+  --color-violet: #a020f0;
+  --color-mist: #a3a8c3;
+  --color-line: rgb(255 255 255 / 0.09);
+
+  --font-sans: var(--font-inter-tight), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-instrument), ui-serif, Georgia, serif;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-spin-slow: spin 18s linear infinite;
+}
+
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+
+@layer base {
+  html {
+    background: var(--color-ink);
+    color: #fff;
+    color-scheme: dark;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: clip;
+  }
+  ::selection { background: var(--color-electric); color: #fff; }
+  :focus-visible { outline: 2px solid var(--color-electric); outline-offset: 3px; border-radius: 6px; }
+  img { max-width: 100%; height: auto; }
+}
+
+/* ---------- Utilitários da marca ---------- */
+@utility text-gradient {
+  background-image: linear-gradient(100deg, #36a8ff 0%, #008cff 30%, #a020f0 75%, #c86bff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility bg-brand {
+  background-image: linear-gradient(120deg, #008cff 0%, #5b4bff 50%, #a020f0 100%);
+}
+
+@utility border-gradient {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(var(--color-ink-2), var(--color-ink-2)) padding-box,
+    linear-gradient(120deg, rgb(0 140 255 / 0.7), rgb(160 32 240 / 0.7)) border-box;
+}
+
+@utility glass {
+  background: rgb(14 14 28 / 0.55);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  backdrop-filter: blur(18px) saturate(140%);
+}
+
+@utility container-x {
+  width: 100%;
+  max-width: 1360px;
+  margin-inline: auto;
+  padding-inline: clamp(20px, 4vw, 56px);
+}
+
+@utility eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-mist);
+}
+
+/* Grão sutil sobre o site (profundidade cinematográfica) */
+.grain {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+/* Máscara de palavra para reveal de títulos */
+@layer components {
+  .word-mask { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.2em; margin-bottom: -0.2em; }
+}
+
+/* Spotlight nos cards (posição via --mx / --my) */
+.spotlight { position: relative; isolation: isolate; }
+.spotlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgb(0 140 255 / 0.16), rgb(160 32 240 / 0.08) 40%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s var(--ease-out-quart);
+  z-index: -1;
+}
+.spotlight:hover::before { opacity: 1; }
+
+/* Cursor personalizado: esconde o nativo apenas quando ativo */
+html.has-cursor, html.has-cursor * { cursor: none !important; }
+html.has-cursor input, html.has-cursor textarea, html.has-cursor select { cursor: text !important; }
+
+/* Scrollbar discreta */
+* { scrollbar-width: thin; scrollbar-color: #2a2a44 transparent; }
+
+/* Movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
