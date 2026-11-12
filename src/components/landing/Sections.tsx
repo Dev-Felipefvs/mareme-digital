@@ -13,8 +13,8 @@ const host = (url: string) => url.replace(/^https?:\/\//, "").replace(/\/$/, "")
 export function DemoProof() {
   const phones = [projects[0], projects[1], projects[4]];
   return (
-    <section id="como" className="relative isolate scroll-mt-6 overflow-hidden py-24 sm:py-32">
-      <div aria-hidden="true" className="absolute left-[-8%] top-1/2 -z-10 h-[680px] w-[680px] -translate-y-1/2 bg-[radial-gradient(closest-side,#003900,transparent)]" />
+    <section id="como" className="relative isolate scroll-mt-6 overflow-x-clip py-24 sm:py-32">
+      <div aria-hidden="true" className="pointer-events-none absolute left-[-8%] top-1/2 -z-10 h-[680px] w-[680px] -translate-y-1/2 bg-[radial-gradient(closest-side,#003900,transparent)]" />
       <div className="container-x grid items-center gap-16 lg:grid-cols-12 lg:gap-10">
         <PhoneStack front={phones[0]} left={phones[1]} right={phones[2]} />
 
@@ -72,9 +72,11 @@ const BENEFITS = [
 
 export function Benefits() {
   return (
-    <section id="beneficios" className="relative isolate scroll-mt-6 overflow-hidden py-24 sm:py-32">
-      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[radial-gradient(55%_45%_at_50%_55%,#003900,transparent_80%)]" />
-      <div aria-hidden="true" className="absolute inset-0 -z-10 opacity-[0.22] [background:repeating-conic-gradient(from_0deg_at_50%_62%,#52ff00_0deg_0.35deg,transparent_0.35deg_6deg)] [mask-image:radial-gradient(60%_55%_at_50%_62%,transparent_12%,black_45%,transparent_95%)]" />
+    <section id="beneficios" className="relative isolate scroll-mt-6 overflow-x-clip py-24 sm:py-32">
+      <div aria-hidden="true" className="pointer-events-none absolute -inset-y-24 inset-x-0 -z-10 [mask-image:linear-gradient(to_bottom,transparent_0%,black_22%,black_78%,transparent_100%)]">
+      <div className="absolute inset-0 bg-[radial-gradient(55%_45%_at_50%_55%,#003900,transparent_80%)]" />
+      <div className="absolute inset-0 opacity-[0.22] [background:repeating-conic-gradient(from_0deg_at_50%_62%,#52ff00_0deg_0.35deg,transparent_0.35deg_6deg)] [mask-image:radial-gradient(60%_55%_at_50%_62%,transparent_12%,black_45%,transparent_95%)]" />
+      </div>
       <div className="container-x">
         <Reveal>
           <h2 className="mx-auto max-w-[18ch] text-balance text-center font-display text-[clamp(30px,3.6vw,50px)] font-extrabold leading-[1.08] tracking-[-0.015em] [font-stretch:110%]">
@@ -180,9 +182,9 @@ export function Mentor() {
   const text = [f.story[0], f.story[2], f.story[4], f.story[5]];
   const thumbs = [projects[3], projects[2], projects[5]];
   return (
-    <section id="sobre" className="relative isolate scroll-mt-6 overflow-hidden pt-20 sm:pt-28">
+    <section id="sobre" className="relative isolate scroll-mt-6 overflow-x-clip pt-20 sm:pt-28">
       {/* luz verde atrás do retrato */}
-      <div aria-hidden="true" className="absolute inset-0 -z-20 bg-[radial-gradient(38%_55%_at_62%_55%,#007e00_0%,#003900_45%,transparent_80%)] max-lg:bg-[radial-gradient(60%_40%_at_50%_78%,#007e00_0%,#003900_45%,transparent_85%)]" />
+      <div aria-hidden="true" className="pointer-events-none absolute -inset-y-24 inset-x-0 -z-20 bg-[radial-gradient(38%_50%_at_62%_55%,#007e00_0%,#003900_45%,transparent_80%)] max-lg:bg-[radial-gradient(70%_32%_at_50%_74%,#007e00_0%,#003900_45%,transparent_85%)] [mask-image:linear-gradient(to_bottom,transparent_0%,black_22%,black_78%,transparent_100%)]" />
 
       <div className="container-x relative grid lg:min-h-[720px] lg:grid-cols-12">
         <div className="relative z-10 lg:col-span-5 lg:self-center lg:pb-16">
@@ -206,17 +208,16 @@ export function Mentor() {
 
         {/* Retrato sem moldura: some na luz e no fundo, como na referência */}
         <div className="relative -mx-5 mt-6 h-[115vw] max-h-[620px] lg:absolute lg:inset-y-0 lg:right-[10%] lg:mx-0 lg:mt-0 lg:h-auto lg:max-h-none lg:w-[44%]">
-          <div aria-hidden="true" className="absolute inset-0 [mask-image:radial-gradient(46%_50%_at_52%_42%,black_35%,rgb(0_0_0/0.6)_62%,transparent_100%)]">
+          <div aria-hidden="true" className="absolute inset-0 [mask-image:linear-gradient(to_bottom,black_55%,transparent_95%)]">
             <img
-              src={asset(f.photo)}
+              src={asset("/images/fundador-recorte.png")}
               alt={`${f.name}, fundador da MAREME Digital`}
               width={821}
               height={1556}
               loading="lazy"
               decoding="async"
-              className="absolute inset-0 h-full w-full object-cover object-[50%_12%] grayscale contrast-[1.5] brightness-[0.95] lg:contrast-[1.7] lg:brightness-[0.85]"
+              className="absolute inset-0 h-full w-full object-cover object-top [filter:drop-shadow(0_0_28px_rgb(0_177_1/0.7))_contrast(1.05)_saturate(0.92)]"
             />
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,#52ff00_0%,#00b101_50%,#007e00_100%)] mix-blend-multiply" />
           </div>
           <ul className="absolute right-3 top-[12%] grid w-[30%] gap-2.5 sm:right-6 lg:-right-[16%] lg:w-[34%]" aria-hidden="true">
             {thumbs.map((p) => (
@@ -234,7 +235,7 @@ export function Mentor() {
 /* ---------- 5. Fechamento ---------- */
 export function FinalCta() {
   return (
-    <section id="contato" className="relative scroll-mt-6 border-t border-moss bg-forest-3 py-16 sm:py-20">
+    <section id="contato" className="relative scroll-mt-6 py-16 sm:py-20">
       <div className="container-x grid items-center gap-10 lg:grid-cols-2">
         <Reveal>
           <h2 className="text-balance font-display text-[clamp(32px,3.8vw,54px)] font-extrabold uppercase leading-[1] tracking-[-0.01em] [font-stretch:112%]">

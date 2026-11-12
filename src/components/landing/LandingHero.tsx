@@ -11,22 +11,23 @@ import { Logo } from "../Logo";
 
 const BULLETS = ["Site pronto antes de você fechar", "Feito sob medida para o seu negócio", "WhatsApp e Google no lugar certo"];
 
-/** Foto do Emerson banhada pela luz verde: o céu vira luz, a figura fica escura com contorno verde. */
+/** Emerson recortado (sem fundo), em cor natural, com luz verde de contorno — como o retrato da referência. */
 function GreenPortrait({ className = "", priority = false }: { className?: string; priority?: boolean }) {
   return (
     <div className={`pointer-events-none ${className}`} aria-hidden="true">
-      <div className="absolute inset-0 [mask-image:radial-gradient(44%_50%_at_54%_40%,black_35%,rgb(0_0_0/0.6)_62%,transparent_100%)]">
+      <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,black_58%,transparent_96%)]">
         <img
-          src={asset(site.founder.photo)}
+          src={asset("/images/fundador-recorte.png")}
           alt=""
           width={821}
           height={1556}
           fetchPriority={priority ? "high" : "auto"}
           loading={priority ? "eager" : "lazy"}
           decoding="async"
-          className="absolute inset-0 h-full w-full object-cover object-[50%_14%] grayscale contrast-[1.5] brightness-[0.95] lg:contrast-[1.7] lg:brightness-[0.85]"
+          className="absolute inset-0 h-full w-full object-cover object-top [filter:drop-shadow(0_0_28px_rgb(0_177_1/0.75))_drop-shadow(0_0_2px_rgb(82_255_0/0.6))_contrast(1.05)_saturate(0.92)]"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,#52ff00_0%,#00b101_45%,#007e00_100%)] mix-blend-multiply" />
+        {/* luz verde batendo de trás */}
+        <div className="absolute inset-0 bg-[radial-gradient(45%_35%_at_55%_22%,rgb(82_255_0/0.18),transparent_70%)] mix-blend-screen" />
       </div>
     </div>
   );
@@ -56,14 +57,14 @@ export function LandingHero() {
   return (
     <section ref={root} id="inicio" className="relative isolate">
       {/* Luz verde da referência + raios, contínua até a próxima seção */}
-      <div aria-hidden="true" className="lh-light pointer-events-none absolute inset-x-0 top-0 -z-20 h-[135%] overflow-hidden">
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,#000000_0%,#001300_45%,#0a1300_100%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(42%_46%_at_50%_30%,#00b101_0%,#007e00_32%,#003900_62%,transparent_100%)] opacity-90 lg:bg-[radial-gradient(34%_48%_at_70%_30%,#00b101_0%,#007e00_34%,#003900_64%,transparent_100%)]" />
+      <div aria-hidden="true" className="lh-light pointer-events-none absolute inset-x-0 top-0 -z-20 h-[135%] overflow-hidden [mask-image:linear-gradient(to_bottom,black_70%,transparent_100%)]">
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,#000000_0%,#041000_35%,#0a1300_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(42%_46%_at_50%_30%,#00b101_0%,#007e00_32%,#003900_62%,transparent_100%)] opacity-90 lg:bg-[radial-gradient(32%_46%_at_70%_28%,#00b101_0%,#007e00_34%,#003900_64%,transparent_100%)]" />
         <div className="absolute inset-0 opacity-[0.16] [background:repeating-conic-gradient(from_0deg_at_50%_30%,#52ff00_0deg_0.6deg,transparent_0.6deg_9deg)] [mask-image:radial-gradient(50%_55%_at_50%_30%,black,transparent)] lg:[background:repeating-conic-gradient(from_0deg_at_70%_30%,#52ff00_0deg_0.6deg,transparent_0.6deg_9deg)] lg:[mask-image:radial-gradient(45%_60%_at_70%_30%,black,transparent)]" />
       </div>
 
       {/* Desktop: retrato grande à direita, descendo para a próxima seção */}
-      <GreenPortrait priority className="lh-photo absolute right-0 top-0 -z-10 hidden h-[118%] w-[58%] lg:block" />
+      <GreenPortrait priority className="lh-photo absolute right-[6%] top-[4%] -z-10 hidden h-[112%] w-[40%] lg:block" />
 
       <div className="container-x relative grid gap-10 pb-10 pt-10 lg:min-h-[100svh] lg:grid-cols-12 lg:items-center lg:pb-24 lg:pt-16">
         <div className="lg:col-span-6">
@@ -107,8 +108,8 @@ export function LandingHero() {
         </div>
 
         {/* Mobile: o retrato continua a mesma cena, sem moldura */}
-        <div className="relative -mx-5 h-[118vw] max-h-[620px] lg:hidden" aria-label="Emerson e sites publicados pela MAREME">
-          <GreenPortrait className="lh-photo absolute inset-0" />
+        <div className="relative -mx-5 h-[124vw] max-h-[660px] lg:hidden" aria-label="Emerson e sites publicados pela MAREME">
+          <GreenPortrait className="lh-photo absolute inset-x-[8%] inset-y-0" />
           <LiveFeed count={3} compact className="lh-feed absolute inset-x-5 bottom-[6%]" />
         </div>
       </div>
