@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MAREME WEB DESIGNER — Seu site pronto em menos de 4 horas</title>
+<meta name="description" content="Site profissional por R$ 297, pronto em menos de 4 horas. Domínio grátis por 1 ano e hospedagem grátis vitalícia. Fale direto no WhatsApp.">
+<link rel="canonical" href="https://mareme.com.br/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mareme.com.br/">
+<meta property="og:title" content="MAREME WEB DESIGNER — Seu site pronto em menos de 4 horas">
+<meta property="og:description" content="R$ 297, domínio grátis por 1 ano e hospedagem grátis vitalícia. Veja os sites que já estão no ar.">
+<meta property="og:image" content="https://mareme.com.br/og.jpg">
+<meta name="theme-color" content="#02050b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f7cff'/%3E%3Cpath d='M8 23V9h3l5 7 5-7h3v14h-3.4v-8.4L16 20l-4.6-5.4V23z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#02050b;--bg2:#050a15;--card:#08101e;--card2:#0c1729;--blue:#1f7cff;--blue2:#3a9bff;--cyan:#5ac4ff;--text:#f3f6fb;--mute:#9ba7ba;--line:rgb(110 160 255/.16);--g:clamp(18px,4vw,40px);--ease:cubic-bezier(.16,1,.3,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--bg);color:var(--text);scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);font:400 16px/1.65 Poppins,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--blue);color:#fff}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:8px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 var(--g)}
+.c{text-align:center}
+.hl{color:var(--blue2)}
+h1,h2,h3{font-weight:700;letter-spacing:-.02em;line-height:1.12;text-wrap:balance}
+h2{font-size:clamp(30px,4.6vw,54px)}
+.sub{color:var(--mute);font-size:clamp(16px,1.5vw,18px);max-width:36em;margin:18px auto 0}
+.pill{display:inline-flex;align-items:center;gap:10px;padding:8px 18px;border-radius:999px;border:1px solid var(--line);background:rgb(31 124 255/.08);font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#cfe0ff}
+.pill i{width:7px;height:7px;border-radius:50%;background:var(--blue2);box-shadow:0 0 12px var(--blue2)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:60px;padding:0 34px;border-radius:14px;background:linear-gradient(180deg,#3a92ff,#1766e6);color:#fff;font-weight:600;font-size:17px;box-shadow:0 14px 40px rgb(31 124 255/.45),inset 0 1px 0 rgb(255 255 255/.25);transition:transform .5s var(--ease),box-shadow .4s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 20px 54px rgb(31 124 255/.6),inset 0 1px 0 rgb(255 255 255/.25)}
+.btn:active{transform:scale(.98)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn--ghost{background:transparent;border:1px solid var(--line);box-shadow:none}
+.btn--ghost:hover{box-shadow:none;border-color:var(--blue2)}
+.note{font-size:13px;color:var(--mute);margin-top:14px}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+section{position:relative}
+.sec{padding:clamp(80px,10vw,130px) 0}
+
+/* hero */
+.hero{padding:clamp(70px,10vw,110px) 0 0;overflow:hidden;background:radial-gradient(45% 55% at 0% 30%,rgb(31 124 255/.28),transparent 70%),radial-gradient(45% 55% at 100% 30%,rgb(31 124 255/.28),transparent 70%),var(--bg)}
+.hero h1{font-size:clamp(36px,6.4vw,76px);margin:26px auto 0;max-width:14em}
+.hero .sub{max-width:34em}
+.hero .sub b{color:var(--text);font-weight:600}
+.hero__cta{display:flex;flex-direction:column;align-items:center;margin-top:36px}
+.laptop{position:relative;width:min(860px,94%);margin:64px auto 0}
+.laptop__screen{position:relative;aspect-ratio:16/10;border-radius:18px 18px 0 0;padding:12px 12px 0;background:#0b0f17;border:1px solid rgb(255 255 255/.12);border-bottom:0;box-shadow:0 -10px 80px rgb(31 124 255/.25)}
+.laptop__view{position:relative;height:100%;border-radius:8px 8px 0 0;overflow:hidden;background:#111}
+.laptop__view img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;opacity:0;transition:opacity .9s ease}
+.laptop__view img.on{opacity:1}
+.laptop__base{height:18px;margin:0 -6%;border-radius:0 0 22px 22px;background:linear-gradient(#cfd6e2,#7f8796);position:relative}
+.laptop__base::before{content:"";position:absolute;left:50%;top:0;width:16%;height:6px;transform:translateX(-50%);border-radius:0 0 10px 10px;background:#8d95a3}
+.tapes{position:relative;height:140px;margin-top:-40px}
+.tape{position:absolute;left:-5%;right:-5%;display:flex;overflow:hidden;white-space:nowrap;padding:12px 0;font-size:14px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.tape div{display:flex;gap:28px;padding-right:28px;animation:run 30s linear infinite}
+.tape span{display:flex;align-items:center;gap:28px}
+.tape span::after{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.6}
+.tape--a{top:52px;background:var(--blue);color:#fff;transform:rotate(-2.2deg);z-index:2;box-shadow:0 10px 40px rgb(31 124 255/.45)}
+.tape--b{top:58px;background:#0e1526;color:#8ea3c4;transform:rotate(2deg)}
+.tape--b div{animation-direction:reverse}
+@keyframes run{to{transform:translateX(-50%)}}
+
+/* rotating */
+.rot{padding:clamp(120px,16vw,220px) 0;background:var(--bg2);overflow:hidden;border-block:1px solid rgb(255 255 255/.04)}
+.rot__bg{position:absolute;inset:50% auto auto 50%;transform:translate(-50%,-50%);font-size:clamp(90px,19vw,280px);font-weight:800;letter-spacing:-.05em;white-space:nowrap;color:transparent;-webkit-text-stroke:1px rgb(90 160 255/.12);pointer-events:none;transition:opacity .5s}
+.rot h2{position:relative;font-size:clamp(34px,6.6vw,92px);display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:0 .3em;line-height:1.15}
+.words{position:relative;display:inline-block;height:1.2em;overflow:hidden;vertical-align:bottom;transition:width .6s var(--ease);color:var(--blue2)}
+.words span{position:absolute;left:0;top:0;white-space:nowrap;transform:translateY(110%);opacity:0;transition:transform .7s var(--ease),opacity .7s}
+.words span.on{transform:none;opacity:1}
+.words span.out{transform:translateY(-110%);opacity:0}
+.measure{position:absolute;visibility:hidden;white-space:nowrap;font-weight:700;letter-spacing:-.02em}
+
+/* portfolio */
+.work{background:var(--bg)}
+.grid{display:grid;gap:18px;margin-top:56px}
+@media(min-width:640px){.grid{grid-template-columns:1fr 1fr}}
+@media(min-width:1000px){.grid{grid-template-columns:repeat(3,1fr)}}
+.item{position:relative;display:block;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--card);transition:transform .6s var(--ease),border-color .4s,box-shadow .4s}
+.item:hover{transform:translateY(-4px);border-color:rgb(58 155 255/.6);box-shadow:0 20px 50px rgb(31 124 255/.2)}
+.item[hidden]{display:none}
+.item img{aspect-ratio:16/10;width:100%;object-fit:cover;object-position:top;transition:transform 1.2s var(--ease)}
+.item:hover img{transform:scale(1.04)}
+.item__info{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 16px}
+.item__info b{display:block;font-size:15px;font-weight:600;line-height:1.3}
+.item__info small{font-size:12.5px;color:var(--mute)}
+.item__info svg{flex:none;width:34px;height:34px;padding:9px;border-radius:50%;background:rgb(31 124 255/.14);color:var(--blue2)}
+.work__foot{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:40px}
+.tiny{font-size:13px;color:var(--mute);text-align:center;margin-top:22px}
+
+/* about me */
+.me{background:radial-gradient(50% 60% at 20% 60%,rgb(31 124 255/.22),transparent 70%),var(--bg2);overflow:hidden}
+.me .wrap{display:grid;gap:30px;align-items:center}
+@media(min-width:880px){.me .wrap{grid-template-columns:1fr 1fr;gap:70px}}
+.me__photo{position:relative;max-width:380px;width:100%;margin:0 auto}
+.me__photo::before{content:"";position:absolute;left:8%;right:8%;bottom:0;top:22%;border-radius:200px 200px 24px 24px;background:linear-gradient(180deg,#1f7cff,#0a2a6b);box-shadow:0 30px 80px rgb(31 124 255/.35)}
+.me__photo img{position:relative;width:100%;-webkit-mask-image:linear-gradient(#000 85%,transparent);mask-image:linear-gradient(#000 85%,transparent)}
+.me h2{text-transform:uppercase;font-size:clamp(30px,4vw,46px)}
+.me__role{font-size:18px;color:var(--text);margin:14px 0 20px;font-weight:500}
+.me p{color:var(--mute);margin-bottom:14px;max-width:32em}
+.me p b{color:var(--text);font-weight:600}
+.me .btn{margin-top:14px}
+
+/* agency */
+.ag{background:var(--bg)}
+.cards{display:grid;gap:18px;margin-top:56px}
+@media(min-width:860px){.cards{grid-template-columns:repeat(3,1fr)}}
+.card{position:relative;padding:34px 28px 38px;border-radius:22px;background:linear-gradient(180deg,var(--card) 40%,rgb(31 124 255/.28));border:1px solid var(--line);overflow:hidden}
+.card::after{content:"";position:absolute;left:10%;right:10%;bottom:-1px;height:2px;background:linear-gradient(90deg,transparent,var(--cyan),transparent)}
+.card__ico{display:grid;place-items:center;width:54px;height:54px;border-radius:14px;background:rgb(31 124 255/.15);border:1px solid rgb(58 155 255/.35);color:var(--cyan);margin-bottom:26px}
+.card__ico svg{width:26px;height:26px}
+.card h3{font-size:21px;margin-bottom:10px}
+.card p{color:var(--mute);font-size:15.5px}
+
+/* price */
+.price{background:radial-gradient(50% 50% at 50% 55%,rgb(31 124 255/.25),transparent 70%),var(--bg2)}
+.offer{max-width:560px;margin:50px auto 0;padding:clamp(30px,5vw,46px);border-radius:28px;background:linear-gradient(180deg,#0b1426,#060b16);border:1px solid rgb(58 155 255/.35);box-shadow:0 30px 90px rgb(31 124 255/.25);text-align:center}
+.offer h3{font-size:clamp(24px,3vw,30px)}
+.offer__tag{display:inline-block;margin-top:14px;padding:6px 18px;border-radius:999px;border:1px solid var(--line);font-size:12px;font-weight:600;letter-spacing:.22em;color:var(--mute)}
+.offer__val{display:flex;justify-content:center;align-items:flex-start;gap:8px;margin:26px 0 4px;font-weight:800;line-height:1}
+.offer__val small{font-size:24px;margin-top:12px;color:var(--mute);font-weight:600}
+.offer__val strong{font-size:clamp(76px,12vw,108px);letter-spacing:-.04em;color:#fff}
+.offer__time{color:var(--cyan);font-weight:600;font-size:15px}
+.offer ul{list-style:none;text-align:left;margin:30px 0 32px;display:grid;gap:12px}
+.offer li{display:flex;gap:12px;align-items:flex-start;font-size:15.5px}
+.offer li::before{content:"";flex:none;width:22px;height:22px;margin-top:1px;border-radius:50%;background:var(--blue) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.2'%3E%3Cpath d='m6 12 4 4 8-8'/%3E%3C/svg%3E") center/13px no-repeat}
+.offer li.bonus::before{background-color:#0fa36b}
+.offer li em{font-style:normal;font-size:11px;font-weight:700;letter-spacing:.12em;color:#34d399;border:1px solid rgb(52 211 153/.4);border-radius:6px;padding:1px 7px;margin-right:6px;vertical-align:1px}
+.offer .btn{width:100%}
+
+/* end */
+.end{padding:clamp(80px,10vw,120px) 0;background:var(--bg);overflow:hidden}
+.end::before{content:"";position:absolute;left:50%;bottom:-40%;width:900px;height:500px;transform:translateX(-50%);background:radial-gradient(closest-side,rgb(31 124 255/.35),transparent)}
+.end .wrap{position:relative}
+.end .btn{margin-top:34px}
+.foot{padding:30px 0 calc(30px + env(safe-area-inset-bottom));border-top:1px solid rgb(255 255 255/.06);font-size:13px;color:var(--mute);text-align:center}
+
+.wa{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:60;display:grid;place-items:center;width:60px;height:60px;border-radius:50%;background:#25d366;color:#fff;box-shadow:0 12px 34px rgb(0 0 0/.45);transition:transform .4s var(--ease)}
+.wa:hover{transform:scale(1.07)}
+.wa svg{width:30px;height:30px}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<main>
+
+<section class="hero">
+  <div class="wrap c">
+    <span class="pill rv"><i></i>MAREME WEB DESIGNER</span>
+    <h1 class="rv">Seu negócio com um site profissional <span class="hl">ainda hoje.</span></h1>
+    <p class="sub rv">Você me conta o que faz e onde atende. Em <b>menos de 4 horas</b> seu site está pronto, com a sua cara e com o botão do WhatsApp chamando o cliente pra conversar.</p>
+    <div class="hero__cta rv">
+      <a class="btn js-wa" data-msg="hero" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.4 14.2c-.2.6-1.3 1.2-1.8 1.3-.5 0-1 .3-3.4-.7-2.9-1.2-4.7-4.1-4.8-4.3-.1-.2-1.2-1.6-1.2-3s.7-2.2 1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.5c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3.1.2.1.7-.1 1.2Z"/></svg>Quero meu site agora</a>
+      <p class="note">R$ 297 · domínio grátis por 1 ano · hospedagem grátis vitalícia</p>
+    </div>
+    <div class="laptop rv" aria-hidden="true">
+      <div class="laptop__screen"><div class="laptop__view" id="screen"></div></div>
+      <div class="laptop__base"></div>
+    </div>
+  </div>
+  <div class="tapes" aria-hidden="true">
+    <div class="tape tape--b"><div id="tb"></div></div>
+    <div class="tape tape--a"><div id="ta"></div></div>
+  </div>
+</section>
+
+<section class="rot">
+  <div class="rot__bg" id="rotbg" aria-hidden="true">clientes</div>
+  <div class="wrap c">
+    <h2><span>Mais</span><span class="words" id="words" aria-live="polite"><span class="on">clientes</span><span>confiança</span><span>visibilidade</span><span>autoridade</span><span>contatos</span></span><span>para o seu negócio</span></h2>
+    <span class="measure" id="measure"></span>
+  </div>
+</section>
+
+<section class="sec work" id="portfolio">
+  <div class="wrap c">
+    <h2 class="rv">Sites que eu fiz e que <span class="hl">já estão no ar</span></h2>
+    <p class="sub rv">Clínicas, consultórios, arquitetos, corretores e advogados de Maceió. Cada um com um design próprio. Clica e abre pra ver funcionando.</p>
+    <div class="grid" id="grid"></div>
+    <div class="work__foot">
+      <button class="btn btn--ghost" id="more" type="button">Ver todos os 14 sites</button>
+      <a class="btn js-wa" data-msg="port" href="#" target="_blank" rel="noopener">Quero um site assim</a>
+    </div>
+    <p class="tiny">Projetos conceito, criados com informações públicas dos negócios.</p>
+  </div>
+</section>
+
+<section class="sec me">
+  <div class="wrap">
+    <div class="me__photo rv"><img src="img/emerson.png" width="821" height="1556" alt="Emerson, da MAREME WEB DESIGNER" loading="lazy"></div>
+    <div>
+      <h2 class="rv">Quem vai fazer <span class="hl">o seu site?</span></h2>
+      <p class="me__role rv">Prazer, eu sou o Emerson, de Maceió.</p>
+      <p class="rv">Sou desenvolvedor web e fundador da MAREME. Comecei curioso pra entender como a tecnologia vira negócio de verdade, e hoje passo os dias criando sites para quem quer ser encontrado na internet.</p>
+      <p class="rv"><b>Você fala direto comigo, do primeiro "oi" até o site no ar.</b> Sem atendente, sem repassar seu projeto pra terceiros.</p>
+      <a class="btn rv js-wa" data-msg="me" href="#" target="_blank" rel="noopener">Falar com o Emerson</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec ag">
+  <div class="wrap c">
+    <span class="pill rv"><i></i>A agência</span>
+    <h2 class="rv" style="margin-top:22px">Não basta ser bonito. <span class="hl">Tem que fazer o cliente te chamar.</span></h2>
+    <p class="sub rv">A MAREME WEB DESIGNER existe pra colocar negócios locais na internet do jeito certo: rápido, com preço justo e sem complicação.</p>
+    <div class="cards" style="text-align:left">
+      <div class="card rv"><div class="card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z"/></svg></div><h3>Só seu</h3><p>Nada de modelo repetido. Cores, fotos e textos montados a partir do seu negócio.</p></div>
+      <div class="card rv"><div class="card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12a9 9 0 0 1-13.4 7.9L3 21l1.2-4.4A9 9 0 1 1 21 12Z"/><path d="M8.5 10.5h7M8.5 13.5h4.5"/></svg></div><h3>Direto no seu WhatsApp</h3><p>Botões e formulário que abrem a conversa com a mensagem pronta. O cliente não precisa copiar número.</p></div>
+      <div class="card rv"><div class="card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></div><h3>Perfeito no celular</h3><p>É no celular que seu cliente vai te procurar. Cada site é testado na tela pequena antes de ir pro ar.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec price" id="preco">
+  <div class="wrap c">
+    <h2 class="rv">Quanto custa ter <span class="hl">o seu site?</span></h2>
+    <p class="sub rv">Um valor só, sem mensalidade de hospedagem e sem surpresa no final.</p>
+    <div class="offer rv">
+      <h3>Site <span class="hl">profissional</span></h3>
+      <span class="offer__tag">PRONTO EM MENOS DE 4 HORAS</span>
+      <div class="offer__val"><small>R$</small><strong>297</strong></div>
+      <p class="offer__time">contados a partir do envio das informações do seu negócio</p>
+      <ul>
+        <li>Design exclusivo, feito para o seu negócio</li>
+        <li>Botões e formulário direto para o seu WhatsApp</li>
+        <li>Adaptado para celular, tablet e computador</li>
+        <li>Endereço, mapa e horário de atendimento</li>
+        <li class="bonus"><span><em>BÔNUS</em>Domínio grátis por 1 ano (seunegocio.com.br)</span></li>
+        <li class="bonus"><span><em>BÔNUS</em>Hospedagem grátis vitalícia</span></li>
+      </ul>
+      <a class="btn js-wa" data-msg="price" href="#" target="_blank" rel="noopener">Quero meu site por R$ 297</a>
+    </div>
+  </div>
+</section>
+
+<section class="end">
+  <div class="wrap c">
+    <h2 class="rv">Hoje à noite seu site <span class="hl">pode estar no ar.</span></h2>
+    <p class="sub rv">Me chama no WhatsApp, me conta do seu negócio e eu começo ainda hoje.</p>
+    <a class="btn rv js-wa" data-msg="end" href="#" target="_blank" rel="noopener">Começar meu site agora</a>
+  </div>
+</section>
+</main>
+
+<footer class="foot">© 2026 MAREME WEB DESIGNER · Maceió/AL</footer>
+
+<a class="wa js-wa" data-msg="float" href="#" target="_blank" rel="noopener" aria-label="Conversar no WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.4 14.2c-.2.6-1.3 1.2-1.8 1.3-.5 0-1 .3-3.4-.7-2.9-1.2-4.7-4.1-4.8-4.3-.1-.2-1.2-1.6-1.2-3s.7-2.2 1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.5c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3.1.2.1.7-.1 1.2Z"/></svg></a>
+
+<script>
+(function(){
+  var WA = '5582987797962';
+  var M = {
+    hero: 'Oi, Emerson! Quero meu site pronto hoje. Como funciona?',
+    port: 'Oi, Emerson! Vi os sites do seu portfólio e quero um assim para o meu negócio.',
+    me: 'Oi, Emerson! Quero conversar sobre um site para o meu negócio.',
+    price: 'Oi, Emerson! Quero o site de R$ 297 com domínio e hospedagem grátis. Como começamos?',
+    end: 'Oi, Emerson! Quero começar meu site hoje.',
+    float: 'Oi, Emerson! Vim pelo site da MAREME e quero saber mais.'
+  };
+  document.querySelectorAll('.js-wa').forEach(function(a){ a.href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(M[a.dataset.msg] || M.float); });
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var G = 'https://dev-felipefvs.github.io/';
+  var P = [
+    ['kamylla','Dra. Kamylla Holanda','Dentista',G+'site-kamylla-holanda-dentista/'],
+    ['odontovida','Odontovida','Periodontia e estética',G+'site-odontovida-juliana-barbosa/'],
+    ['tania','Tânia Gusmão Arquitetura','Arquitetura e interiores','https://taniagusmaoarquitetura.com.br/'],
+    ['mikaelle','Dra. Mikaelle Vilela','Advocacia',G+'site-mikaelle-vilela-advogada/'],
+    ['juliana','Juliana Maria de Lima','Psicologia',G+'site-juliana-lima-psicologa/'],
+    ['thiago','Thiago Rocha','Corretor de imóveis',G+'site-thiago-rocha-corretor/'],
+    ['victor','Dr. Victor Maiorano','Dentista',G+'site-victor-maiorano-dentista/'],
+    ['harmony','Harmony Clínica e Saúde','Ultrassonografia',G+'site-harmony-clinica/'],
+    ['elaine','Dra. Elaine Sobral Leite','Dentista',G+'site-dra-elaine-sobral/'],
+    ['rosangela','Dra. Rosângela Santos','Lentes em resina',G+'site-rosangela-lentes-em-resina/'],
+    ['anailton','Anailton Simião','Arquiteto',G+'site-anailton-simiao-arquiteto/'],
+    ['rafael','Rafael Barros','Corretor de imóveis',G+'site-rafael-barros-imoveis/'],
+    ['vitta','Vitta OdontoClínic','Clínica odontológica',G+'site-vitta-odontoclinic/'],
+    ['luiz','Luiz Ribeiro','Corretor de imóveis',G+'site-luiz-ribeiro-corretor/']
+  ];
+  var arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>';
+  var grid = document.getElementById('grid');
+  grid.innerHTML = P.map(function(p, i){
+    return '<a class="item" href="'+p[3]+'" target="_blank" rel="noopener"'+(i > 5 ? ' hidden' : '')+'><img src="img/'+p[0]+'-d.jpg" width="1080" height="675" alt="Site '+p[1]+'" loading="lazy">'+
+      '<div class="item__info" style="text-align:left"><div><b>'+p[1]+'</b><small>'+p[2]+'</small></div>'+arrow+'</div></a>';
+  }).join('');
+  var more = document.getElementById('more');
+  more.addEventListener('click', function(){ grid.querySelectorAll('[hidden]').forEach(function(e){ e.hidden = false; }); more.remove(); });
+
+  // hero laptop
+  var scr = document.getElementById('screen'), L = ['kamylla','tania','odontovida','mikaelle','juliana','thiago'];
+  scr.innerHTML = L.map(function(s, i){ return '<img src="img/'+s+'-d.jpg" width="1080" height="675" alt=""'+(i ? ' loading="lazy"' : ' class="on"')+'>'; }).join('');
+  var li = 0;
+  if (!reduce) setInterval(function(){ scr.children[li].classList.remove('on'); li = (li + 1) % L.length; scr.children[li].classList.add('on'); }, 3000);
+
+  // tapes
+  var A = '<span>Site em menos de 4 horas</span><span>R$ 297</span><span>Domínio grátis por 1 ano</span><span>Hospedagem grátis vitalícia</span><span>Direto no WhatsApp</span>';
+  var B = '<span>MAREME WEB DESIGNER</span><span>Design exclusivo</span><span>Feito em Maceió</span><span>Perfeito no celular</span>';
+  document.getElementById('ta').innerHTML = A + A + A + A;
+  document.getElementById('tb').innerHTML = B + B + B + B;
+
+  // rotating words
+  var box = document.getElementById('words'), words = [].slice.call(box.children), bg = document.getElementById('rotbg'), ms = document.getElementById('measure'), wi = 0;
+  function fit(){ ms.style.fontSize = getComputedStyle(box).fontSize; ms.textContent = words[wi].textContent; box.style.width = Math.ceil(ms.getBoundingClientRect().width + 2) + 'px'; }
+  fit(); addEventListener('resize', fit);
+  if (!reduce) setInterval(function(){
+    var cur = words[wi]; cur.classList.remove('on'); cur.classList.add('out');
+    setTimeout(function(){ cur.classList.remove('out'); }, 700);
+    wi = (wi + 1) % words.length; words[wi].classList.add('on'); bg.textContent = words[wi].textContent; fit();
+  }, 2200);
+
+  // reveal
+  var rv = document.querySelectorAll('.rv');
+  if ('IntersectionObserver' in window && !reduce) {
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px -8% 0px' });
+    rv.forEach(function(el){ io.observe(el); });
+  } else rv.forEach(function(el){ el.classList.add('in'); });
+})();
+</script>
+</body>
+</html>
