@@ -1,0 +1,7 @@
+name = "mareme-chatbot"
+main = "src/worker.js"
+compatibility_date = "2026-10-01"
+compatibility_flags = ["nodejs_compat"]
+
+# A chave fica como secret (não vai para o GitHub):
+#   npx wrangler secret put ANTHROPIC_API_KEY
