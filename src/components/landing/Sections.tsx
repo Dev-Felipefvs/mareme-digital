@@ -94,9 +94,9 @@ export function Benefits() {
         <div className="relative mx-auto mt-16 max-w-[980px]">
           {/* Conectores (desktop) */}
           <div aria-hidden="true" className="pointer-events-none absolute inset-0 hidden lg:block">
-            <div className="absolute right-[2%] top-[56px] h-[150px] w-[16%] rounded-tr-[4px] border-r-2 border-t-2 border-lime/70" />
+            <div className="absolute right-[2%] top-[56px] h-[150px] w-[16%] border-r-2 border-t-2 border-lime/70" />
             <div className="absolute right-[2%] top-[203px] h-0 w-0 border-x-[7px] border-t-[10px] border-x-transparent border-t-lime/70" style={{ transform: "translateX(6px)" }} />
-            <div className="absolute left-[2%] top-[262px] h-[150px] w-[16%] rounded-tl-[4px] border-l-2 border-t-2 border-lime/70" />
+            <div className="absolute left-[2%] top-[262px] h-[150px] w-[16%] border-l-2 border-t-2 border-lime/70" />
             <div className="absolute left-[2%] top-[409px] h-0 w-0 border-x-[7px] border-t-[10px] border-x-transparent border-t-lime/70" style={{ transform: "translateX(-6px)" }} />
           </div>
 
