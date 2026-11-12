@@ -25,7 +25,7 @@ Prospects come in through Google Maps research, a WhatsApp conversation, and a d
 - The logo is provisional: a lime M on a black square.
 
 ## Brand Commitments
-- Palette is pinned: black plus lime green (#101010, #262626, #C5F277, #E7E7E2, #FAFAF7), confirmed binding 2026-11-12.
+- Palette is pinned (user request, 2026-11-12) to the exact palette of the Behance reference "Página de Vendas — O Grande Salto": Preto #000000, Verde Limão #52FF00, #DBFF00 and the degradê #52FF00 → #DBFF00 (vertical). Dark-green grounds #0A1300, #081100, #040A00; glows #003900 → #007E00 → #00B101; lines #1B4400; cards #1C1C1A. This replaces the earlier black + #C5F277 palette.
 - The user previously rejected a custom cursor, an animated particle background, stars or dots on the service marquee, borders on the marquee, and "Cardápios digitais".
 - Keep the founder's own "Sobre mim" texts and his full-body photo.
 

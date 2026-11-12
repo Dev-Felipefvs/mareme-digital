@@ -4,8 +4,7 @@ import "./globals.css";
 import { site } from "@/data/site";
 import { Providers } from "@/components/Providers";
 import { Preloader } from "@/components/Preloader";
-import { ScrollProgress } from "@/components/ScrollProgress";
-import { LandingHeader, LandingFooter } from "@/components/landing/Chrome";
+import { LandingFooter } from "@/components/landing/Chrome";
 
 const archivo = Archivo({ subsets: ["latin"], axes: ["wdth"], variable: "--font-archivo", display: "swap" });
 
@@ -31,7 +30,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#101010",
+  themeColor: "#0a1300",
   colorScheme: "dark",
   width: "device-width",
   initialScale: 1,
@@ -65,8 +64,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </a>
         <Providers>
           <Preloader />
-          <ScrollProgress />
-          <LandingHeader />
           {children}
           <LandingFooter />
         </Providers>

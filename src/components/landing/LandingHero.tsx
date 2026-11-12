@@ -5,14 +5,32 @@ import { gsap, useGSAP } from "@/lib/gsap";
 import { INTRO_EVENT } from "../Preloader";
 import { site } from "@/data/site";
 import { asset } from "@/lib/asset";
-import { CtaButton, Hi, IconCheck } from "./ui";
+import { CtaButton } from "./ui";
 import { LiveFeed } from "./LiveFeed";
+import { Logo } from "../Logo";
 
-const BULLETS = [
-  "Site pronto antes de você fechar",
-  "Feito sob medida para o seu negócio",
-  "WhatsApp e Google no lugar certo",
-];
+const BULLETS = ["Site pronto antes de você fechar", "Feito sob medida para o seu negócio", "WhatsApp e Google no lugar certo"];
+
+/** Foto do Emerson banhada pela luz verde: o céu vira luz, a figura fica escura com contorno verde. */
+function GreenPortrait({ className = "", priority = false }: { className?: string; priority?: boolean }) {
+  return (
+    <div className={`pointer-events-none ${className}`} aria-hidden="true">
+      <div className="absolute inset-0 [mask-image:radial-gradient(44%_50%_at_54%_40%,black_35%,rgb(0_0_0/0.6)_62%,transparent_100%)]">
+        <img
+          src={asset(site.founder.photo)}
+          alt=""
+          width={821}
+          height={1556}
+          fetchPriority={priority ? "high" : "auto"}
+          loading={priority ? "eager" : "lazy"}
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover object-[50%_14%] grayscale contrast-[1.5] brightness-[0.95] lg:contrast-[1.7] lg:brightness-[0.85]"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,#52ff00_0%,#00b101_45%,#007e00_100%)] mix-blend-multiply" />
+      </div>
+    </div>
+  );
+}
 
 export function LandingHero() {
   const root = useRef<HTMLElement>(null);
@@ -22,9 +40,10 @@ export function LandingHero() {
       const mm = gsap.matchMedia();
       mm.add("(prefers-reduced-motion: no-preference)", () => {
         const tl = gsap.timeline({ paused: true, defaults: { ease: "expo.out", duration: 1 } });
-        tl.from(".lh-photo", { opacity: 0, scale: 1.06, duration: 1.8, ease: "power2.out" })
-          .from(".lh-in", { opacity: 0, y: 26, filter: "blur(8px)", stagger: 0.08 }, 0.15)
-          .from(".lh-feed", { opacity: 0, y: 24, filter: "blur(10px)", duration: 1.1 }, 0.45);
+        tl.from(".lh-light", { opacity: 0, duration: 2, ease: "power2.out" })
+          .from(".lh-photo", { opacity: 0, scale: 1.05, duration: 1.8, ease: "power3.out" }, 0)
+          .from(".lh-in", { opacity: 0, y: 22, stagger: 0.07 }, 0.2)
+          .from(".lh-feed", { opacity: 0, y: 24, duration: 1.1 }, 0.5);
         const play = () => tl.play();
         if (document.documentElement.dataset.intro === "done") play();
         else window.addEventListener(INTRO_EVENT, play, { once: true });
@@ -35,81 +54,62 @@ export function LandingHero() {
   );
 
   return (
-    <section ref={root} id="inicio" className="relative isolate overflow-hidden">
-      {/* Luz verde de fundo */}
-      <div aria-hidden="true" className="absolute inset-0 -z-20 bg-[radial-gradient(70%_80%_at_72%_30%,rgb(197_242_119/0.30),rgb(60_90_20/0.18)_40%,transparent_75%),radial-gradient(60%_60%_at_10%_100%,rgb(197_242_119/0.10),transparent_70%)]" />
-
-      {/* Foto do fundador com tratamento verde */}
-      <div className="lh-photo pointer-events-none absolute inset-y-0 right-0 -z-10 hidden w-[58%] lg:block">
-        <div className="absolute inset-0 [mask-image:linear-gradient(to_right,transparent_0%,black_38%)]">
-          <img
-            src={asset(site.founder.photo)}
-            alt=""
-            width={821}
-            height={1556}
-            fetchPriority="high"
-            className="absolute inset-0 h-full w-full object-cover object-[50%_18%] grayscale contrast-[1.4] brightness-[0.8]"
-          />
-          <div className="absolute inset-0 bg-lime mix-blend-multiply opacity-90" />
-          <div className="absolute inset-0 bg-[radial-gradient(60%_50%_at_60%_25%,rgb(197_242_119/0.35),transparent_70%)] mix-blend-screen" />
-        </div>
-                <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-ink to-transparent" />
-        <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-ink/80 to-transparent" />
+    <section ref={root} id="inicio" className="relative isolate">
+      {/* Luz verde da referência + raios, contínua até a próxima seção */}
+      <div aria-hidden="true" className="lh-light pointer-events-none absolute inset-x-0 top-0 -z-20 h-[135%] overflow-hidden">
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,#000000_0%,#001300_45%,#0a1300_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(42%_46%_at_50%_30%,#00b101_0%,#007e00_32%,#003900_62%,transparent_100%)] opacity-90 lg:bg-[radial-gradient(34%_48%_at_70%_30%,#00b101_0%,#007e00_34%,#003900_64%,transparent_100%)]" />
+        <div className="absolute inset-0 opacity-[0.16] [background:repeating-conic-gradient(from_0deg_at_50%_30%,#52ff00_0deg_0.6deg,transparent_0.6deg_9deg)] [mask-image:radial-gradient(50%_55%_at_50%_30%,black,transparent)] lg:[background:repeating-conic-gradient(from_0deg_at_70%_30%,#52ff00_0deg_0.6deg,transparent_0.6deg_9deg)] lg:[mask-image:radial-gradient(45%_60%_at_70%_30%,black,transparent)]" />
       </div>
 
-      <div className="container-x relative grid items-center gap-12 pb-16 pt-28 lg:min-h-[100svh] lg:grid-cols-12 lg:pb-24 lg:pt-36">
-        <div className="lg:col-span-6">
-          <p className="lh-in inline-flex items-center gap-2.5 rounded-full border border-lime/30 bg-ink/60 px-4 py-2 text-[13px] font-medium text-paper/85 backdrop-blur-sm">
-            <span className="h-2 w-2 rounded-full bg-lime shadow-[0_0_12px_rgb(197_242_119)]" aria-hidden="true" />
-            Criação de sites em Maceió — AL
-          </p>
+      {/* Desktop: retrato grande à direita, descendo para a próxima seção */}
+      <GreenPortrait priority className="lh-photo absolute right-0 top-0 -z-10 hidden h-[118%] w-[58%] lg:block" />
 
-          <h1 className="lh-in mt-7 text-balance font-display text-[clamp(36px,4.5vw,66px)] font-extrabold leading-[1.02] tracking-[-0.02em] [font-stretch:110%]">
-            Seu próximo cliente pode estar <Hi>procurando por você agora.</Hi>
+      <div className="container-x relative grid gap-10 pb-10 pt-10 lg:min-h-[100svh] lg:grid-cols-12 lg:items-center lg:pb-24 lg:pt-16">
+        <div className="lg:col-span-6">
+          <Logo className="lh-in" />
+
+          <h1 className="lh-in mt-10 text-balance font-display text-[clamp(34px,4vw,58px)] font-extrabold leading-[1.04] tracking-[-0.02em] [font-stretch:112%] lg:mt-14">
+            Seu próximo cliente pode estar <span className="text-degrade">procurando por você agora.</span>
           </h1>
 
-          <p className="lh-in mt-6 max-w-[520px] text-[clamp(17px,1.35vw,19px)] leading-relaxed text-paper/80">
+          <p className="lh-in mt-6 max-w-[480px] text-[17px] leading-relaxed text-paper/80">
             Quando alguém pesquisa a sua empresa, o que encontra? Eu crio sites modernos e personalizados que apresentam o seu trabalho e transformam visitas em clientes.
           </p>
 
-          <ul className="lh-in mt-7 grid gap-3">
+          <ul className="lh-in mt-6 grid gap-1.5">
             {BULLETS.map((b) => (
-              <li key={b} className="flex items-center gap-3 text-[16px] font-medium text-paper">
-                <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-lime text-ink"><IconCheck className="h-3.5 w-3.5" /></span>
+              <li key={b} className="flex items-center gap-2.5 text-[15.5px] font-semibold text-paper">
+                <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-lime" aria-hidden="true" />
                 {b}
               </li>
             ))}
           </ul>
 
-          <div className="lh-in mt-10">
-            <CtaButton className="w-full sm:w-auto sm:min-w-[380px]">Quero meu site</CtaButton>
-            <p className="mt-4 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[14px] text-paper/70 sm:justify-start">
-              <span className="inline-flex items-center gap-2"><IconCheck className="h-4 w-4 text-lime" />Atendimento direto com o Emerson</span>
-              <span className="inline-flex items-center gap-2"><IconCheck className="h-4 w-4 text-lime" />Resposta pelo WhatsApp</span>
+          <div className="lh-in mt-9">
+            <CtaButton className="w-full sm:w-[400px]">Quero meu site</CtaButton>
+            <p className="mt-3.5 flex flex-wrap items-center gap-x-4 gap-y-1.5 text-[13.5px] text-paper/70">
+              <span className="inline-flex items-center gap-1.5">
+                <svg viewBox="0 0 24 24" className="h-4 w-4 text-lime" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M20 12a8 8 0 1 1-3.2-6.4M20 4v4h-4" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                Resposta pelo WhatsApp
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <svg viewBox="0 0 24 24" className="h-4 w-4 text-lime" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M8 12.5l2.5 2.5L16 9.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                Atendimento direto com o Emerson
+              </span>
             </p>
           </div>
         </div>
 
-        {/* Mobile: foto + avisos de sites publicados */}
-        <figure className="lh-in relative -mx-5 lg:hidden" aria-label="Emerson e sites publicados pela MAREME">
-          <div className="relative aspect-[4/5] overflow-hidden [mask-image:linear-gradient(to_top,transparent_0%,black_28%,black_80%,transparent_100%)]">
-            <img
-              src={asset(site.founder.photo)}
-              alt={`${site.founder.name}, fundador da MAREME Digital`}
-              width={821}
-              height={1556}
-              loading="lazy"
-              decoding="async"
-              className="absolute inset-0 h-full w-full object-cover object-[50%_16%] grayscale contrast-[1.4] brightness-[0.8]"
-            />
-            <div className="absolute inset-0 bg-lime mix-blend-multiply opacity-90" />
-          </div>
-          <LiveFeed count={2} compact className="absolute inset-x-5 bottom-2" />
-        </figure>
+        {/* Desktop: pilha de avisos sobre o retrato */}
+        <div className="lh-feed relative hidden lg:col-span-5 lg:col-start-8 lg:block lg:pt-24" aria-label="Sites publicados pela MAREME">
+          <LiveFeed count={4} className="mr-auto max-w-[350px]" />
+        </div>
 
-        {/* Notificações: sites reais publicados */}
-        <div className="lh-feed relative hidden lg:col-span-5 lg:col-start-8 lg:block" aria-label="Sites publicados pela MAREME">
-          <LiveFeed count={4} className="ml-auto max-w-[360px]" />
+        {/* Mobile: o retrato continua a mesma cena, sem moldura */}
+        <div className="relative -mx-5 h-[118vw] max-h-[620px] lg:hidden" aria-label="Emerson e sites publicados pela MAREME">
+          <GreenPortrait className="lh-photo absolute inset-0" />
+          <LiveFeed count={3} compact className="lh-feed absolute inset-x-5 bottom-[6%]" />
         </div>
       </div>
     </section>

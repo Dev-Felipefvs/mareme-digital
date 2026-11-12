@@ -54,14 +54,11 @@ export function PhoneStack({ front, left, right }: { front: Project; left: Proje
           whileDrag={{ scale: 1.04, rotate: 4, cursor: "grabbing" }}
           whileHover={fine ? { scale: 1.015 } : undefined}
           transition={spring.ui}
-          className={`drop-shadow-[0_0_60px_rgb(197_242_119/0.28)] ${fine ? "cursor-grab touch-none" : ""}`}
+          className={`drop-shadow-[0_0_70px_rgb(0_177_1/0.45)] ${fine ? "cursor-grab touch-none" : ""}`}
         >
           <PhoneMockup src={front.mobile} alt={`Versão para celular do site ${front.name}`} />
         </motion.div>
         </motion.div>
-        {fine && !reduce && (
-          <p className="pointer-events-none mt-4 text-center text-[12.5px] text-paper/45">Arraste o celular</p>
-        )}
       </div>
     </div>
   );

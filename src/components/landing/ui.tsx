@@ -20,12 +20,12 @@ export function CtaButton({ children, className = "", message = WA_MSG }: { chil
       whileHover={{ y: -2 }}
       whileTap={{ scale: 0.97, y: 0, transition: spring.press }}
       transition={spring.ui}
-      className={`group relative inline-flex h-[60px] items-center justify-center gap-3 overflow-hidden rounded-[6px] bg-gradient-to-b from-[#d6fb92] to-lime px-10 font-display text-[15px] font-extrabold uppercase tracking-[0.04em] text-ink shadow-[0_18px_50px_-14px_rgb(197_242_119/0.55)] transition-shadow duration-300 [@media(hover:hover)]:hover:shadow-[0_22px_60px_-12px_rgb(197_242_119/0.75)] ${className}`}
+      className={`group relative inline-flex h-[58px] items-center justify-center gap-3 overflow-hidden rounded-[3px] bg-degrade px-10 font-display text-[15px] font-extrabold uppercase tracking-[0.02em] text-ink [@media(hover:hover)]:hover:brightness-105 ${className}`}
     >
       {/* Brilho que atravessa o botão no hover */}
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 -skew-x-12 bg-gradient-to-r from-transparent via-white/50 to-transparent opacity-0 transition-[transform,opacity] duration-700 ease-out group-hover:translate-x-[420%] group-hover:opacity-100 motion-reduce:hidden"
+        className="pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 -skew-x-12 bg-gradient-to-r from-transparent via-white/60 to-transparent opacity-0 transition-[transform,opacity] duration-700 ease-out group-hover:translate-x-[420%] group-hover:opacity-100 motion-reduce:hidden"
       />
       <span className="relative">{children}</span>
       <svg viewBox="0 0 24 24" className="relative h-4 w-4 transition-transform duration-300 ease-out group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth="2.4" aria-hidden="true">

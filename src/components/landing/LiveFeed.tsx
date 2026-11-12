@@ -40,7 +40,7 @@ export function LiveFeed({ count = 4, className = "", compact = false }: { count
             exit={{ opacity: 0, scale: 0.92, filter: "blur(6px)", transition: spring.ui }}
             transition={{ ...spring.arrive, layout: spring.ui, opacity: spring.ui }}
             style={{ transformOrigin: "50% 0%" }}
-            className={`flex items-center gap-3 rounded-[16px] border border-paper/10 bg-ink/70 shadow-[0_20px_40px_-20px_rgb(0_0_0/0.9)] backdrop-blur-xl backdrop-saturate-150 ${compact ? "p-3" : "p-3.5"} ${!compact && i % 2 ? "ml-7 -mr-7" : ""}`}
+            className={`flex items-center gap-3 rounded-[8px] bg-[#0a1300]/80 shadow-[0_20px_40px_-20px_rgb(0_0_0/0.9)] backdrop-blur-xl ${compact ? "p-3" : "p-3.5"} ${!compact && i % 2 ? "ml-7 -mr-7" : ""}`}
           >
             <LogoMark className={compact ? "h-9 w-9 shrink-0" : "h-10 w-10 shrink-0"} />
             <div className="min-w-0 flex-1">

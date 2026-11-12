@@ -13,10 +13,10 @@ export function Reveal({ delay = 0, y = 28, children, ...rest }: Props) {
   const reduce = useReducedMotion();
   return (
     <motion.div
-      initial={reduce ? { opacity: 0 } : { opacity: 0, y, filter: "blur(8px)" }}
-      whileInView={reduce ? { opacity: 1 } : { opacity: 1, y: 0, filter: "blur(0px)" }}
+      initial={reduce ? { opacity: 0 } : { opacity: 0, y }}
+      whileInView={reduce ? { opacity: 1 } : { opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "0px 0px -12% 0px" }}
-      transition={reduce ? { duration: 0.25, delay } : { ...spring.reveal, delay, filter: { duration: 0.5, delay } }}
+      transition={reduce ? { duration: 0.25, delay } : { ...spring.reveal, delay }}
       {...rest}
     >
       {children}

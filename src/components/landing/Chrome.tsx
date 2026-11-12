@@ -34,7 +34,7 @@ export function LandingHeader() {
 
 export function LandingFooter() {
   return (
-    <footer className="border-t border-paper/10 pb-[calc(2.5rem+env(safe-area-inset-bottom))] pt-10">
+    <footer className="border-t border-moss bg-ink pb-[calc(2.5rem+env(safe-area-inset-bottom))] pt-10">
       <div className="container-x flex flex-col items-start justify-between gap-6 text-[14px] text-paper/55 sm:flex-row sm:items-center">
         <Logo />
         <p suppressHydrationWarning>© {new Date().getFullYear()} MAREME Digital · Maceió — AL</p>
