@@ -44,7 +44,7 @@ export function Header() {
       <header
         className={`fixed inset-x-0 top-0 z-50 transition-[transform,background-color,border-color] duration-500 ease-out-expo ${
           hidden && !open ? "-translate-y-full" : "translate-y-0"
-        } ${scrolled && !open ? "glass border-b border-line" : "border-b border-transparent"}`}
+        } ${scrolled && !open ? "glass border-b border-line" : "border-b border-transparent"} ${!scrolled && !open ? "header-light" : ""}`}
       >
         <div className="container-x flex h-[76px] items-center justify-between gap-6">
           <a href="#inicio" aria-label="MAREME Digital — início" className="relative z-[60]">
@@ -87,8 +87,8 @@ export function Header() {
               className="relative z-[60] grid h-11 w-11 place-items-center rounded-full border border-line bg-white/[0.04] lg:hidden"
             >
               <span className="relative block h-3 w-5">
-                <span className={`absolute left-0 h-[1.5px] w-5 bg-white transition-all duration-500 ease-out-expo ${open ? "top-1.5 rotate-45" : "top-0"}`} />
-                <span className={`absolute left-0 h-[1.5px] w-5 bg-white transition-all duration-500 ease-out-expo ${open ? "top-1.5 -rotate-45" : "top-3"}`} />
+                <span className={`burger-line absolute left-0 h-[1.5px] w-5 bg-white transition-all duration-500 ease-out-expo ${open ? "top-1.5 rotate-45" : "top-0"}`} />
+                <span className={`burger-line absolute left-0 h-[1.5px] w-5 bg-white transition-all duration-500 ease-out-expo ${open ? "top-1.5 -rotate-45" : "top-3"}`} />
               </span>
             </button>
           </div>

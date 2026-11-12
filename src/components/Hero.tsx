@@ -51,9 +51,9 @@ export function Hero() {
   );
 
   return (
-    <section ref={root} id="inicio" className="relative isolate pb-10 pt-28 sm:pb-14 sm:pt-32">
+    <section ref={root} id="inicio" className="relative isolate bg-paper pb-12 pt-28 text-ink sm:pb-16 sm:pt-32">
       <div className="container-x">
-        <div className="hero-card relative flex flex-col overflow-hidden rounded-[32px] border border-line bg-ink-2 lg:block lg:min-h-[min(640px,calc(100svh-150px))]">
+        <div className="hero-card relative flex flex-col overflow-hidden rounded-[32px] bg-cloud lg:block lg:min-h-[min(640px,calc(100svh-150px))]">
           {/* Foto (direita no desktop, abaixo do texto no mobile) */}
           <div className="hero-photo relative order-2 aspect-[4/5] w-full overflow-hidden sm:aspect-[16/11] lg:absolute lg:inset-y-0 lg:right-0 lg:aspect-auto lg:w-[50%]">
             <img
@@ -64,7 +64,7 @@ export function Hero() {
               fetchPriority="high"
               className="absolute inset-0 h-full w-full object-cover object-[50%_22%] grayscale contrast-[1.05]"
             />
-            <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-ink-2 via-transparent to-transparent lg:bg-gradient-to-r lg:from-ink-2 lg:via-ink-2/30 lg:via-25% lg:to-transparent" />
+            <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-cloud via-transparent to-transparent lg:bg-gradient-to-r lg:from-cloud lg:via-cloud/30 lg:via-25% lg:to-transparent" />
           </div>
 
           {/* Texto */}
@@ -79,24 +79,24 @@ export function Hero() {
                 ))}
                 {MUTED.map((w, i) => (
                   <span key={`m${i}`} className={`word-mask ${i < MUTED.length - 1 ? "mr-[0.22em]" : ""}`}>
-                    <span className="hero-word inline-block text-white/45">{w}</span>
+                    <span className="hero-word inline-block text-ink/40">{w}</span>
                   </span>
                 ))}
               </span>
             </h1>
 
-            <div className="hero-fade mt-7 max-w-[500px] text-[clamp(16px,1.3vw,18px)] leading-relaxed text-mist">
-              <p className="font-medium text-white/90">Quando alguém pesquisa sua empresa, o que encontra?</p>
+            <div className="hero-fade mt-7 max-w-[500px] text-[clamp(16px,1.3vw,18px)] leading-relaxed text-ink/65">
+              <p className="font-medium text-ink">Quando alguém pesquisa sua empresa, o que encontra?</p>
               <p className="mt-2">
                 Na MAREME Digital, criamos sites modernos e personalizados para apresentar seu trabalho, fortalecer sua credibilidade e transformar visitas em oportunidades de negócio.
               </p>
             </div>
 
             <div className="hero-fade mt-9 flex flex-wrap gap-3">
-              <MagneticButton href="#contato">
+              <MagneticButton href="#contato" tone="light">
                 Quero destacar minha empresa <ArrowIcon />
               </MagneticButton>
-              <MagneticButton href="#projetos" variant="ghost">
+              <MagneticButton href="#projetos" variant="ghost" tone="light">
                 Ver nosso portfólio
               </MagneticButton>
             </div>
@@ -106,7 +106,7 @@ export function Hero() {
                 <div key={s.l}>
                   <dt className="sr-only">{s.l}</dt>
                   <dd className="font-serif text-[clamp(34px,3vw,44px)] leading-none">{s.n}</dd>
-                  <dd className="mt-2 text-[14px] text-mist">{s.l}</dd>
+                  <dd className="mt-2 text-[14px] text-ink/60">{s.l}</dd>
                 </div>
               ))}
             </dl>
@@ -117,7 +117,7 @@ export function Hero() {
             href={contactLink("Olá! Vim pelo site da MAREME Digital e quero conversar sobre um projeto.")}
             target="_blank"
             rel="noopener noreferrer"
-            className="hero-float group absolute bottom-5 right-5 z-20 flex max-w-[360px] items-end gap-5 rounded-[22px] border border-white/15 bg-ink/45 p-5 backdrop-blur-xl transition-colors duration-500 hover:border-lime/50 sm:bottom-8 sm:right-8 sm:p-6 max-lg:left-5 max-lg:max-w-none"
+            className="hero-float group absolute bottom-5 right-5 z-20 flex max-w-[360px] items-end gap-5 rounded-[22px] border border-white/15 bg-ink/55 p-5 text-white backdrop-blur-xl transition-colors duration-500 hover:border-lime/50 sm:bottom-8 sm:right-8 sm:p-6 max-lg:left-5 max-lg:max-w-none"
           >
             <span className="flex-1">
               <span className="block text-[12.5px] text-mist">Novo projeto</span>

@@ -10,10 +10,12 @@ type Props = {
   className?: string;
   external?: boolean;
   cursor?: string;
+  /** "light" = para fundos claros */
+  tone?: "dark" | "light";
 };
 
 /** Botão com efeito magnético sutil (somente mouse). */
-export function MagneticButton({ href, children, variant = "primary", className = "", external, cursor }: Props) {
+export function MagneticButton({ href, children, variant = "primary", className = "", external, cursor, tone = "dark" }: Props) {
   const ref = useRef<HTMLAnchorElement>(null);
   const x = useSpring(useMotionValue(0), { stiffness: 220, damping: 18, mass: 0.4 });
   const y = useSpring(useMotionValue(0), { stiffness: 220, damping: 18, mass: 0.4 });
@@ -29,9 +31,13 @@ export function MagneticButton({ href, children, variant = "primary", className 
   const base =
     "group relative inline-flex h-14 items-center justify-center gap-3 overflow-hidden rounded-full px-8 text-[15px] font-medium tracking-tight transition-colors duration-300";
   const styles =
-    variant === "primary"
-      ? "bg-white text-ink hover:text-ink"
-      : "border border-white/15 text-white hover:border-white/40";
+    tone === "light"
+      ? variant === "primary"
+        ? "bg-ink text-white hover:text-ink"
+        : "border border-ink/15 text-ink hover:border-ink/40"
+      : variant === "primary"
+        ? "bg-white text-ink hover:text-ink"
+        : "border border-white/15 text-white hover:border-white/40";
 
   return (
     <motion.a

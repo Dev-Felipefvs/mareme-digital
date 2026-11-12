@@ -7,7 +7,7 @@ type Props = { className?: string; animated?: boolean; compact?: boolean };
 export function LogoMark({ className = "", animated = false }: { className?: string; animated?: boolean }) {
   return (
     <svg viewBox="0 0 64 64" className={className} aria-hidden="true">
-      <rect x="1" y="1" width="62" height="62" rx="17" fill="none" stroke="rgb(250 250 247 / .14)" />
+      <rect x="1" y="1" width="62" height="62" rx="17" fill="#101010" stroke="rgb(250 250 247 / .14)" />
       <path
         d="M15 45V20l17 16 17-16v25"
         fill="none"

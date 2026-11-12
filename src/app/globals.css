@@ -10,6 +10,7 @@
   --color-lime: #c5f277;       /* verde-lima: botões, ícones, links e destaques */
   --color-mist: rgb(231 231 226 / 0.72); /* cinza claro #E7E7E2: textos secundários */
   --color-paper: #fafaf7;      /* off-white: títulos e textos principais */
+  --color-cloud: #e7e7e2;      /* cinza claro sólido: superfícies da área clara (hero) */
 
   /* Aliases usados pelos componentes */
   --color-white: var(--color-paper);
@@ -112,6 +113,16 @@
   z-index: -1;
 }
 .spotlight:hover::before { opacity: 1; }
+
+/* Header sobre o hero claro (topo da página) */
+.header-light { color: var(--color-ink); }
+.header-light .text-mist { color: rgb(16 16 16 / 0.6); }
+.header-light .text-white,
+.header-light .hover\:text-white:hover { color: var(--color-ink); }
+.header-light .border-line { border-color: rgb(16 16 16 / 0.12); }
+.header-light [class*="bg-white/"] { background-color: rgb(16 16 16 / 0.05); }
+.header-light .burger-line { background-color: var(--color-ink); }
+.header-light .card-accent { color: var(--color-paper); }
 
 /* Scrollbar discreta */
 * { scrollbar-width: thin; scrollbar-color: var(--color-graphite) transparent; }
