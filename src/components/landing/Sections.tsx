@@ -13,10 +13,10 @@ const host = (url: string) => url.replace(/^https?:\/\//, "").replace(/\/$/, "")
 export function DemoProof() {
   const phones = [projects[0], projects[1], projects[4]];
   return (
-    <section id="como" className="relative isolate overflow-hidden py-24 sm:py-32">
+    <section id="como" className="relative isolate scroll-mt-20 overflow-hidden py-24 sm:py-32">
       <div aria-hidden="true" className="absolute left-[-10%] top-1/2 -z-10 h-[620px] w-[620px] -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgb(197_242_119/0.16),transparent_65%)]" />
       <div className="container-x grid items-center gap-16 lg:grid-cols-12 lg:gap-10">
-        <Reveal className="relative mx-auto h-[460px] w-full max-w-[460px] sm:h-[540px] lg:col-span-5 lg:mx-0">
+        <Reveal className="relative mx-auto h-[420px] w-full max-w-[460px] sm:h-[540px] lg:col-span-5 lg:mx-0">
           <div className="absolute left-0 top-[10%] w-[38%] -rotate-[10deg] opacity-50 blur-[1.5px]">
             <PhoneMockup src={phones[1].mobile} alt="" />
           </div>
@@ -30,7 +30,7 @@ export function DemoProof() {
 
         <div className="lg:col-span-6 lg:col-start-7">
           <Reveal>
-            <h2 className="font-display text-[clamp(30px,3.6vw,50px)] font-extrabold leading-[1.08] tracking-[-0.015em] [font-stretch:110%]">
+            <h2 className="text-balance font-display text-[clamp(30px,3.6vw,50px)] font-extrabold leading-[1.08] tracking-[-0.015em] [font-stretch:110%]">
               Antes de fechar, você já vê <Hi>o site da sua empresa funcionando.</Hi>
             </h2>
           </Reveal>
@@ -82,11 +82,11 @@ const BENEFITS = [
 
 export function Benefits() {
   return (
-    <section id="beneficios" className="relative isolate overflow-hidden py-24 sm:py-32">
+    <section id="beneficios" className="relative isolate scroll-mt-20 overflow-hidden py-24 sm:py-32">
       <div aria-hidden="true" className="absolute inset-x-0 top-0 -z-10 h-full bg-[radial-gradient(50%_40%_at_50%_45%,rgb(197_242_119/0.10),transparent_75%)]" />
       <div className="container-x">
         <Reveal>
-          <h2 className="mx-auto max-w-[18ch] text-center font-display text-[clamp(30px,3.6vw,50px)] font-extrabold leading-[1.08] tracking-[-0.015em] [font-stretch:110%]">
+          <h2 className="mx-auto max-w-[18ch] text-balance text-center font-display text-[clamp(30px,3.6vw,50px)] font-extrabold leading-[1.08] tracking-[-0.015em] [font-stretch:110%]">
             O que você <Hi>recebe</Hi> com a MAREME?
           </h2>
         </Reveal>
@@ -129,10 +129,10 @@ export function Benefits() {
 /* ---------- 3. Prova: sites que já estão no ar ---------- */
 export function Works() {
   return (
-    <section id="projetos" className="relative py-24 sm:py-32">
+    <section id="projetos" className="relative scroll-mt-20 py-24 sm:py-32">
       <div className="container-x">
         <Reveal>
-          <h2 className="text-center font-display text-[clamp(30px,3.6vw,50px)] font-extrabold leading-[1.08] tracking-[-0.015em] [font-stretch:110%]">
+          <h2 className="text-balance text-center font-display text-[clamp(30px,3.6vw,50px)] font-extrabold leading-[1.08] tracking-[-0.015em] [font-stretch:110%]">
             Sites que <Hi>já estão no ar</Hi>
           </h2>
           <p className="mx-auto mt-5 max-w-[52ch] text-center text-[17px] leading-relaxed text-paper/70">
@@ -148,7 +148,7 @@ export function Works() {
                   href={p.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group block overflow-hidden rounded-[12px] border border-paper/10 bg-[#161616] transition-[border-color,transform] duration-500 ease-out-expo hover:-translate-y-1 hover:border-lime/50"
+                  className="group block overflow-hidden rounded-[12px] border border-paper/10 bg-[#161616] transition-[border-color,transform] duration-500 ease-out-expo [@media(hover:hover)]:hover:-translate-y-1 [@media(hover:hover)]:hover:border-lime/50"
                 >
                   <div className="relative aspect-[16/10] overflow-hidden">
                     <img
@@ -158,14 +158,14 @@ export function Works() {
                       height={900}
                       loading="lazy"
                       decoding="async"
-                      className="h-full w-full object-cover object-top transition-transform duration-[1.2s] ease-out-expo group-hover:scale-[1.04]"
+                      className="h-full w-full object-cover object-top transition-transform duration-[1.2s] ease-out-expo [@media(hover:hover)]:group-hover:scale-[1.04]"
                     />
                     <span className="absolute left-3 top-3 rounded-full bg-ink/80 px-3 py-1 text-[11.5px] font-medium text-paper/80 backdrop-blur-sm">{statusLabel[p.status]}</span>
                   </div>
                   <div className="flex items-center justify-between gap-4 p-5">
                     <div className="min-w-0">
                       <h3 className="truncate font-display text-[18px] font-bold">{p.name}</h3>
-                      <p className="mt-1 truncate text-[13.5px] text-paper/55">{host(p.url)}</p>
+                      <p className="mt-1 truncate text-[13.5px] text-paper/55"><span className="sm:hidden">{p.segment} · {p.category}</span><span className="hidden sm:inline">{host(p.url)}</span></p>
                     </div>
                     <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-paper/15 text-paper/70 transition-colors duration-300 group-hover:border-transparent group-hover:bg-lime group-hover:text-ink">
                       <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9" strokeLinecap="round" strokeLinejoin="round" /></svg>
@@ -187,7 +187,7 @@ export function Mentor() {
   const text = [f.story[0], f.story[2], f.story[4], f.story[5]];
   const thumbs = [projects[3], projects[2], projects[5]];
   return (
-    <section id="sobre" className="relative isolate overflow-hidden pt-24 sm:pt-32">
+    <section id="sobre" className="relative isolate scroll-mt-20 overflow-hidden pt-24 sm:pt-32">
       <div aria-hidden="true" className="absolute bottom-0 right-[10%] -z-10 h-[700px] w-[700px] rounded-full bg-[radial-gradient(circle,rgb(197_242_119/0.18),transparent_65%)]" />
       <div className="container-x grid items-end gap-12 lg:grid-cols-12 lg:gap-8">
         <div className="pb-0 lg:col-span-5 lg:pb-28">
@@ -204,7 +204,7 @@ export function Mentor() {
             </div>
           </Reveal>
           <Reveal delay={0.14}>
-            <a href={site.instagram.url} target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex items-center gap-2 text-[15px] font-medium text-paper underline decoration-lime decoration-2 underline-offset-[6px] hover:text-lime">
+            <a href={site.instagram.url} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex min-h-11 items-center gap-2 text-[15px] font-medium text-paper underline decoration-lime decoration-2 underline-offset-[6px] hover:text-lime">
               Acompanhe no Instagram {site.instagram.handle}
             </a>
           </Reveal>
@@ -241,10 +241,10 @@ export function Mentor() {
 /* ---------- 5. Fechamento ---------- */
 export function FinalCta() {
   return (
-    <section id="contato" className="relative border-t border-lime/40 bg-[linear-gradient(180deg,rgb(197_242_119/0.07),transparent_70%)] py-20 sm:py-24">
+    <section id="contato" className="relative scroll-mt-20 border-t border-lime/40 bg-[linear-gradient(180deg,rgb(197_242_119/0.07),transparent_70%)] py-20 sm:py-24">
       <div className="container-x grid items-center gap-10 lg:grid-cols-2">
         <Reveal>
-          <h2 className="font-display text-[clamp(32px,3.8vw,54px)] font-extrabold uppercase leading-[1] tracking-[-0.01em] [font-stretch:112%]">
+          <h2 className="text-balance font-display text-[clamp(32px,3.8vw,54px)] font-extrabold uppercase leading-[1] tracking-[-0.01em] [font-stretch:112%]">
             Sua empresa pronta <br className="hidden sm:block" /><Hi>para ser encontrada</Hi>
           </h2>
           <p className="mt-5 max-w-[46ch] text-[17px] leading-relaxed text-paper/75">
