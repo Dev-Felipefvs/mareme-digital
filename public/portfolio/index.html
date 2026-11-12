@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Portfólio · MAREME Digital — sites para negócios de Maceió</title>
+<meta name="description" content="14 sites no ar, nenhum igual ao outro. Veja o portfólio da MAREME Digital e converse direto com quem faz o seu site.">
+<link rel="canonical" href="https://mareme.com.br/portfolio/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mareme.com.br/portfolio/">
+<meta property="og:title" content="Portfólio · MAREME Digital">
+<meta property="og:description" content="Antes de te chamar, seu cliente pesquisa seu nome. Veja 14 sites que fiz para negócios de Maceió.">
+<meta property="og:image" content="https://mareme.com.br/og.jpg">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="/icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#000;--forest:#0a1300;--forest2:#060c00;--card:#141412;--card2:#1c1c1a;--lime:#52ff00;--volt:#dbff00;--paper:#fafaf7;--mist:rgb(231 231 226/.72);--dim:rgb(231 231 226/.5);--line:rgb(250 250 247/.1);--g:clamp(16px,4vw,40px);--max:1240px;--ease:cubic-bezier(.16,1,.3,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);color:var(--paper);scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--ink);font:400 17px/1.6 Archivo,system-ui,sans-serif;font-stretch:100%;-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit;color:inherit}
+::selection{background:var(--lime);color:var(--ink)}
+:focus-visible{outline:2px solid var(--lime);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--g)}
+.h{font-weight:700;font-stretch:82%;letter-spacing:-.035em;line-height:.98;text-wrap:balance}
+.lime{color:var(--lime)}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--mist)}
+.kicker::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--lime)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 26px;border-radius:999px;font-weight:600;font-size:16px;transition:transform .5s var(--ease),background .3s,color .3s,border-color .3s;cursor:pointer;border:0}
+.btn:active{transform:scale(.97)}
+.btn--lime{background:var(--lime);color:var(--ink)}
+.btn--lime:hover{background:var(--volt)}
+.btn--ghost{border:1px solid rgb(250 250 247/.22);background:transparent}
+.btn--ghost:hover{border-color:var(--paper)}
+.btn svg{width:18px;height:18px;flex:none}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+section{position:relative}
+
+/* header */
+.top{position:fixed;inset:0 0 auto;z-index:50;transition:background .4s,backdrop-filter .4s}
+.top.scrolled{background:rgb(0 0 0/.72);-webkit-backdrop-filter:blur(16px) saturate(140%);backdrop-filter:blur(16px) saturate(140%)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-stretch:90%;letter-spacing:.02em;font-size:18px}
+.logo i{display:grid;place-items:center;width:30px;height:30px;border-radius:8px;background:var(--lime);color:var(--ink);font-style:normal;font-size:16px;font-weight:900}
+.logo small{font-weight:500;color:var(--dim);font-size:14px;letter-spacing:0}
+.top .btn{min-height:42px;padding:0 18px;font-size:14px}
+
+/* hero */
+.hero{padding:clamp(110px,14vw,150px) 0 clamp(56px,8vw,96px);background:radial-gradient(70% 60% at 78% 40%,rgb(0 126 0/.28),transparent 70%),linear-gradient(var(--ink),var(--forest))}
+.hero .wrap{display:grid;gap:56px;align-items:center}
+@media(min-width:960px){.hero .wrap{grid-template-columns:1.12fr .88fr}}
+.hero h1{font-size:clamp(44px,7.4vw,96px);margin:22px 0 26px}
+.hero h1 em{font-style:normal;color:var(--lime)}
+.hero__lead{font-size:clamp(17px,1.6vw,20px);color:var(--mist);max-width:34em}
+.hero__lead b{color:var(--paper);font-weight:600}
+.hero__cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.hero__proof{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:34px;font-size:14px;color:var(--dim)}
+.hero__proof span{display:flex;align-items:center;gap:8px}
+.hero__proof span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--lime)}
+
+.scene{position:relative;max-width:420px;margin:0 auto;width:100%}
+.search{position:relative;z-index:3;display:flex;align-items:center;gap:12px;padding:15px 20px;border-radius:999px;background:rgb(28 28 26/.9);border:1px solid var(--line);box-shadow:0 20px 60px rgb(0 0 0/.5);font-size:16px}
+.search svg{width:18px;height:18px;flex:none;color:var(--dim)}
+.search__q{white-space:nowrap;overflow:hidden;min-height:1.5em}
+.search__q::after{content:"";display:inline-block;width:2px;height:1.05em;background:var(--lime);margin-left:2px;vertical-align:-.15em;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.phone{position:relative;z-index:2;width:min(270px,68%);margin:-8px auto 0;aspect-ratio:390/844;border-radius:38px;padding:9px;background:#0d0d0c;border:1px solid rgb(250 250 247/.14);box-shadow:0 40px 90px rgb(0 0 0/.6),0 0 0 1px #000 inset;transform:rotate(-3deg)}
+.phone__screen{position:relative;height:100%;border-radius:30px;overflow:hidden;background:#1c1c1a}
+.phone__screen img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;opacity:0;transition:opacity .7s ease}
+.phone__screen img.on{opacity:1}
+.chip{position:absolute;z-index:3;right:-4px;bottom:15%;display:flex;align-items:center;gap:10px;padding:11px 16px;border-radius:14px;background:var(--paper);color:var(--ink);font-size:13px;line-height:1.3;box-shadow:0 18px 40px rgb(0 0 0/.45);max-width:220px;transition:opacity .4s}
+.chip b{display:block;font-size:14px}
+.chip::before{content:"";flex:none;width:9px;height:9px;border-radius:50%;background:#1fbf2e;box-shadow:0 0 0 4px rgb(31 191 46/.18)}
+.glow{position:absolute;inset:18% -10% 0;z-index:1;background:radial-gradient(closest-side,rgb(82 255 0/.22),transparent);filter:blur(20px)}
+
+/* marquee */
+.strip{padding:26px 0;background:var(--forest);border-block:1px solid var(--line);overflow:hidden}
+.strip__track{display:flex;gap:18px;width:max-content;animation:slide 70s linear infinite}
+.strip:hover .strip__track{animation-play-state:paused}
+.strip img{width:300px;aspect-ratio:16/10;object-fit:cover;object-position:top;border-radius:10px;border:1px solid var(--line)}
+@keyframes slide{to{transform:translateX(calc(-50% - 9px))}}
+
+/* problem */
+.pain{padding:clamp(80px,11vw,150px) 0;background:var(--forest)}
+.pain h2{font-size:clamp(36px,5.4vw,72px);max-width:13em}
+.beats{display:grid;gap:1px;margin:56px 0 0;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+@media(min-width:800px){.beats{grid-template-columns:repeat(3,1fr)}}
+.beat{background:var(--forest);padding:30px 28px 34px}
+.beat span{font-size:13px;font-weight:700;color:var(--lime);letter-spacing:.1em}
+.beat p{font-size:clamp(20px,2vw,24px);font-weight:600;font-stretch:90%;line-height:1.25;margin-top:16px;letter-spacing:-.01em}
+.pain__body{display:grid;gap:40px;margin-top:72px}
+@media(min-width:900px){.pain__body{grid-template-columns:1fr 1fr;gap:80px}}
+.pain__body>p{font-size:clamp(18px,1.7vw,21px);color:var(--mist)}
+.pain__body>p b{color:var(--paper);font-weight:600}
+.found h3{font-size:15px;font-weight:600;color:var(--dim);margin-bottom:14px}
+.found li{list-style:none;display:flex;gap:14px;padding:16px 0;border-top:1px solid var(--line);font-size:17px}
+.found li::before{content:"✕";flex:none;display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:rgb(255 90 60/.12);color:#ff7a5c;font-size:11px;font-weight:700;margin-top:1px}
+.found p{margin-top:18px;font-weight:600;font-size:18px}
+
+/* portfolio */
+.work{padding:clamp(80px,11vw,150px) 0;background:var(--ink)}
+.work__head{display:grid;gap:24px;align-items:end}
+@media(min-width:900px){.work__head{grid-template-columns:1.2fr .8fr;gap:60px}}
+.work h2{font-size:clamp(40px,5.4vw,76px)}
+.work__head p{color:var(--mist)}
+.note{display:flex;gap:14px;margin-top:36px;padding:18px 20px;border-radius:14px;background:var(--card);border:1px solid var(--line);font-size:15px;color:var(--mist);max-width:860px}
+.note b{color:var(--paper)}
+.note svg{flex:none;width:20px;height:20px;color:var(--lime);margin-top:2px}
+.filters{display:flex;gap:8px;margin:44px 0 30px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px;margin-inline:calc(var(--g)*-1);padding-inline:var(--g)}
+.filters::-webkit-scrollbar{display:none}
+.filters button{flex:none;min-height:42px;padding:0 18px;border-radius:999px;border:1px solid var(--line);background:transparent;cursor:pointer;font-size:14px;font-weight:500;color:var(--mist);transition:.3s}
+.filters button sup{font-size:11px;margin-left:4px;color:var(--dim)}
+.filters button[aria-pressed=true]{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.filters button[aria-pressed=true] sup{color:rgb(0 0 0/.5)}
+.grid{display:grid;gap:22px}
+@media(min-width:700px){.grid{grid-template-columns:1fr 1fr}}
+@media(min-width:1100px){.grid{grid-template-columns:repeat(3,1fr)}}
+.card{display:flex;flex-direction:column;border-radius:20px;background:var(--card);border:1px solid var(--line);overflow:hidden;transition:border-color .4s,transform .6s var(--ease)}
+.card:hover{border-color:rgb(82 255 0/.45);transform:translateY(-4px)}
+.card[hidden]{display:none}
+.card__media{position:relative;padding:20px 20px 0;background:linear-gradient(160deg,#20201d,#0e0e0d);overflow:hidden}
+.browser{border-radius:10px 10px 0 0;overflow:hidden;border:1px solid rgb(250 250 247/.12);border-bottom:0;background:#0c0c0b}
+.browser__bar{display:flex;gap:5px;padding:8px 10px;background:#232320}
+.browser__bar i{width:7px;height:7px;border-radius:50%;background:rgb(250 250 247/.22)}
+.browser img{aspect-ratio:16/10;width:100%;object-fit:cover;object-position:top;transition:transform 1.2s var(--ease)}
+.card:hover .browser img{transform:scale(1.03)}
+.mini{position:absolute;right:16px;bottom:-34px;width:25%;aspect-ratio:390/844;border-radius:14px;padding:4px;background:#0d0d0c;border:1px solid rgb(250 250 247/.18);box-shadow:-12px 0 30px rgb(0 0 0/.45);transition:transform .8s var(--ease)}
+.card:hover .mini{transform:translateY(-14px)}
+.mini img{width:100%;height:100%;object-fit:cover;object-position:top;border-radius:10px}
+.card__body{display:flex;flex-direction:column;gap:6px;padding:22px 22px 24px;flex:1}
+.card__tag{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+.card h3{font-size:21px;font-weight:650;font-stretch:90%;letter-spacing:-.01em;line-height:1.2}
+.card__seg{font-size:15px;color:var(--mist)}
+.card__link{margin-top:auto;padding-top:16px;display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;color:var(--lime);align-self:flex-start}
+.card__link svg{width:15px;height:15px;transition:transform .4s var(--ease)}
+.card:hover .card__link svg{transform:translate(3px,-3px)}
+.more{display:flex;justify-content:center;margin-top:34px}
+
+/* what you get */
+.get{padding:clamp(80px,11vw,150px) 0;background:var(--forest)}
+.get .wrap{display:grid;gap:40px}
+@media(min-width:960px){.get .wrap{grid-template-columns:.8fr 1.2fr;gap:80px}.get__side{position:sticky;top:110px;align-self:start}}
+.get h2{font-size:clamp(38px,5vw,68px)}
+.get__side p{color:var(--mist);margin-top:22px;max-width:26em}
+.list{list-style:none;counter-reset:n}
+.list li{counter-increment:n;display:grid;grid-template-columns:52px 1fr;gap:4px 10px;padding:26px 0;border-top:1px solid var(--line)}
+.list li:last-child{border-bottom:1px solid var(--line)}
+.list li::before{content:counter(n,decimal-leading-zero);grid-row:span 2;font-size:14px;font-weight:700;color:var(--lime);padding-top:5px}
+.list b{font-size:clamp(20px,2vw,24px);font-weight:650;font-stretch:90%;letter-spacing:-.01em}
+.list span{color:var(--mist)}
+
+/* honesty */
+.honest{padding:clamp(80px,10vw,130px) 0;background:var(--lime);color:var(--ink)}
+.honest .kicker{color:rgb(0 0 0/.6)}.honest .kicker::before{background:var(--ink)}
+.honest h2{font-size:clamp(40px,6.4vw,90px);margin:20px 0 44px;max-width:11em}
+.nope{display:grid;gap:12px;margin-bottom:48px}
+@media(min-width:800px){.nope{grid-template-columns:repeat(3,1fr)}}
+.nope li{list-style:none;padding:22px 24px;border-radius:16px;border:1.5px solid rgb(0 0 0/.85);font-weight:650;font-size:19px;font-stretch:92%;line-height:1.25;text-decoration:line-through;text-decoration-thickness:2px}
+.honest p{font-size:clamp(19px,2vw,25px);line-height:1.45;max-width:36em;font-weight:500}
+
+/* steps */
+.how{padding:clamp(80px,11vw,150px) 0;background:var(--ink)}
+.how h2{font-size:clamp(38px,5vw,68px);max-width:12em}
+.steps{display:grid;gap:18px;margin-top:56px;counter-reset:s}
+@media(min-width:700px){.steps{grid-template-columns:1fr 1fr}}
+@media(min-width:1100px){.steps{grid-template-columns:repeat(4,1fr)}}
+.step{counter-increment:s;padding:28px 26px 32px;border-radius:20px;background:var(--card);border:1px solid var(--line)}
+.step::before{content:counter(s);display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:var(--card2);border:1px solid rgb(82 255 0/.35);color:var(--lime);font-weight:700;margin-bottom:40px}
+.step h3{font-size:22px;font-weight:650;font-stretch:90%;letter-spacing:-.01em;margin-bottom:10px}
+.step p{color:var(--mist);font-size:16px}
+
+/* about */
+.me{padding:clamp(80px,11vw,140px) 0 0;background:linear-gradient(var(--ink),var(--forest));overflow:hidden}
+.me .wrap{display:grid;gap:30px;align-items:end}
+@media(min-width:900px){.me .wrap{grid-template-columns:.9fr 1.1fr;gap:70px}}
+.me__photo{position:relative;max-width:400px;margin:0 auto;width:100%}
+.me__photo::before{content:"";position:absolute;inset:20% -20% 0;background:radial-gradient(closest-side,rgb(0 177 1/.45),transparent);filter:blur(30px)}
+.me__photo img{position:relative;width:100%}
+.me__text{padding-bottom:clamp(40px,8vw,110px)}
+.me h2{font-size:clamp(40px,5.6vw,76px);margin:20px 0 26px}
+.me p{color:var(--mist);margin-bottom:16px;max-width:34em}
+.me p b{color:var(--paper);font-weight:600}
+.me__sign{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.me__sign span{padding:8px 14px;border-radius:999px;border:1px solid var(--line);font-size:14px;color:var(--mist)}
+
+/* faq */
+.faq{padding:clamp(80px,11vw,140px) 0;background:var(--forest)}
+.faq .wrap{display:grid;gap:40px}
+@media(min-width:960px){.faq .wrap{grid-template-columns:.8fr 1.2fr;gap:80px}}
+.faq h2{font-size:clamp(38px,5vw,68px)}
+.faq details{border-top:1px solid var(--line)}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;cursor:pointer;font-size:clamp(18px,1.8vw,21px);font-weight:600;font-stretch:92%}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";flex:none;width:30px;height:30px;border-radius:50%;border:1px solid var(--line);background:linear-gradient(var(--lime),var(--lime)) center/12px 2px no-repeat,linear-gradient(var(--lime),var(--lime)) center/2px 12px no-repeat;transition:transform .4s var(--ease)}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{color:var(--mist);padding:0 50px 26px 0;max-width:40em}
+
+/* final cta */
+.end{padding:clamp(90px,12vw,160px) 0;background:radial-gradient(60% 70% at 50% 100%,rgb(0 126 0/.35),transparent 70%),var(--ink)}
+.end .wrap{display:grid;gap:50px}
+@media(min-width:960px){.end .wrap{grid-template-columns:1fr 1fr;gap:80px;align-items:center}}
+.end h2{font-size:clamp(44px,6.6vw,96px);margin:20px 0 24px}
+.end p{color:var(--mist);font-size:clamp(17px,1.6vw,20px);max-width:28em}
+.alt{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:28px;font-size:15px;color:var(--dim)}
+.alt a{color:var(--paper);border-bottom:1px solid rgb(250 250 247/.3)}
+.form{padding:clamp(24px,3vw,36px);border-radius:24px;background:var(--card);border:1px solid var(--line);display:grid;gap:16px}
+.form label{display:grid;gap:8px;font-size:14px;font-weight:500;color:var(--mist)}
+.form input,.form select{min-height:54px;padding:0 16px;border-radius:12px;border:1px solid rgb(250 250 247/.14);background:#0b0b0a;font-size:16px;transition:border-color .3s}
+.form input:focus,.form select:focus{outline:0;border-color:var(--lime)}
+.form select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--mist) 50%),linear-gradient(-45deg,transparent 50%,var(--mist) 50%);background-position:calc(100% - 22px) 50%,calc(100% - 16px) 50%;background-size:6px 6px;background-repeat:no-repeat}
+.form .btn{width:100%;margin-top:6px}
+.form small{font-size:13px;color:var(--dim);text-align:center}
+
+.foot{padding:34px 0 calc(34px + env(safe-area-inset-bottom));border-top:1px solid var(--line);background:var(--ink);font-size:14px;color:var(--dim)}
+.foot .wrap{display:flex;flex-wrap:wrap;gap:14px 30px;justify-content:space-between}
+.foot a:hover{color:var(--paper)}
+
+.bar{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:60;transform:translateY(140%);transition:transform .6s var(--ease)}
+.bar.show{transform:none}
+.bar .btn{width:100%;border:2px solid #000;box-shadow:0 14px 40px rgb(0 0 0/.5)}
+@media(min-width:960px){.bar{display:none}}
+@media(max-width:959px){.foot{padding-bottom:110px}}
+@media(max-width:520px){.top .btn span{display:none}.top .btn{width:42px;padding:0}.logo small{display:none}.chip{right:0}.hero__cta .btn{width:100%}.mini{width:27%}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="logo" href="https://mareme.com.br/" aria-label="MAREME Digital — início"><i>M</i>MAREME <small>Digital</small></a>
+    <a class="btn btn--lime js-wa" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.4 14.2c-.2.6-1.3 1.2-1.8 1.3-.5 0-1 .3-3.4-.7-2.9-1.2-4.7-4.1-4.8-4.3-.1-.2-1.2-1.6-1.2-3s.7-2.2 1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.5c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3.1.2.1.7-.1 1.2Z"/></svg><span>Chamar no WhatsApp</span></a>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="kicker rv">Sites para negócios de Maceió</p>
+      <h1 class="h rv">Antes de te chamar, seu cliente <em>pesquisa seu nome.</em></h1>
+      <p class="hero__lead rv">O que ele encontra ali pesa na decisão. Eu faço sites para quem <b>já é bom no que faz, mas ainda não parece tão bom na internet</b> — cada um desenhado do zero, com as fotos, as avaliações e o jeito de falar do seu negócio.</p>
+      <div class="hero__cta rv">
+        <a class="btn btn--lime js-wa" href="#" target="_blank" rel="noopener">Quero conversar sobre o meu</a>
+        <a class="btn btn--ghost" href="#portfolio">Ver os 14 sites</a>
+      </div>
+      <div class="hero__proof rv"><span>14 sites no ar</span><span>Nenhum feito a partir de modelo</span><span>Você fala direto com quem faz</span></div>
+    </div>
+    <div class="scene rv" aria-hidden="true">
+      <div class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="search__q" id="q">dentista na serraria</span></div>
+      <div class="glow"></div>
+      <div class="phone"><div class="phone__screen" id="screens"></div></div>
+      <div class="chip" id="chip"><div><b>Dra. Kamylla Holanda</b>site no ar · Serraria</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="strip" aria-hidden="true"><div class="strip__track" id="strip"></div></div>
+
+<section class="pain">
+  <div class="wrap">
+    <p class="kicker rv">Acontece todo dia</p>
+    <h2 class="h rv">O cliente decide se te chama em poucos segundos — <span class="lime">e quase sempre pelo celular.</span></h2>
+    <div class="beats rv">
+      <div class="beat"><span>01</span><p>Alguém indica você para um amigo.</p></div>
+      <div class="beat"><span>02</span><p>Esse amigo digita seu nome no Google ou abre seu perfil.</p></div>
+      <div class="beat"><span>03</span><p>Pelo que aparece ali, ele te chama — ou continua procurando.</p></div>
+    </div>
+    <div class="pain__body">
+      <p class="rv">Ninguém admite, mas todo mundo julga pela aparência. <b>Um site desatualizado, difícil de usar no celular, ou que simplesmente não existe, passa a impressão errada</b> — mesmo quando o seu atendimento é ótimo. E você nunca fica sabendo de quem desistiu.</p>
+      <div class="found rv">
+        <h3>Coisas que eu já encontrei olhando sites de negócios daqui:</h3>
+        <ul>
+          <li>Botão de WhatsApp levando para um número de outro estado.</li>
+          <li>Site invadido, com link de cassino escondido no rodapé — e o dono sem saber.</li>
+          <li>Endereço que não abre mais e mostra uma página de erro.</li>
+          <li>Propaganda de quem fez o site no rodapé de quem pagou por ele.</li>
+        </ul>
+        <p>Nada disso aparece pra quem é dono. Aparece pro cliente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="work" id="portfolio">
+  <div class="wrap">
+    <div class="work__head">
+      <div><p class="kicker rv">Portfólio</p><h2 class="h rv" style="margin-top:18px">14 sites no ar.<br><span class="lime">Nenhum repete o outro.</span></h2></div>
+      <p class="rv">Cada um tem cores, fontes e estrutura próprias, porque uma clínica de estética não tem nada a ver com um escritório de advocacia. Abre, rola, testa no seu celular.</p>
+    </div>
+    <div class="note rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg><p><b>Sendo transparente:</b> estes são projetos conceito. Montei cada um com informações públicas de negócios reais de Maceió e região — fotos, endereço e avaliações que já estavam no Google — para mostrar, na prática, o que dá pra fazer com o material que o negócio já tem.</p></div>
+    <div class="filters" role="group" aria-label="Filtrar por segmento" id="filters"></div>
+    <div class="grid" id="grid"></div>
+    <div class="more"><button class="btn btn--ghost" id="more" type="button">Ver todos os 14 sites</button></div>
+  </div>
+</section>
+
+<section class="get">
+  <div class="wrap">
+    <div class="get__side">
+      <p class="kicker rv">No seu site</p>
+      <h2 class="h rv" style="margin-top:18px">O que todo site que eu faço tem.</h2>
+      <p class="rv">Não é pacote com nome bonito. É o básico bem feito — que, curiosamente, é o que mais falta por aí.</p>
+    </div>
+    <ol class="list">
+      <li class="rv"><b>Feito do zero para você</b><span>Não pego um modelo e troco o logo. Cores, fontes e organização saem do seu negócio e do seu público.</span></li>
+      <li class="rv"><b>Texto de gente falando com gente</b><span>Escrito para soar como você explicando o seu trabalho para um cliente, não como folheto de banco.</span></li>
+      <li class="rv"><b>Suas avaliações reais</b><span>As que seus clientes já deixaram no Google, com o nome de quem escreveu. Nada inventado, nada comprado.</span></li>
+      <li class="rv"><b>Contato a um toque</b><span>Botão e formulário que abrem o seu WhatsApp com a mensagem já escrita. A pessoa não precisa copiar número nenhum.</span></li>
+      <li class="rv"><b>Pensado primeiro para o celular</b><span>Testo em tela de celular antes de publicar, porque é ali que o seu cliente vai abrir.</span></li>
+      <li class="rv"><b>Endereço, mapa e horário</b><span>Tudo o que alguém precisa para chegar até você, sem caçar informação.</span></li>
+      <li class="rv"><b>Link que se apresenta sozinho</b><span>Quando alguém compartilha seu site no WhatsApp, aparece imagem e título — e não um link solto.</span></li>
+      <li class="rv"><b>Seu próprio .com.br</b><span>Posso registrar e configurar o domínio, no seu CPF ou CNPJ.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="honest">
+  <div class="wrap">
+    <p class="kicker rv">Pra ficar claro</p>
+    <h2 class="h rv">O que eu não vou te prometer.</h2>
+    <ul class="nope rv">
+      <li>Primeira página do Google em uma semana.</li>
+      <li>Agenda lotada no mês que vem.</li>
+      <li>Um site que vende sozinho.</li>
+    </ul>
+    <p class="rv">Quem promete isso está vendendo outra coisa. O que um site bem feito faz é mais simples, e mais útil: quando alguém já está interessado em você, ele confirma que a pessoa escolheu certo — e deixa o seu contato a um toque de distância.</p>
+  </div>
+</section>
+
+<section class="how">
+  <div class="wrap">
+    <p class="kicker rv">Como funciona</p>
+    <h2 class="h rv" style="margin-top:18px">Sem reunião longa, sem formulário de 40 perguntas.</h2>
+    <div class="steps">
+      <div class="step rv"><h3>Você me chama</h3><p>Pelo WhatsApp mesmo. Me conta o que você faz, onde atende e o que te incomoda hoje na sua presença online.</p></div>
+      <div class="step rv"><h3>Eu faço a lição de casa</h3><p>Olho seu Google, seu Instagram e seu site atual, se tiver. Junto as fotos, avaliações e informações que já existem.</p></div>
+      <div class="step rv"><h3>Você vê antes de todo mundo</h3><p>Te mando o site funcionando num link de teste. Você abre no celular, comenta o que quiser mudar e eu ajusto.</p></div>
+      <div class="step rv"><h3>Vai pro ar</h3><p>Publico no seu endereço e te entrego o link pronto para a bio do Instagram, o perfil do Google e o cartão.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="me">
+  <div class="wrap">
+    <div class="me__photo rv"><img src="../images/fundador-recorte.png" width="821" height="1556" alt="Emerson, fundador da MAREME Digital" loading="lazy"></div>
+    <div class="me__text">
+      <p class="kicker rv">Quem faz</p>
+      <h2 class="h rv">Prazer, <span class="lime">Emerson.</span></h2>
+      <p class="rv">Sou desenvolvedor web e fundador da MAREME Digital, aqui em Maceió. Comecei curioso para entender como a tecnologia transforma ideia em negócio de verdade — e hoje passo os dias fazendo sites para clínicas, consultórios, escritórios e corretores.</p>
+      <p class="rv">Meu objetivo vai além de uma página bonita: <b>quero que o seu site passe a mesma confiança que o seu atendimento passa pessoalmente.</b></p>
+      <p class="rv">Aqui não tem atendente nem repasse para terceiros. Quem conversa com você é quem desenha, escreve e publica o seu site.</p>
+      <div class="me__sign rv"><span>Design</span><span>Desenvolvimento</span><span>Textos</span><span>Domínio e publicação</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="wrap">
+    <div><p class="kicker rv">Dúvidas</p><h2 class="h rv" style="margin-top:18px">O que costumam me perguntar.</h2></div>
+    <div class="rv">
+      <details open><summary>Quanto custa?</summary><p>Depende do que o seu negócio precisa: uma página só ou um site com várias seções, se já existe domínio, quanto material você já tem. Me conta rapidinho e eu te passo o valor antes de qualquer compromisso.</p></details>
+      <details><summary>Quanto tempo leva?</summary><p>Depende principalmente de quanto material já existe. Na primeira conversa eu te digo um prazo realista para o seu caso — prefiro isso a prometer uma data e correr.</p></details>
+      <details><summary>Não tenho fotos profissionais. Tem problema?</summary><p>Não necessariamente. Vários sites deste portfólio usam as fotos que o próprio negócio já tinha publicado no Google. Se faltar alguma coisa importante, eu te digo o que vale a pena fotografar.</p></details>
+      <details><summary>Já tenho Instagram. Preciso mesmo de site?</summary><p>O Instagram é ótimo para quem já te segue. O site é para quem ainda não te conhece e está pesquisando: reúne tudo num lugar só, pode aparecer na busca do Google e não depende de algoritmo.</p></details>
+      <details><summary>E se eu já tiver um site?</summary><p>Eu olho ele com você e falo com franqueza. Às vezes vale refazer; às vezes basta consertar o que está quebrado.</p></details>
+      <details><summary>O domínio fica no meu nome?</summary><p>Pode ficar, sim. O registro do .com.br pode ser feito direto no seu CPF ou CNPJ.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="end" id="contato">
+  <div class="wrap">
+    <div>
+      <p class="kicker rv">Próximo passo</p>
+      <h2 class="h rv">Me manda o nome do seu <span class="lime">negócio.</span></h2>
+      <p class="rv">Eu dou uma olhada em como você aparece hoje e te respondo com o que eu faria no seu lugar. Sem compromisso e sem textão.</p>
+      <div class="alt rv"><span>Prefere direto? <a class="js-wa" href="#" target="_blank" rel="noopener">WhatsApp</a></span><span><a href="https://www.instagram.com/mareme.mkt/" target="_blank" rel="noopener">@mareme.mkt</a></span></div>
+    </div>
+    <form class="form rv" id="form" novalidate>
+      <label>Seu nome<input name="nome" autocomplete="name" required placeholder="Como posso te chamar?"></label>
+      <label>Nome do negócio<input name="negocio" required placeholder="Ex.: Clínica Sorriso Jatiúca"></label>
+      <label>Segmento<select name="seg"><option>Saúde / odontologia</option><option>Estética e bem-estar</option><option>Arquitetura e interiores</option><option>Imóveis</option><option>Advocacia</option><option>Outro</option></select></label>
+      <label>Instagram ou site atual <span style="color:var(--dim)">(opcional)</span><input name="link" placeholder="@seuperfil ou seusite.com.br"></label>
+      <button class="btn btn--lime" type="submit">Enviar pelo WhatsApp</button>
+      <small>Abre o WhatsApp com a mensagem pronta. Você revisa antes de enviar.</small>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>© 2026 MAREME Digital · Maceió/AL</span>
+    <span>Os sites exibidos são projetos conceito, criados com informações públicas dos negócios.</span>
+    <a href="https://mareme.com.br/">mareme.com.br</a>
+  </div>
+</footer>
+
+<div class="bar" id="bar"><a class="btn btn--lime js-wa" href="#" target="_blank" rel="noopener">Quero um site assim</a></div>
+
+<script>
+(function(){
+  var WA = '5582987797962';
+  var waUrl = function(t){ return 'https://wa.me/' + WA + '?text=' + encodeURIComponent(t); };
+  var msg = 'Oi, Emerson! Vi seu portfólio e quero conversar sobre um site para o meu negócio.';
+  document.querySelectorAll('.js-wa').forEach(function(a){ a.href = waUrl(msg); });
+
+  var G = 'https://dev-felipefvs.github.io/';
+  var P = [
+    ['kamylla','Dra. Kamylla Holanda','Dentista · Serraria','odonto',G+'site-kamylla-holanda-dentista/'],
+    ['odontovida','Odontovida · Dra. Juliana Barbosa','Periodontia e estética · Jatiúca','odonto',G+'site-odontovida-juliana-barbosa/'],
+    ['tania','Tânia Gusmão Arquitetura','Arquitetura e interiores · Maceió','arq','https://taniagusmaoarquitetura.com.br/'],
+    ['mikaelle','Dra. Mikaelle Vilela','Advocacia previdenciária e trabalhista','adv',G+'site-mikaelle-vilela-advogada/'],
+    ['juliana','Juliana Maria de Lima','Psicologia (TCC)','saude',G+'site-juliana-lima-psicologa/'],
+    ['thiago','Thiago Rocha','Corretor de imóveis · Maceió','imoveis',G+'site-thiago-rocha-corretor/'],
+    ['victor','Dr. Victor Maiorano','Dentista · Pajuçara','odonto',G+'site-victor-maiorano-dentista/'],
+    ['harmony','Harmony Clínica e Saúde','Ultrassonografia · Jatiúca','saude',G+'site-harmony-clinica/'],
+    ['elaine','Dra. Elaine Sobral Leite','Dentista · Jatiúca','odonto',G+'site-dra-elaine-sobral/'],
+    ['rosangela','Dra. Rosângela Santos','Lentes em resina · Jatiúca','odonto',G+'site-rosangela-lentes-em-resina/'],
+    ['anailton','Anailton Simião','Arquitetura residencial · Maceió','arq',G+'site-anailton-simiao-arquiteto/'],
+    ['rafael','Rafael Barros','Corretor de imóveis · Serraria','imoveis',G+'site-rafael-barros-imoveis/'],
+    ['vitta','Vitta OdontoClínic','Clínica odontológica · São Miguel dos Milagres','odonto',G+'site-vitta-odontoclinic/'],
+    ['luiz','Luiz Ribeiro','Corretor de imóveis · Antares','imoveis',G+'site-luiz-ribeiro-corretor/']
+  ];
+  var F = [['all','Todos'],['odonto','Odontologia'],['saude','Saúde'],['arq','Arquitetura'],['imoveis','Imóveis'],['adv','Advocacia']];
+  var arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>';
+
+  // portfolio grid
+  var grid = document.getElementById('grid');
+  grid.innerHTML = P.map(function(p){
+    return '<article class="card" data-seg="'+p[3]+'"><div class="card__media"><div class="browser"><div class="browser__bar"><i></i><i></i><i></i></div>'+
+      '<img src="img/'+p[0]+'-d.jpg" width="1080" height="675" alt="Versão para computador do site '+p[1]+'" loading="lazy"></div>'+
+      '<div class="mini"><img src="img/'+p[0]+'-m.jpg" width="585" height="1266" alt="" loading="lazy"></div></div>'+
+      '<div class="card__body"><span class="card__tag">Projeto conceito</span><h3>'+p[1]+'</h3><span class="card__seg">'+p[2]+'</span>'+
+      '<a class="card__link" href="'+p[4]+'" target="_blank" rel="noopener">Abrir o site '+arrow+'</a></div></article>';
+  }).join('');
+  var cards = [].slice.call(grid.children), moreBtn = document.getElementById('more'), expanded = false, current = 'all';
+  var limit = function(){ return innerWidth >= 1100 ? 6 : 4; };
+  function apply(){
+    var n = 0;
+    cards.forEach(function(c){
+      var match = current === 'all' || c.dataset.seg === current;
+      var show = match && (expanded || current !== 'all' || n < limit());
+      if (match) n++;
+      c.hidden = !show;
+    });
+    moreBtn.parentNode.hidden = expanded || current !== 'all';
+  }
+  var fl = document.getElementById('filters');
+  fl.innerHTML = F.map(function(f){
+    var c = f[0] === 'all' ? P.length : P.filter(function(p){ return p[3] === f[0]; }).length;
+    return '<button type="button" data-f="'+f[0]+'" aria-pressed="'+(f[0]==='all')+'">'+f[1]+'<sup>'+c+'</sup></button>';
+  }).join('');
+  fl.addEventListener('click', function(e){
+    var b = e.target.closest('button'); if (!b) return;
+    current = b.dataset.f;
+    fl.querySelectorAll('button').forEach(function(x){ x.setAttribute('aria-pressed', x === b); });
+    apply();
+  });
+  moreBtn.addEventListener('click', function(){ expanded = true; apply(); });
+  apply();
+
+  // marquee
+  var strip = document.getElementById('strip'), imgs = P.map(function(p){ return '<img src="img/'+p[0]+'-d.jpg" width="1080" height="675" alt="" loading="lazy">'; }).join('');
+  strip.innerHTML = imgs + imgs;
+
+  // hero search scene
+  var S = [
+    ['dentista na serraria','kamylla','Dra. Kamylla Holanda','Serraria'],
+    ['periodontista na jatiúca','odontovida','Odontovida','Jatiúca'],
+    ['arquiteta em maceió','tania','Tânia Gusmão Arquitetura','Maceió'],
+    ['advogada previdenciária maceió','mikaelle','Dra. Mikaelle Vilela','Maceió'],
+    ['corretor de imóveis maceió','thiago','Thiago Rocha','Maceió'],
+    ['dentista na pajuçara','victor','Dr. Victor Maiorano','Pajuçara']
+  ];
+  var scr = document.getElementById('screens'), q = document.getElementById('q'), chip = document.getElementById('chip');
+  scr.innerHTML = S.map(function(s, i){ return '<img src="img/'+s[1]+'-m.jpg" width="585" height="1266" alt=""'+(i ? ' loading="lazy"' : '')+(i ? '' : ' class="on"')+'>'; }).join('');
+  var shots = scr.children, idx = 0, reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function show(i){
+    var s = S[i];
+    [].forEach.call(shots, function(im, k){ im.classList.toggle('on', k === i); });
+    chip.innerHTML = '<div><b>'+s[2]+'</b>site no ar · '+s[3]+'</div>';
+  }
+  function type(text, done){
+    if (reduce) { q.textContent = text; return done(); }
+    var k = 0; q.textContent = '';
+    (function step(){ q.textContent = text.slice(0, ++k); if (k < text.length) setTimeout(step, 55 + Math.random()*50); else setTimeout(done, 350); })();
+  }
+  (function loop(){
+    setTimeout(function(){
+      idx = (idx + 1) % S.length;
+      type(S[idx][0], function(){ show(idx); loop(); });
+    }, 3200);
+  })();
+
+  // form → WhatsApp
+  document.getElementById('form').addEventListener('submit', function(e){
+    e.preventDefault();
+    var f = e.target, nome = f.nome.value.trim(), neg = f.negocio.value.trim();
+    if (!nome) { f.nome.focus(); return; }
+    if (!neg) { f.negocio.focus(); return; }
+    var t = 'Oi, Emerson! Sou ' + nome + ', do negócio "' + neg + '" (' + f.seg.value + ').';
+    if (f.link.value.trim()) t += ' Meu Instagram/site: ' + f.link.value.trim() + '.';
+    t += ' Vi seu portfólio e quero saber como ficaria um site para mim.';
+    window.open(waUrl(t), '_blank', 'noopener');
+  });
+
+  // header, sticky bar, reveal
+  var top = document.getElementById('top'), bar = document.getElementById('bar'), end = document.getElementById('contato');
+  function onScroll(){
+    var y = scrollY; top.classList.toggle('scrolled', y > 20);
+    var r = end.getBoundingClientRect();
+    bar.classList.toggle('show', y > innerHeight * .8 && r.top > innerHeight);
+  }
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  var rv = document.querySelectorAll('.rv');
+  if ('IntersectionObserver' in window && !reduce) {
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px -8% 0px' });
+    rv.forEach(function(el){ io.observe(el); });
+  } else rv.forEach(function(el){ el.classList.add('in'); });
+})();
+</script>
+</body>
+</html>
