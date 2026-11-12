@@ -51,7 +51,7 @@ export function Hero() {
   );
 
   return (
-    <section ref={root} id="inicio" className="relative isolate bg-paper pb-12 pt-28 text-ink sm:pb-16 sm:pt-32">
+    <section ref={root} id="inicio" className="relative isolate bg-paper pt-28 text-ink sm:pt-32">
       <div className="container-x">
         <div className="hero-card relative flex flex-col overflow-hidden rounded-[32px] bg-cloud lg:block lg:min-h-[min(640px,calc(100svh-150px))]">
           {/* Foto (direita no desktop, abaixo do texto no mobile) */}
@@ -132,6 +132,8 @@ export function Hero() {
           </a>
         </div>
       </div>
+      {/* Transição suave do fundo claro para o escuro da próxima seção */}
+      <div aria-hidden="true" className="h-56 sm:h-72" style={{ background: "linear-gradient(180deg, var(--color-paper) 0%, var(--color-cloud) 28%, var(--color-graphite) 72%, var(--color-ink) 100%)" }} />
     </section>
   );
 }
