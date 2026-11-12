@@ -1,8 +1,4 @@
-"use client";
-
-import { useRef } from "react";
-import { gsap, useGSAP } from "@/lib/gsap";
-import { Em } from "./SectionHeading";
+import { SectionHeading } from "./SectionHeading";
 
 const STEPS = [
   { t: "Descoberta", d: "Conversa sobre o seu negócio, público, concorrência e objetivos. Entendemos o que o site precisa resolver." },
@@ -14,84 +10,25 @@ const STEPS = [
 ];
 
 export function Process() {
-  const root = useRef<HTMLElement>(null);
-  const track = useRef<HTMLDivElement>(null);
-
-  useGSAP(
-    () => {
-      const mm = gsap.matchMedia();
-      // Desktop: rolagem horizontal fixada
-      mm.add("(min-width: 1024px) and (prefers-reduced-motion: no-preference)", () => {
-        const el = track.current!;
-        const distance = () => el.scrollWidth - window.innerWidth + 48;
-        const tween = gsap.to(el, {
-          x: () => -distance(),
-          ease: "none",
-          scrollTrigger: {
-            trigger: root.current,
-            start: "top top",
-            end: () => `+=${distance()}`,
-            pin: true,
-            scrub: 0.8,
-            invalidateOnRefresh: true,
-          },
-        });
-        gsap.to(".process-bar", {
-          scaleX: 1,
-          ease: "none",
-          scrollTrigger: { trigger: root.current, start: "top top", end: () => `+=${distance()}`, scrub: true },
-        });
-        gsap.utils.toArray<HTMLElement>(".process-card").forEach((card) => {
-          gsap.from(card.querySelector(".process-num"), {
-            yPercent: 60, opacity: 0, duration: 1, ease: "expo.out",
-            scrollTrigger: { trigger: card, containerAnimation: tween, start: "left 85%" },
-          });
-        });
-      });
-    },
-    { scope: root }
-  );
-
   return (
-    <section ref={root} id="processo" className="relative overflow-hidden py-28 sm:py-36 lg:flex lg:h-[100svh] lg:items-center lg:py-0">
-      <div aria-hidden="true" className="pointer-events-none absolute left-1/3 top-1/2 h-[420px] w-[620px] -translate-y-1/2 rounded-full bg-lime/[0.04] blur-[140px]" />
-      <div className="w-full">
-        <div className="container-x mb-12 flex flex-wrap items-end justify-between gap-6 lg:mb-14">
-          <div>
-            <p className="eyebrow mb-6">
-              <span className="font-serif text-base italic tracking-normal text-white/80">05</span>
-              <span className="h-px w-8 bg-white/20" />Processo de trabalho
-            </p>
-            <h2 className="text-[clamp(38px,5.6vw,84px)] font-medium leading-[0.98] tracking-[-0.04em]">
-              Do briefing ao <Em>site no ar</Em>
-            </h2>
-          </div>
-          <div className="hidden w-64 lg:block">
-            <div className="h-px w-full bg-white/10">
-              <div className="process-bar bg-accent h-full origin-left scale-x-0" />
-            </div>
-            <p className="mt-3 text-[12px] uppercase tracking-[0.2em] text-mist">Role para avançar →</p>
-          </div>
-        </div>
-
-        <div ref={track} className="container-x flex flex-col gap-4 lg:w-max lg:max-w-none lg:flex-row lg:gap-5 lg:pr-[10vw]">
+    <section id="processo" className="relative border-b border-line py-28 sm:py-36">
+      <div className="container-x">
+        <SectionHeading
+          title="Do briefing ao site no ar"
+          text="Seis etapas, sempre com você por perto. Antes de fechar, você já vê o site da sua empresa funcionando."
+        />
+        <ol className="grid border-t border-line sm:grid-cols-2 lg:grid-cols-3">
           {STEPS.map((s, i) => (
-            <article
+            <li
               key={s.t}
-              className="process-card group relative flex flex-col justify-between overflow-hidden rounded-[26px] border border-line bg-ink-2 p-7 lg:h-[52vh] lg:min-h-[380px] lg:w-[400px] lg:p-9"
+              className={`border-b border-line py-10 ${i % 2 === 0 ? "sm:border-r sm:pr-8" : "sm:pl-8"} lg:px-8 ${i % 3 === 0 ? "lg:pl-0" : ""} ${i % 3 === 2 ? "lg:border-r-0 lg:pr-0" : "lg:border-r"} ${i >= 3 ? "lg:border-b-0" : ""}`}
             >
-              <div className="flex items-center justify-between">
-                <span className="process-num text-accent font-serif text-[clamp(64px,7vw,104px)] italic leading-none">0{i + 1}</span>
-                {i < STEPS.length - 1 && <span aria-hidden="true" className="hidden text-2xl text-white/25 lg:block">→</span>}
-              </div>
-              <div className="mt-10">
-                <h3 className="text-[clamp(24px,2.2vw,32px)] font-medium tracking-tight">{s.t}</h3>
-                <p className="mt-3 text-[15.5px] leading-relaxed text-mist">{s.d}</p>
-              </div>
-              <div aria-hidden="true" className="bg-accent absolute inset-x-0 bottom-0 h-[2px] origin-left scale-x-0 transition-transform duration-700 ease-out-expo group-hover:scale-x-100" />
-            </article>
+              <span className="tabular font-mono text-[13px] text-mist">{String(i + 1).padStart(2, "0")} / {String(STEPS.length).padStart(2, "0")}</span>
+              <h3 className="mt-10 text-[clamp(24px,2.2vw,30px)] font-semibold tracking-[-0.03em]">{s.t}</h3>
+              <p className="mt-3 max-w-[40ch] text-[15.5px] leading-relaxed text-mist">{s.d}</p>
+            </li>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   );

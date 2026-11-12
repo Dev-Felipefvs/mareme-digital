@@ -1,37 +1,29 @@
 "use client";
 
 import { AnimatePresence, motion } from "motion/react";
-import { useCallback, useEffect, useRef, useState, type MouseEvent } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { projects, statusLabel, type Project } from "@/data/projects";
 import { asset } from "@/lib/asset";
 import { DesktopMockup, PhoneMockup } from "./DeviceMockup";
 import { ArrowUpRight } from "./MagneticButton";
 import { SectionHeading, Em } from "./SectionHeading";
 
-function setSpot(e: MouseEvent<HTMLElement>) {
-  const r = e.currentTarget.getBoundingClientRect();
-  e.currentTarget.style.setProperty("--mx", `${e.clientX - r.left}px`);
-  e.currentTarget.style.setProperty("--my", `${e.clientY - r.top}px`);
-}
-
-function ProjectCard({ p, index, featured, onOpen }: { p: Project; index: number; featured: boolean; onOpen: () => void }) {
+function ProjectCard({ p, index, featured, left, onOpen }: { p: Project; index: number; featured: boolean; left: boolean; onOpen: () => void }) {
   return (
     <motion.article
-      className={featured ? "md:col-span-2" : ""}
-      initial={{ opacity: 0, y: 48 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      className={`border-b border-line ${featured ? "md:col-span-2" : left ? "md:border-r" : ""}`}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
       viewport={{ once: true, margin: "0px 0px -10% 0px" }}
-      transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: (index % 2) * 0.08 }}
+      transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: (index % 2) * 0.06 }}
     >
       <button
         type="button"
         onClick={onOpen}
-        onMouseMove={setSpot}
-        data-cursor="Ver"
         aria-label={`Ver detalhes do projeto ${p.name}`}
-        className="spotlight group block w-full rounded-[28px] border border-line bg-ink-2 p-3 text-left transition-[border-color,transform] duration-500 ease-out-expo hover:-translate-y-1 hover:border-white/20 sm:p-4"
+        className="group block w-full p-4 text-left transition-colors duration-500 hover:bg-paper/[0.025] sm:p-6"
       >
-        <div className={`relative overflow-hidden rounded-[20px] bg-ink-3 ${featured ? "aspect-[16/9] md:aspect-[21/9]" : "aspect-[16/10]"}`}>
+        <div className={`relative overflow-hidden rounded-lg border border-line bg-graphite ${featured ? "aspect-[16/9] md:aspect-[21/9]" : "aspect-[16/10]"}`}>
           <img
             src={asset(p.desktop)}
             alt={`Página inicial do site ${p.name}`}
@@ -39,34 +31,25 @@ function ProjectCard({ p, index, featured, onOpen }: { p: Project; index: number
             height={900}
             loading="lazy"
             decoding="async"
-            className="h-full w-full object-cover object-top transition-transform duration-[1.4s] ease-out-expo group-hover:scale-[1.04]"
+            className="h-full w-full object-cover object-top transition-transform duration-[1.2s] ease-out-expo group-hover:scale-[1.025]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent opacity-80 transition-opacity duration-500 group-hover:opacity-50" />
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 opacity-0 mix-blend-soft-light transition-opacity duration-700 group-hover:opacity-100"
-            style={{ background: "radial-gradient(600px circle at 70% 120%, rgb(197 242 119 / 0.35), transparent 60%)" }}
-          />
-          {/* Mockup mobile que sobe no hover */}
-          <div className="absolute bottom-0 right-[5%] w-[22%] max-w-[170px] translate-y-[38%] transition-transform duration-700 ease-out-expo group-hover:translate-y-[12%] md:w-[16%]">
-            <div className="rounded-[18px] border border-white/20 bg-black p-[3px] shadow-2xl">
-              <img src={asset(p.mobile)} alt="" width={780} height={1688} loading="lazy" decoding="async" className="aspect-[390/844] w-full rounded-[15px] object-cover object-top" />
+          <div className="absolute bottom-0 right-[5%] w-[20%] max-w-[150px] translate-y-[40%] transition-transform duration-700 ease-out-expo group-hover:translate-y-[14%] md:w-[14%]">
+            <div className="rounded-[16px] border border-paper/15 bg-ink p-[3px] shadow-[0_20px_40px_-12px_rgb(0_0_0/0.8)]">
+              <img src={asset(p.mobile)} alt="" width={780} height={1688} loading="lazy" decoding="async" className="aspect-[390/844] w-full rounded-[13px] object-cover object-top" />
             </div>
           </div>
-          <span className="absolute left-4 top-4 rounded-full border border-white/15 bg-ink/60 px-3 py-1 text-[11px] font-medium tracking-[0.12em] text-white/85 backdrop-blur-md">
-            {statusLabel[p.status]}
-          </span>
         </div>
-        <div className="flex items-end justify-between gap-6 px-2 pb-2 pt-5">
-          <div>
-            <p className="text-[12px] uppercase tracking-[0.2em] text-mist">
-              {p.segment} · {p.category}
-            </p>
-            <h3 className={`mt-2 font-medium tracking-[-0.03em] ${featured ? "text-[clamp(28px,3.2vw,44px)]" : "text-[clamp(24px,2.4vw,32px)]"}`}>{p.name}</h3>
+        <div className="flex items-start justify-between gap-6 pt-5">
+          <div className="min-w-0">
+            <h3 className={`font-semibold tracking-[-0.03em] ${featured ? "text-[clamp(26px,2.8vw,40px)]" : "text-[clamp(22px,2vw,28px)]"}`}>{p.name}</h3>
+            <p className="mt-2 font-mono text-[12.5px] text-mist">{p.segment} · {p.category}</p>
           </div>
-          <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-line transition-all duration-500 ease-out-expo group-hover:rotate-45 group-hover:border-transparent group-hover:bg-lime group-hover:text-ink">
-            <ArrowUpRight />
-          </span>
+          <div className="flex shrink-0 items-center gap-4 pt-1.5">
+            <span className="hidden rounded-md border border-line px-2.5 py-1 font-mono text-[11.5px] text-mist sm:inline-block">{statusLabel[p.status]}</span>
+            <span className="grid h-9 w-9 place-items-center rounded-lg border border-line text-mist transition-colors duration-300 group-hover:border-transparent group-hover:bg-lime group-hover:text-ink">
+              <ArrowUpRight />
+            </span>
+          </div>
         </div>
       </button>
     </motion.article>
@@ -116,29 +99,28 @@ function ProjectModal({ p, onClose, onStep }: { p: Project; onClose: () => void;
       <button type="button" aria-label="Fechar" tabIndex={-1} onClick={onClose} className="absolute inset-0 bg-ink/80 backdrop-blur-md" />
       <motion.div
         ref={panelRef}
-        className="relative max-h-[92svh] w-full max-w-6xl overflow-y-auto rounded-t-[28px] border border-line bg-ink-2 sm:rounded-[28px]"
+        className="relative max-h-[92svh] w-full max-w-6xl overflow-y-auto rounded-t-xl border border-line bg-ink sm:rounded-xl"
         initial={{ y: 60, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 40, opacity: 0 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       >
-        <div aria-hidden="true" className="pointer-events-none absolute -right-20 -top-20 h-80 w-80 rounded-full blur-[110px]" style={{ background: "var(--color-lime)", opacity: 0.08 }} />
-        <div className="sticky top-0 z-10 flex items-center justify-between gap-4 border-b border-line bg-ink-2/85 px-5 py-4 backdrop-blur-xl sm:px-8">
-          <p className="truncate text-[12px] uppercase tracking-[0.2em] text-mist">{p.segment} · {p.category} · {p.year}</p>
+        <div className="sticky top-0 z-10 flex items-center justify-between gap-4 border-b border-line bg-ink/90 px-5 py-4 backdrop-blur-md sm:px-8">
+          <p className="truncate text-[14px] text-mist">{p.segment} · {p.category} · <span className="tabular">{p.year}</span></p>
           <div className="flex items-center gap-2">
-            <button type="button" onClick={() => onStep(-1)} aria-label="Projeto anterior" className="grid h-10 w-10 place-items-center rounded-full border border-line hover:bg-white/5">‹</button>
-            <button type="button" onClick={() => onStep(1)} aria-label="Próximo projeto" className="grid h-10 w-10 place-items-center rounded-full border border-line hover:bg-white/5">›</button>
-            <button ref={closeRef} type="button" onClick={onClose} aria-label="Fechar detalhes" className="grid h-10 w-10 place-items-center rounded-full bg-white text-ink">✕</button>
+            <button type="button" onClick={() => onStep(-1)} aria-label="Projeto anterior" className="grid h-10 w-10 place-items-center rounded-lg border border-line hover:bg-paper/5"><Chevron dir={-1} /></button>
+            <button type="button" onClick={() => onStep(1)} aria-label="Próximo projeto" className="grid h-10 w-10 place-items-center rounded-lg border border-line hover:bg-paper/5"><Chevron dir={1} /></button>
+            <button ref={closeRef} type="button" onClick={onClose} aria-label="Fechar detalhes" className="grid h-10 w-10 place-items-center rounded-lg bg-paper text-ink"><svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" /></svg></button>
           </div>
         </div>
 
         <div className="relative px-5 pb-10 pt-8 sm:px-8 sm:pb-12">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div>
-              <span className="mb-4 inline-block rounded-full border border-line px-3 py-1 text-[11px] tracking-[0.12em] text-white/80">{statusLabel[p.status]}</span>
-              <h3 id="project-title" className="text-[clamp(34px,5vw,64px)] font-medium leading-none tracking-[-0.04em]">{p.name}</h3>
+              <span className="mb-4 inline-block rounded-md border border-line px-2.5 py-1 text-[12px] text-mist">{statusLabel[p.status]}</span>
+              <h3 id="project-title" className="text-[clamp(34px,5vw,64px)] font-semibold leading-none tracking-[-0.04em]">{p.name}</h3>
             </div>
-            <a href={p.url} target="_blank" rel="noopener noreferrer" className="bg-accent inline-flex h-12 items-center gap-2 rounded-full px-6 text-[15px] font-medium text-ink transition-transform hover:-translate-y-0.5">
+            <a href={p.url} target="_blank" rel="noopener noreferrer" className="inline-flex h-12 items-center gap-2 rounded-lg bg-lime px-6 text-[15px] font-medium text-ink transition-[filter] hover:brightness-105">
               Visitar o site <ArrowUpRight />
             </a>
           </div>
@@ -152,21 +134,21 @@ function ProjectModal({ p, onClose, onStep }: { p: Project; onClose: () => void;
             <p className="text-[18px] leading-relaxed text-white/80">{p.description}</p>
             <div className="grid gap-8">
               <div>
-                <h4 className="eyebrow mb-4">Destaques</h4>
+                <h4 className="mb-4 text-[14px] font-medium text-paper">Destaques</h4>
                 <ul className="grid gap-2.5">
                   {p.highlights.map((h) => (
                     <li key={h} className="flex gap-3 text-[15px] text-white/80">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />{h}
+                      <span className="mt-[9px] h-px w-3 shrink-0 bg-paper/40" />{h}
                     </li>
                   ))}
                 </ul>
               </div>
               {p.technologies.length > 0 && (
                 <div>
-                  <h4 className="eyebrow mb-4">Tecnologias</h4>
+                  <h4 className="mb-4 text-[14px] font-medium text-paper">Tecnologias</h4>
                   <ul className="flex flex-wrap gap-2">
                     {p.technologies.map((t) => (
-                      <li key={t} className="rounded-full border border-line bg-white/[0.03] px-3 py-1.5 text-[13px] text-white/80">{t}</li>
+                      <li key={t} className="rounded-md border border-line px-2.5 py-1 text-[13px] text-mist">{t}</li>
                     ))}
                   </ul>
                 </div>
@@ -179,30 +161,36 @@ function ProjectModal({ p, onClose, onStep }: { p: Project; onClose: () => void;
   );
 }
 
+function Chevron({ dir }: { dir: 1 | -1 }) {
+  return (
+    <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+      <path d={dir === 1 ? "M9 6l6 6-6 6" : "M15 6l-6 6 6 6"} strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 export function Portfolio() {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
   const close = useCallback(() => setOpenIdx(null), []);
   const step = useCallback((d: number) => setOpenIdx((i) => (i === null ? i : (i + d + projects.length) % projects.length)), []);
 
   return (
-    <section id="projetos" className="relative py-28 sm:py-36">
+    <section id="projetos" className="relative border-b border-line pt-28 sm:pt-36">
       <div className="container-x">
         <SectionHeading
-          index="01"
-          eyebrow="Portfólio"
           title={<>Projetos que <Em>impressionam</Em></>}
           text="Sites reais e demonstrações criados pela MAREME Digital — cada um pensado do zero para a marca, o público e o objetivo do negócio."
         />
-        <div className="grid gap-5 md:grid-cols-2 md:gap-6">
-          {projects.map((p, i) => (
-            <ProjectCard
-              key={p.slug}
-              p={p}
-              index={i}
-              featured={i === 0 || (i === projects.length - 1 && (projects.length - 1) % 2 === 1)}
-              onOpen={() => setOpenIdx(i)}
-            />
-          ))}
+        <div className="grid border-t border-line md:grid-cols-2">
+          {(() => {
+            let col = 0;
+            return projects.map((p, i) => {
+              const featured = i === 0 || (i === projects.length - 1 && (projects.length - 1) % 2 === 1);
+              const left = !featured && col % 2 === 0;
+              if (!featured) col++;
+              return <ProjectCard key={p.slug} p={p} index={i} featured={featured} left={left} onOpen={() => setOpenIdx(i)} />;
+            });
+          })()}
         </div>
       </div>
 

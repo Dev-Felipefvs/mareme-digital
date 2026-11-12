@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, type MouseEvent } from "react";
+import { useRef } from "react";
 import { gsap, useGSAP } from "@/lib/gsap";
 import { Reveal } from "./Reveal";
 
@@ -13,12 +13,6 @@ const PILLARS = [
   { n: "03", t: "Pensado para converter", d: "Chamadas claras, WhatsApp e formulários no lugar certo para transformar visitas em contatos." },
   { n: "04", t: "Acompanhamento próximo", d: "Você participa de cada etapa e conta com suporte depois da publicação." },
 ];
-
-function spot(e: MouseEvent<HTMLElement>) {
-  const r = e.currentTarget.getBoundingClientRect();
-  e.currentTarget.style.setProperty("--mx", `${e.clientX - r.left}px`);
-  e.currentTarget.style.setProperty("--my", `${e.clientY - r.top}px`);
-}
 
 export function Agency() {
   const root = useRef<HTMLElement>(null);
@@ -43,41 +37,37 @@ export function Agency() {
   );
 
   return (
-    <section ref={root} id="agencia" className="relative py-28 sm:py-36">
+    <section ref={root} id="agencia" className="relative border-b border-line py-28 sm:py-36">
       <div className="container-x">
-        <Reveal>
-          <p className="eyebrow mb-10">
-            <span className="font-serif text-base italic tracking-normal text-white/80">03</span>
-            <span className="h-px w-8 bg-white/20" />Sobre a agência
-          </p>
-        </Reveal>
-        <p className="agency-statement max-w-[22ch] text-[clamp(32px,4.8vw,72px)] font-medium leading-[1.05] tracking-[-0.035em] sm:max-w-[24ch]">
-          {STATEMENT.split(" ").map((w, i) => (
-            <span key={i} className="agency-word">
-              {w === "experiências" || w === "digitais" ? <span className="text-accent font-serif italic font-normal">{w}</span> : w}{" "}
-            </span>
-          ))}
+        <p className="agency-statement max-w-[28ch] text-balance text-[clamp(28px,3.6vw,52px)] font-normal leading-[1.15] tracking-[-0.025em] text-mist">
+          {STATEMENT.split(" ").map((w, i, all) => {
+            const lead = all.indexOf("Cada");
+            return (
+              <span key={i} className={`agency-word ${i >= lead ? "text-paper" : ""}`}>{w} </span>
+            );
+          })}
         </p>
 
-        <div className="mt-20 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-20 grid border-t border-line sm:grid-cols-2 lg:grid-cols-4">
           {PILLARS.map((p, i) => (
-            <Reveal key={p.n} delay={i * 0.08}>
-              <article onMouseMove={spot} className="spotlight group h-full rounded-[24px] border border-line bg-ink-2 p-7 transition-colors duration-500 hover:border-white/20">
-                <span className="font-serif text-[40px] italic leading-none text-white/25 transition-colors duration-500 group-hover:text-white/70">{p.n}</span>
-                <h3 className="mt-14 text-[22px] font-medium tracking-tight">{p.t}</h3>
-                <p className="mt-3 text-[15px] leading-relaxed text-mist">{p.d}</p>
-              </article>
+            <Reveal
+              key={p.n}
+              delay={i * 0.06}
+              className={`border-b border-line py-8 ${i % 2 === 0 ? "sm:border-r sm:pr-6" : "sm:pl-6"} lg:border-b-0 lg:px-6 ${i === 0 ? "lg:pl-0" : ""} ${i < 3 ? "lg:border-r" : "lg:border-r-0 lg:pr-0"}`}
+            >
+              <h3 className="text-[20px] font-semibold tracking-[-0.02em]">{p.t}</h3>
+              <p className="mt-3 text-[15px] leading-relaxed text-mist">{p.d}</p>
             </Reveal>
           ))}
         </div>
 
         <Reveal>
-          <div className="mt-6 flex flex-col items-start justify-between gap-6 rounded-[24px] border border-line bg-ink-2 p-7 sm:flex-row sm:items-center">
-            <p className="max-w-2xl text-[17px] leading-relaxed text-white/80">
-              <span className="font-medium text-white">Metodologia própria:</span> descoberta, estratégia, design, desenvolvimento, publicação e acompanhamento — um caminho claro do briefing ao site no ar.
+          <div className="mt-14 flex flex-col items-start justify-between gap-6 border-y border-line py-8 sm:flex-row sm:items-center">
+            <p className="max-w-2xl text-[17px] leading-relaxed text-paper/75">
+              <span className="font-medium text-paper">Metodologia própria:</span> descoberta, estratégia, design, desenvolvimento, publicação e acompanhamento — um caminho claro do briefing ao site no ar.
             </p>
-            <a href="#processo" className="inline-flex shrink-0 items-center gap-2 rounded-full border border-white/15 px-5 py-3 text-[14px] hover:border-white/40">
-              Ver o processo ↓
+            <a href="#processo" className="inline-flex shrink-0 items-center gap-2 rounded-lg border border-line px-5 py-3 text-[14px] transition-colors hover:border-paper/30 hover:bg-paper/[0.04]">
+              Ver o processo
             </a>
           </div>
         </Reveal>

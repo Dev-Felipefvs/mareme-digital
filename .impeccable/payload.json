@@ -1,0 +1,44 @@
+{
+  "title": "Escolha o mundo visual da MAREME",
+  "question": "A rolagem sorteou a Fachada Acesa. Fique com ela, escolha a alternativa ou peça outra rodada.",
+  "options": [
+    {
+      "id": "assigned", "kind": "assigned", "kicker": "THE ROLL",
+      "label": "Fachada Acesa",
+      "lineage": "Letreiros e vitrines do comércio de Maceió à noite",
+      "thesis": "O site como a fachada iluminada de uma loja: o letreiro MAREME aceso em lima e, na vitrine, o site do cliente já funcionando.",
+      "palette": ["#101010", "#262626", "#C5F277", "#E7E7E2", "#FAFAF7"],
+      "materials": ["letreiro luminoso", "vidro de vitrine", "etiqueta de preço"],
+      "viewport": "Letreiro gigante MAREME no topo com o menu como placa, vitrine com o site da Tânia, etiqueta lima 'Já está pronto' e a porta como botão de WhatsApp.",
+      "risk": "Pode parecer cenário se a vitrine não mostrar sites reais rodando.",
+      "raised": [
+        {"from": "Nixie laboratory counter", "raise": "A luz é significado: só o que está no ar acende em lima (sites publicados e a ação principal); todo o resto fica apagado em grafite."},
+        {"from": "Polish film poster", "raise": "Uma única imagem dominante por tela: cada seção é uma vitrine, nunca uma grade de cartões iguais."},
+        {"from": "Sneaker box stacks", "raise": "Todo projeto carrega a mesma etiqueta: nome, segmento, bairro e status (no ar ou demonstração)."}
+      ],
+      "html": ".impeccable/mocks/decision/assigned.html"
+    },
+    {
+      "id": "model-pick", "kind": "pick", "kicker": "IMPECCABLE’S PICK",
+      "label": "Prova de Gráfica",
+      "lineage": "Provas de impressão com marcas de corte e 'de acordo'",
+      "thesis": "Cada site é uma prova para aprovação: o cliente vê a prova pronta e assina o 'de acordo' antes de contratar.",
+      "palette": ["#101010", "#262626", "#C5F277", "#FAFAF7"],
+      "materials": ["marcas de corte", "barra de cores", "carimbo de aprovação"],
+      "viewport": "Folha de prova com marcas de corte em lima, o site do cliente impresso à esquerda e o carimbo 'Aprovar e conversar' na linha de assinatura.",
+      "risk": "É o caminho editorial de fios finos e rótulos pequenos, onde muitos sites de agência acabam.",
+      "html": ".impeccable/mocks/decision/model-pick.html"
+    },
+    {"id": "challenger-sampler", "kind": "challenger", "catalogId": "graphic-worlds-publishing-sampler-alphabet-proof", "label": "Sampler bordado", "verdict": "declined", "lineage": "Amostra de bordado infantil", "thesis": "Aprendizado em faixas bordadas.", "palette": ["#B5452F", "#2F3F6B", "#5E7A3B", "#E9E1CF"], "materials": ["seda", "linho"], "viewport": "Faixas de bordado empilhadas.", "risk": "Não conversa com donos de negócio.", "case": "Perde nos dois eixos: o cliente não se reconhece em bordado.", "kept": "Navegação em ordem de progresso (vira o processo do briefing ao ar)."},
+    {"id": "challenger-poster", "kind": "challenger", "catalogId": "posters-covers-sleeves-polish-film-poster", "label": "Cartaz polonês", "verdict": "declined", "lineage": "Cartaz de cinema polonês", "thesis": "Uma metáfora pintada domina a folha.", "palette": ["#5B2A6E", "#A3202B", "#9A7B3A"], "materials": ["guache", "papel de cartaz"], "viewport": "Uma imagem pintada só.", "risk": "Esconde a oferta.", "case": "Perde nos dois eixos e brigaria com a paleta preto + lima.", "kept": "Uma imagem dominante por tela."},
+    {"id": "challenger-nixie", "kind": "challenger", "catalogId": "signals-instruments-nixie-laboratory-counter", "label": "Contador nixie", "verdict": "declined", "lineage": "Contador de laboratório", "thesis": "Números acesos como interface.", "palette": ["#0D0D0D", "#FF7A1A", "#7D8288"], "materials": ["vidro", "aço"], "viewport": "Bancos de tubos com contagens.", "risk": "A MAREME não tem números para mostrar.", "case": "Perde nos dois eixos: exigiria números que não existem.", "kept": "Só o que está aceso tem cor."},
+    {"id": "challenger-ink", "kind": "challenger", "catalogId": "medium-native-fluid-ink-basin", "label": "Bacia de tinta", "verdict": "declined", "lineage": "Suminagashi", "thesis": "A página como líquido.", "palette": ["#22305A", "#1A1A1A", "#F2F2EE"], "materials": ["tinta", "água"], "viewport": "Superfície líquida interativa.", "risk": "Pesado e abstrato; o usuário já recusou fundo animado.", "case": "Perde nos dois eixos.", "kept": "Interação com lei física real (o letreiro acende com a mesma curva de uma lâmpada)."},
+    {"id": "challenger-raku", "kind": "challenger", "catalogId": "clay-ceramics-fracture-raku-smoke-flash", "label": "Raku", "verdict": "declined", "lineage": "Cerâmica raku", "thesis": "Queima e revelação.", "palette": ["#141210", "#D8D5CC", "#E2621B"], "materials": ["argila", "fumaça"], "viewport": "Vaso em etapas de queima.", "risk": "Sem relação com o público.", "case": "Perde nos dois eixos.", "kept": "Revelação em etapas (o site aparece pronto no fim do processo)."},
+    {"id": "challenger-sneaker", "kind": "challenger", "catalogId": "textiles-weave-drape-fashion-sneaker-box-stacks", "label": "Parede de caixas", "verdict": "declined", "lineage": "Arquivo de caixas de tênis", "thesis": "Projetos como caixas etiquetadas.", "palette": ["#D9692B", "#111111", "#F4F1EA"], "materials": ["papelão", "papel de seda"], "viewport": "Parede de caixas com etiquetas.", "risk": "Muda a paleta fixada.", "case": "Perde nos dois eixos para a vitrine.", "kept": "Etiqueta padronizada em todo projeto."}
+  ],
+  "reroll": {"registers": ["safer", "bolder"]},
+  "buildPath": {"value": "code"},
+  "canon": true,
+  "canonCard": {"kind": "canon", "label": "O padrão das agências", "thesis": "Hero com título grande, botão lima e imagem ao lado, bem executado.", "palette": ["#101010", "#262626", "#C5F277", "#FAFAF7"], "materials": ["grade limpa", "capturas de projetos"], "viewport": "O arranjo que o visitante espera, com acabamento impecável.", "risk": "Igual à concorrência, por definição.", "html": ".impeccable/mocks/decision/canon.html"},
+  "steer": true
+}

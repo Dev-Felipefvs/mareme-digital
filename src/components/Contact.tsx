@@ -3,7 +3,6 @@
 import { useState, type FormEvent } from "react";
 import { site, contactLink, contactChannel } from "@/data/site";
 import { Reveal } from "./Reveal";
-import { Em } from "./SectionHeading";
 import { ArrowIcon } from "./MagneticButton";
 
 const TYPES = ["Site institucional", "Landing page", "Portfólio", "Outro"];
@@ -66,23 +65,16 @@ export function Contact() {
   }
 
   const field =
-    "w-full rounded-2xl border bg-white/[0.03] px-5 py-4 text-[16px] text-white placeholder:text-white/30 outline-none transition-[border-color,background-color,box-shadow] duration-300 focus:border-lime focus:bg-white/[0.05] focus:shadow-[0_0_0_4px_rgb(197_242_119/0.15)]";
+    "w-full rounded-lg border bg-ink px-4 py-3.5 text-[16px] text-paper placeholder:text-paper/35 outline-none transition-[border-color,box-shadow] duration-300 hover:border-paper/25 focus:border-paper/60 focus:shadow-[0_0_0_3px_rgb(250_250_247/0.08)]";
   const ok = (k: string) => (errors[k] ? "border-red-400/70" : "border-line");
 
   return (
-    <section id="contato" className="relative overflow-hidden py-28 sm:py-36">
-      <div aria-hidden="true" className="pointer-events-none absolute -bottom-40 left-1/2 h-[600px] w-[900px] -translate-x-1/2 rounded-full bg-lime/[0.07] blur-[160px]" />
+    <section id="contato" className="relative py-28 sm:py-36">
       <div className="container-x relative grid gap-14 lg:grid-cols-[1fr_1.05fr] lg:gap-20">
         <div>
-          <Reveal>
-            <p className="eyebrow mb-6">
-              <span className="font-serif text-base italic tracking-normal text-white/80">06</span>
-              <span className="h-px w-8 bg-white/20" />Contato
-            </p>
-          </Reveal>
           <Reveal delay={0.08}>
-            <h2 className="text-[clamp(42px,6.4vw,100px)] font-medium leading-[0.95] tracking-[-0.045em]">
-              Vamos criar algo que <Em>impressione?</Em>
+            <h2 className="text-balance text-[clamp(42px,6vw,88px)] font-semibold leading-[0.96] tracking-[-0.04em]">
+              Vamos criar algo que impressione?
             </h2>
           </Reveal>
           <Reveal delay={0.16}>
@@ -96,9 +88,7 @@ export function Contact() {
                 href={contactLink("Olá! Vim pelo site da MAREME Digital e quero um orçamento.")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`inline-flex h-14 items-center gap-3 rounded-full px-7 font-medium transition-transform hover:-translate-y-0.5 ${
-                  "bg-accent text-ink"
-                }`}
+                className="inline-flex h-12 items-center gap-2.5 rounded-lg bg-lime px-6 text-[15px] font-medium text-ink transition-[filter] hover:brightness-105"
               >
                 {site.whatsapp ? (
                   <svg viewBox="0 0 32 32" className="h-5 w-5" fill="currentColor" aria-hidden="true"><path d="M16 3C9.4 3 4 8.3 4 14.9c0 2.3.7 4.5 1.8 6.3L4 29l8-1.8c1.3.4 2.6.7 4 .7 6.6 0 12-5.3 12-11.9C28 8.3 22.6 3 16 3Zm5.8 16.9c-.3.7-1.5 1.4-2.1 1.5-.6.1-1.2.1-2-.1-.5-.1-1-.3-1.8-.7-3.2-1.4-5.2-4.6-5.4-4.8-.2-.2-1.3-1.7-1.3-3.2s.8-2.3 1.1-2.6c.3-.3.6-.4.8-.4h.6c.2 0 .5-.1.7.5.3.6.9 2.2 1 2.3.1.2.1.4 0 .6-.1.2-.2.3-.3.5-.2.2-.3.4-.5.6-.2.2-.3.3-.1.6.2.3.8 1.3 1.8 2.2 1.2 1.1 2.2 1.4 2.5 1.6.3.2.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.3.7-.2.3.1 1.8.9 2.2 1 .3.2.5.2.6.4.1.1.1.8-.2 1.5Z" /></svg>
@@ -108,7 +98,7 @@ export function Contact() {
                 {site.whatsapp ? "Falar pelo WhatsApp" : "Chamar no Direct"}
               </a>
               {site.whatsapp && (
-                <a href={site.instagram.url} target="_blank" rel="noopener noreferrer" className="inline-flex h-14 items-center rounded-full border border-white/15 px-7 hover:border-white/40">
+                <a href={site.instagram.url} target="_blank" rel="noopener noreferrer" className="inline-flex h-12 items-center rounded-lg border border-line px-6 text-[15px] transition-colors hover:border-paper/30 hover:bg-paper/[0.04]">
                   {site.instagram.handle}
                 </a>
               )}
@@ -117,18 +107,18 @@ export function Contact() {
         </div>
 
         <Reveal delay={0.1}>
-          <form onSubmit={onSubmit} noValidate className="glass rounded-[30px] border border-line p-6 sm:p-9" aria-describedby="form-status">
+          <form onSubmit={onSubmit} noValidate className="rounded-xl border border-line bg-ink p-6 sm:p-9" aria-describedby="form-status">
             <div className="grid gap-5 sm:grid-cols-2">
               <label className="grid gap-2">
-                <span className="text-[13px] font-medium text-white/80">Nome *</span>
+                <span className="text-[14px] font-medium text-paper/85">Nome *</span>
                 <input name="nome" autoComplete="name" required placeholder="Seu nome" className={`${field} ${ok("nome")}`} aria-invalid={!!errors.nome} />
               </label>
               <label className="grid gap-2">
-                <span className="text-[13px] font-medium text-white/80">Empresa</span>
+                <span className="text-[14px] font-medium text-paper/85">Empresa</span>
                 <input name="empresa" autoComplete="organization" placeholder="Nome do negócio" className={`${field} border-line`} />
               </label>
               <label className="grid gap-2 sm:col-span-2">
-                <span className="text-[13px] font-medium text-white/80">WhatsApp *</span>
+                <span className="text-[14px] font-medium text-paper/85">WhatsApp *</span>
                 <input
                   name="whatsapp"
                   type="tel"
@@ -145,12 +135,12 @@ export function Contact() {
             </div>
 
             <fieldset className="mt-6">
-              <legend className="mb-3 text-[13px] font-medium text-white/80">Tipo de projeto</legend>
+              <legend className="mb-3 text-[14px] font-medium text-paper/85">Tipo de projeto</legend>
               <div className="flex flex-wrap gap-2">
                 {TYPES.map((t) => (
                   <label key={t} className="cursor-pointer">
                     <input type="radio" name="tipo" value={t} checked={type === t} onChange={() => setType(t)} className="peer sr-only" />
-                    <span className="inline-block rounded-full border border-line px-4 py-2.5 text-[14px] text-white/75 transition-all duration-300 peer-checked:border-transparent peer-checked:bg-lime peer-checked:text-ink peer-focus-visible:ring-2 peer-focus-visible:ring-lime">
+                    <span className="inline-block rounded-lg border border-line px-4 py-2.5 text-[14px] text-mist transition-colors duration-300 hover:border-paper/25 hover:text-paper peer-checked:border-paper peer-checked:bg-paper peer-checked:text-ink peer-focus-visible:ring-2 peer-focus-visible:ring-lime">
                       {t}
                     </span>
                   </label>
@@ -159,17 +149,16 @@ export function Contact() {
             </fieldset>
 
             <label className="mt-6 grid gap-2">
-              <span className="text-[13px] font-medium text-white/80">Mensagem *</span>
+              <span className="text-[14px] font-medium text-paper/85">Mensagem *</span>
               <textarea name="mensagem" rows={4} required placeholder="Conte o que você precisa, prazos e referências que gosta" className={`${field} resize-y ${ok("mensagem")}`} aria-invalid={!!errors.mensagem} />
             </label>
 
             <button
               type="submit"
               disabled={status.kind === "sending"}
-              className="group relative mt-7 inline-flex h-14 w-full items-center justify-center gap-3 overflow-hidden rounded-full bg-white font-medium text-ink transition-colors duration-300 hover:text-ink disabled:opacity-60"
+              className="mt-7 inline-flex h-12 w-full items-center justify-center gap-2.5 rounded-lg bg-lime text-[15px] font-medium text-ink transition-[filter] duration-300 hover:brightness-105 disabled:cursor-wait disabled:opacity-60"
             >
-              <span aria-hidden="true" className="bg-accent absolute inset-0 translate-y-full transition-transform duration-500 ease-out-expo group-hover:translate-y-0" />
-              <span className="relative inline-flex items-center gap-3">
+              <span className="inline-flex items-center gap-2.5">
                 {status.kind === "sending" ? "Enviando…" : "Enviar solicitação"} <ArrowIcon />
               </span>
             </button>

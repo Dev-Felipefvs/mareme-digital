@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter_Tight, Instrument_Serif } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { site } from "@/data/site";
 import { Providers } from "@/components/Providers";
@@ -8,8 +8,8 @@ import { ScrollProgress } from "@/components/ScrollProgress";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
-const interTight = Inter_Tight({ subsets: ["latin"], variable: "--font-inter-tight", display: "swap" });
-const instrument = Instrument_Serif({ subsets: ["latin"], weight: "400", style: ["normal", "italic"], variable: "--font-instrument", display: "swap" });
+const geist = Geist({ subsets: ["latin"], variable: "--font-geist", display: "swap" });
+const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono", display: "swap" });
 
 const title = "MAREME Digital — Sites e experiências digitais de alto padrão";
 
@@ -54,7 +54,7 @@ const introScript = `try{if(sessionStorage.getItem('mareme-intro')||/[?&]nointro
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" className={`${interTight.variable} ${instrument.variable}`} suppressHydrationWarning>
+    <html lang="pt-BR" className={`${geist.variable} ${geistMono.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: introScript }} />
         <style>{`html.intro-skip .preloader{display:none}`}</style>
@@ -71,7 +71,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {children}
           <Footer />
         </Providers>
-        <div className="grain" aria-hidden="true" />
       </body>
     </html>
   );
