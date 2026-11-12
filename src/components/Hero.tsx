@@ -1,139 +1,184 @@
 "use client";
 
-import { useRef } from "react";
-import { MagneticButton, ArrowIcon, ArrowUpRight } from "./MagneticButton";
+import { AnimatePresence, motion } from "motion/react";
+import { useEffect, useRef, useState } from "react";
 import { INTRO_EVENT } from "./Preloader";
 import { gsap, useGSAP } from "@/lib/gsap";
-import { site, contactLink } from "@/data/site";
+import { projects } from "@/data/projects";
 import { asset } from "@/lib/asset";
+import { ArrowIcon } from "./MagneticButton";
 
-const LINE_1 = "Seu próximo cliente pode estar procurando".split(" ");
-const MUTED = "por você agora.".split(" ");
-
-/** Números reais e verificáveis — edite à vontade. */
-const STATS = [
-  { n: "6", l: "Projetos publicados" },
-  { n: "100%", l: "Sites sob medida" },
-  { n: "1:1", l: "Atendimento direto" },
-];
+const host = (url: string) => url.replace(/^https?:\/\//, "").replace(/\/$/, "");
 
 export function Hero() {
   const root = useRef<HTMLElement>(null);
+  const [i, setI] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const p = projects[i];
+
+  useEffect(() => {
+    if (paused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const t = setInterval(() => setI((n) => (n + 1) % projects.length), 4200);
+    return () => clearInterval(t);
+  }, [paused]);
 
   useGSAP(
     () => {
       const mm = gsap.matchMedia();
       mm.add("(prefers-reduced-motion: no-preference)", () => {
-        const tl = gsap.timeline({ paused: true, defaults: { ease: "power4.out" } });
-        tl.from(".hero-card", { opacity: 0, y: 40, duration: 1.2 })
-          .from(".hero-photo", { opacity: 0, scale: 1.06, duration: 1.6, ease: "power2.out" }, 0.1)
-          .from(".hero-word", { yPercent: 115, rotate: 3, duration: 1.15, stagger: 0.04 }, 0.2)
-          .from(".hero-fade", { opacity: 0, y: 22, duration: 0.9, stagger: 0.1 }, "-=0.7")
-          .from(".hero-float", { opacity: 0, y: 30, duration: 1 }, "-=0.6");
-
+        const tl = gsap.timeline({ paused: true, defaults: { ease: "expo.out", duration: 0.9 } });
+        tl.from(".hero-line", { yPercent: 105, stagger: 0.08, duration: 1.1 })
+          .from(".hero-fade", { opacity: 0, y: 16, stagger: 0.07 }, "-=0.75")
+          .from(".hero-frame", { opacity: 0, y: 28, duration: 1.2 }, 0.15);
         const play = () => tl.play();
         if (document.documentElement.dataset.intro === "done") play();
         else window.addEventListener(INTRO_EVENT, play, { once: true });
-
         return () => window.removeEventListener(INTRO_EVENT, play);
-      });
-      // Afastamento suave ao rolar (apenas desktop)
-      mm.add("(min-width: 1024px) and (prefers-reduced-motion: no-preference)", () => {
-        gsap.to(".hero-card", {
-          yPercent: -6,
-          opacity: 0.35,
-          ease: "none",
-          scrollTrigger: { trigger: root.current, start: "top top", end: "bottom top", scrub: true },
-        });
       });
     },
     { scope: root }
   );
 
   return (
-    <section ref={root} id="inicio" className="relative isolate bg-paper pt-28 text-ink sm:pt-32">
-      <div className="container-x">
-        <div className="hero-card relative flex flex-col overflow-hidden rounded-[32px] bg-cloud lg:block lg:min-h-[min(640px,calc(100svh-150px))]">
-          {/* Foto (direita no desktop, abaixo do texto no mobile) */}
-          <div className="hero-photo relative order-2 aspect-[4/5] w-full overflow-hidden sm:aspect-[16/11] lg:absolute lg:inset-y-0 lg:right-0 lg:aspect-auto lg:w-[50%]">
-            <img
-              src={asset(site.founder.photo)}
-              alt={`${site.founder.name}, fundador da MAREME Digital`}
-              width={821}
-              height={1556}
-              fetchPriority="high"
-              className="absolute inset-0 h-full w-full object-cover object-[50%_22%] grayscale contrast-[1.05]"
-            />
-            <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-cloud via-transparent to-transparent lg:bg-gradient-to-r lg:from-cloud lg:via-cloud/30 lg:via-25% lg:to-transparent" />
+    <section ref={root} id="inicio" className="relative border-b border-line pt-[76px]">
+      <div className="container-x grid grid-cols-1 gap-14 pb-20 pt-14 sm:pt-20 lg:grid-cols-12 lg:items-start lg:gap-10 lg:pb-28 lg:pt-24">
+        <div className="min-w-0 lg:col-span-7">
+          <h1 className="text-balance text-[clamp(40px,4.9vw,78px)] font-semibold leading-[0.98] tracking-[-0.04em]">
+            <span className="sr-only">Seu próximo cliente pode estar procurando por você agora.</span>
+            <span aria-hidden="true">
+              <span className="block overflow-hidden pb-[0.06em]"><span className="hero-line block">Seu próximo cliente</span></span>
+              <span className="block overflow-hidden pb-[0.06em]"><span className="hero-line block">pode estar procurando</span></span>
+              <span className="block overflow-hidden pb-[0.06em]"><span className="hero-line block text-paper/40">por você agora.</span></span>
+            </span>
+          </h1>
+
+          <p className="hero-fade mt-8 max-w-[520px] text-[clamp(17px,1.35vw,19px)] leading-relaxed text-mist">
+            <span className="text-paper">Quando alguém pesquisa sua empresa, o que encontra?</span> Na MAREME Digital, criamos sites modernos e personalizados para apresentar seu trabalho, fortalecer sua credibilidade e transformar visitas em oportunidades de negócio.
+          </p>
+
+          <div className="hero-fade mt-10 flex flex-wrap items-center gap-3">
+            <a
+              href="#contato"
+              className="inline-flex h-12 items-center gap-2.5 rounded-lg bg-lime px-6 text-[15px] font-medium text-ink transition-[filter,transform] duration-300 hover:brightness-105 active:translate-y-px"
+            >
+              Quero destacar minha empresa <ArrowIcon />
+            </a>
+            <a
+              href="#projetos"
+              className="inline-flex h-12 items-center rounded-lg border border-line px-6 text-[15px] font-medium text-paper transition-colors duration-300 hover:border-paper/30 hover:bg-paper/[0.04]"
+            >
+              Ver nosso portfólio
+            </a>
           </div>
 
-          {/* Texto */}
-          <div className="relative z-10 order-1 px-6 pb-10 pt-10 sm:px-12 sm:pb-14 sm:pt-14 lg:max-w-[58%] lg:px-16 lg:py-16 xl:px-20">
-            <h1 className="font-serif text-[clamp(42px,5.2vw,78px)] font-normal leading-[0.98] tracking-[-0.02em]">
-              <span className="sr-only">Seu próximo cliente pode estar procurando por você agora.</span>
-              <span aria-hidden="true">
-                {LINE_1.map((w, i) => (
-                  <span key={i} className="word-mask mr-[0.22em]">
-                    <span className="hero-word inline-block">{w}</span>
-                  </span>
-                ))}
-                {MUTED.map((w, i) => (
-                  <span key={`m${i}`} className={`word-mask ${i < MUTED.length - 1 ? "mr-[0.22em]" : ""}`}>
-                    <span className="hero-word inline-block text-ink/40">{w}</span>
-                  </span>
-                ))}
+          <p className="hero-fade mt-8 flex max-w-[520px] items-start gap-3 text-[clamp(18px,1.45vw,21px)] font-medium leading-snug tracking-[-0.01em] text-paper">
+            <span className="mt-[0.55em] h-2 w-2 shrink-0 rounded-full bg-lime" aria-hidden="true" />
+            Você vê o site da sua empresa pronto e funcionando antes de fechar qualquer coisa.
+          </p>
+        </div>
+
+        {/* Navegador com os sites reais do portfólio */}
+        <div
+          className="hero-frame relative min-w-0 lg:col-span-5 lg:self-center"
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+        >
+          <div className="relative">
+          <div className="relative overflow-hidden rounded-xl border border-line bg-graphite shadow-[0_40px_80px_-30px_rgb(0_0_0/0.8)]">
+            <div className="flex h-11 items-center gap-3 border-b border-line px-4">
+              <span className="flex gap-1.5" aria-hidden="true">
+                <i className="h-2.5 w-2.5 rounded-full bg-paper/15" />
+                <i className="h-2.5 w-2.5 rounded-full bg-paper/15" />
+                <i className="h-2.5 w-2.5 rounded-full bg-paper/15" />
               </span>
-            </h1>
-
-            <div className="hero-fade mt-7 max-w-[500px] text-[clamp(16px,1.3vw,18px)] leading-relaxed text-ink/65">
-              <p className="font-medium text-ink">Quando alguém pesquisa sua empresa, o que encontra?</p>
-              <p className="mt-2">
-                Na MAREME Digital, criamos sites modernos e personalizados para apresentar seu trabalho, fortalecer sua credibilidade e transformar visitas em oportunidades de negócio.
-              </p>
+              <a
+                href={p.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex min-w-0 flex-1 items-center gap-2 rounded-md bg-ink/60 px-3 py-1.5 font-mono text-[12px] text-mist transition-colors hover:text-paper"
+              >
+                <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-lime" aria-hidden="true" />
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.span
+                    key={p.slug}
+                    className="truncate"
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -6 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {host(p.url)}
+                  </motion.span>
+                </AnimatePresence>
+              </a>
             </div>
-
-            <div className="hero-fade mt-9 flex flex-wrap gap-3">
-              <MagneticButton href="#contato" tone="light">
-                Quero destacar minha empresa <ArrowIcon />
-              </MagneticButton>
-              <MagneticButton href="#projetos" variant="ghost" tone="light">
-                Ver nosso portfólio
-              </MagneticButton>
+            <div className="relative aspect-[16/10] bg-ink">
+              <AnimatePresence initial={false}>
+                <motion.img
+                  key={p.slug}
+                  src={asset(p.desktop)}
+                  alt={`Página inicial do site ${p.name}, feito pela MAREME`}
+                  width={1440}
+                  height={900}
+                  fetchPriority={i === 0 ? "high" : "auto"}
+                  className="absolute inset-0 h-full w-full object-cover object-top"
+                  initial={{ opacity: 0, scale: 1.02 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+                />
+              </AnimatePresence>
             </div>
+          </div>
+          {/* Celular sobreposto */}
+          <div className="absolute -bottom-8 right-4 w-[20%] max-w-[118px] sm:right-6">
+            <div className="overflow-hidden rounded-[18px] border border-paper/15 bg-ink p-[3px] shadow-[0_24px_48px_-12px_rgb(0_0_0/0.85)]">
+              <div className="relative aspect-[390/844] overflow-hidden rounded-[15px]">
+                <AnimatePresence initial={false}>
+                  <motion.img
+                    key={p.slug}
+                    src={asset(p.mobile)}
+                    alt=""
+                    width={780}
+                    height={1688}
+                    className="absolute inset-0 h-full w-full object-cover object-top"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.9, delay: 0.08 }}
+                  />
+                </AnimatePresence>
+              </div>
+            </div>
+          </div>
 
-            <dl className="hero-fade mt-10 flex flex-wrap gap-x-12 gap-y-6 lg:mt-12">
-              {STATS.map((s) => (
-                <div key={s.l}>
-                  <dt className="sr-only">{s.l}</dt>
-                  <dd className="font-serif text-[clamp(34px,3vw,44px)] leading-none">{s.n}</dd>
-                  <dd className="mt-2 text-[14px] text-ink/60">{s.l}</dd>
-                </div>
+          </div>
+
+          {/* Seletor dos projetos */}
+          <div className="mt-12 flex flex-col items-start gap-3 sm:mt-6 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:pr-[calc(20%+2.5rem)]">
+            <p className="min-w-0 text-[14px] leading-snug">
+              <span className="block text-paper">{p.name}</span>
+              <span className="block font-mono text-[12px] text-mist">{p.category}</span>
+            </p>
+            <div className="flex shrink-0 gap-1.5" role="tablist" aria-label="Projetos em destaque">
+              {projects.map((q, n) => (
+                <button
+                  key={q.slug}
+                  type="button"
+                  role="tab"
+                  aria-selected={n === i}
+                  aria-label={q.name}
+                  onClick={() => { setI(n); setPaused(true); }}
+                  className="group grid h-6 w-5 place-items-center"
+                >
+                  <span className={`block h-[3px] rounded-full transition-all duration-500 ${n === i ? "w-5 bg-lime" : "w-2.5 bg-paper/20 group-hover:bg-paper/45"}`} />
+                </button>
               ))}
-            </dl>
+            </div>
           </div>
-
-          {/* Cartão flutuante */}
-          <a
-            href={contactLink("Olá! Vim pelo site da MAREME Digital e quero conversar sobre um projeto.")}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hero-float group absolute bottom-5 right-5 z-20 flex max-w-[360px] items-end gap-5 rounded-[22px] border border-white/15 bg-ink/55 p-5 text-white backdrop-blur-xl transition-colors duration-500 hover:border-lime/50 sm:bottom-8 sm:right-8 sm:p-6 max-lg:left-5 max-lg:max-w-none"
-          >
-            <span className="flex-1">
-              <span className="block text-[12.5px] text-mist">Novo projeto</span>
-              <span className="mt-1 block text-[18px] font-medium">Disponível para projetos</span>
-              <span className="mt-1.5 block text-[13.5px] leading-snug text-white/75">
-                Envie alguns detalhes e eu retorno com uma direção clara.
-              </span>
-            </span>
-            <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-white text-ink transition-colors duration-300 group-hover:bg-lime">
-              <ArrowUpRight />
-            </span>
-          </a>
         </div>
       </div>
-      {/* Transição suave do fundo claro para o escuro da próxima seção */}
-      <div aria-hidden="true" className="h-56 sm:h-72" style={{ background: "linear-gradient(180deg, var(--color-paper) 0%, var(--color-cloud) 28%, var(--color-graphite) 72%, var(--color-ink) 100%)" }} />
     </section>
   );
 }
+

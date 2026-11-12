@@ -5,9 +5,19 @@
    ========================================================= */
 @theme {
   /* Paleta MONOCHROME LIME — altere as cores do site somente aqui */
-  --color-ink: #101010;        /* preto principal: fundo do site */
-  --color-graphite: #262626;   /* grafite: cards, menus e superfícies */
-  --color-lime: #c5f277;       /* verde-lima: botões, ícones, links e destaques */
+  /* Paleta da referência (Página de Vendas "O Grande Salto") */
+  --color-ink: #000000;        /* Preto (primária) */
+  --color-forest: #0a1300;     /* fundo das seções (preto esverdeado) */
+  --color-forest-2: #081100;
+  --color-forest-3: #040a00;
+  --color-glow-1: #003900;     /* luz verde: borda */
+  --color-glow-2: #007e00;     /* luz verde: meio */
+  --color-glow-3: #00b101;     /* luz verde: núcleo */
+  --color-moss: #1b4400;       /* linhas e divisórias */
+  --color-card: #1c1c1a;       /* cartões */
+  --color-lime: #52ff00;       /* Verde Limão (secundária) */
+  --color-volt: #dbff00;       /* terciária */
+  --color-graphite: #1c1c1a;
   --color-mist: rgb(231 231 226 / 0.72); /* cinza claro #E7E7E2: textos secundários */
   --color-paper: #fafaf7;      /* off-white: títulos e textos principais */
   --color-cloud: #e7e7e2;      /* cinza claro sólido: superfícies da área clara (hero) */
@@ -19,8 +29,9 @@
   --color-ink-3: var(--color-graphite);
   --color-line: rgb(250 250 247 / 0.1);
 
-  --font-sans: var(--font-inter-tight), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-instrument), ui-serif, Georgia, serif;
+  --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, monospace;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
@@ -39,9 +50,12 @@
     color: var(--color-paper);
     color-scheme: dark;
     -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgb(197 242 119 / 0.18);
   }
+  a, button, label, input, textarea { touch-action: manipulation; }
   body {
-    background: var(--color-ink);
+    background: var(--color-forest);
+    font-feature-settings: "ss01", "cv11";
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -84,45 +98,10 @@
   color: var(--color-mist);
 }
 
-/* Grão sutil sobre o site (profundidade cinematográfica) */
-.grain {
-  pointer-events: none;
-  position: fixed;
-  inset: 0;
-  z-index: 60;
-  opacity: 0.05;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  mix-blend-mode: overlay;
-}
-
 /* Máscara de palavra para reveal de títulos */
 @layer components {
   .word-mask { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.2em; margin-bottom: -0.2em; }
 }
-
-/* Spotlight nos cards (posição via --mx / --my) */
-.spotlight { position: relative; isolation: isolate; }
-.spotlight::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgb(197 242 119 / 0.09), transparent 65%);
-  opacity: 0;
-  transition: opacity 0.5s var(--ease-out-quart);
-  z-index: -1;
-}
-.spotlight:hover::before { opacity: 1; }
-
-/* Header sobre o hero claro (topo da página) */
-.header-light { color: var(--color-ink); }
-.header-light .text-mist { color: rgb(16 16 16 / 0.6); }
-.header-light .text-white,
-.header-light .hover\:text-white:hover { color: var(--color-ink); }
-.header-light .border-line { border-color: rgb(16 16 16 / 0.12); }
-.header-light [class*="bg-white/"] { background-color: rgb(16 16 16 / 0.05); }
-.header-light .burger-line { background-color: var(--color-ink); }
-.header-light .card-accent { color: var(--color-paper); }
 
 /* Scrollbar discreta */
 * { scrollbar-width: thin; scrollbar-color: var(--color-graphite) transparent; }
@@ -135,4 +114,19 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Números de dados alinhados */
+.tabular { font-variant-numeric: tabular-nums; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: var(--color-graphite); border-radius: 10px; border: 2px solid var(--color-ink); }
+::-webkit-scrollbar-track { background: var(--color-ink); }
+input, textarea { caret-color: var(--color-lime); }
+
+/* Degradê oficial da referência: Verde Limão → terciária (vertical) */
+@utility bg-degrade { background-image: linear-gradient(180deg, #52ff00 0%, #dbff00 100%); }
+@utility text-degrade {
+  background-image: linear-gradient(180deg, #52ff00 0%, #dbff00 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
 }

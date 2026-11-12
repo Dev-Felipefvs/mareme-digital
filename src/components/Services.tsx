@@ -1,8 +1,8 @@
 "use client";
 
-import type { MouseEvent, ReactNode } from "react";
+import type { ReactNode } from "react";
 import { Reveal } from "./Reveal";
-import { SectionHeading, Em } from "./SectionHeading";
+import { SectionHeading } from "./SectionHeading";
 
 const ic = (d: ReactNode) => (
   <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{d}</svg>
@@ -17,55 +17,34 @@ const SERVICES = [
   { t: "Manutenção e suporte", d: "Atualizações, ajustes e acompanhamento contínuo para o seu site seguir rápido e seguro.", i: ic(<><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z" /></>) },
 ];
 
-function spot(e: MouseEvent<HTMLElement>) {
-  const r = e.currentTarget.getBoundingClientRect();
-  e.currentTarget.style.setProperty("--mx", `${e.clientX - r.left}px`);
-  e.currentTarget.style.setProperty("--my", `${e.clientY - r.top}px`);
-}
-
 export function Services() {
   return (
-    <section id="servicos" className="relative py-28 sm:py-36">
-      <div aria-hidden="true" className="pointer-events-none absolute right-0 top-40 h-[480px] w-[480px] rounded-full bg-lime/[0.05] blur-[150px]" />
+    <section id="servicos" className="relative border-b border-line py-28 sm:py-36">
       <div className="container-x">
         <SectionHeading
-          index="04"
-          eyebrow="Serviços"
-          title={<>O que criamos <Em>para você</Em></>}
+          title="O que criamos para você"
           text="Soluções digitais sob medida — do primeiro site ao projeto mais completo, sempre com o mesmo padrão de qualidade."
         />
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {SERVICES.map((s, i) => (
-            <Reveal key={s.t} delay={(i % 3) * 0.08} className={i === 0 ? "lg:col-span-2" : ""}>
-              <article
-                onMouseMove={spot}
-                className="spotlight group flex h-full min-h-[260px] flex-col justify-between overflow-hidden rounded-[24px] border border-line bg-ink-2 p-7 transition-[border-color,transform] duration-500 ease-out-expo hover:-translate-y-1 hover:border-white/20"
-              >
-                <div className="flex items-start justify-between">
-                  <span className="grid h-14 w-14 place-items-center rounded-2xl border border-line bg-white/[0.03] text-white transition-colors duration-500 group-hover:border-transparent group-hover:bg-accent group-hover:text-ink">
-                    {s.i}
-                  </span>
-                  <span className="font-serif text-lg italic text-white/30">0{i + 1}</span>
-                </div>
-                <div className="mt-12">
-                  <h3 className="text-[24px] font-medium tracking-tight">{s.t}</h3>
-                  <p className="mt-3 max-w-md text-[15px] leading-relaxed text-mist">{s.d}</p>
-                </div>
-              </article>
-            </Reveal>
+        <ul className="border-t border-line">
+          {SERVICES.map((s) => (
+            <li key={s.t} className="group grid items-start gap-3 border-b border-line py-8 sm:grid-cols-[48px_1fr] md:grid-cols-[48px_minmax(0,5fr)_minmax(0,6fr)] md:gap-8 md:py-10">
+              <span className="pt-1 text-mist transition-colors duration-300 group-hover:text-paper">{s.i}</span>
+              <h3 className="text-[clamp(24px,2.6vw,36px)] font-semibold leading-tight tracking-[-0.03em]">{s.t}</h3>
+              <p className="max-w-[52ch] text-[16px] leading-relaxed text-mist sm:col-start-2 md:col-start-auto md:pt-1.5">{s.d}</p>
+            </li>
           ))}
-          <Reveal delay={0.16} className="lg:col-span-2">
-            <a
-              href="#contato"
-              className="bg-accent group flex h-full min-h-[260px] text-ink flex-col justify-between rounded-[24px] p-7 transition-transform duration-500 ease-out-expo hover:-translate-y-1"
-            >
-              <span className="text-[13px] uppercase tracking-[0.2em] text-ink/70">Tem outra ideia?</span>
-              <span className="text-[28px] font-medium leading-tight tracking-tight">
-                Vamos conversar sobre o seu projeto <span className="inline-block transition-transform duration-500 group-hover:translate-x-2">→</span>
-              </span>
-            </a>
-          </Reveal>
-        </div>
+        </ul>
+        <Reveal>
+          <a
+            href="#contato"
+            className="group flex flex-col items-start justify-between gap-6 border-b border-line py-10 transition-colors sm:flex-row sm:items-center"
+          >
+            <span className="text-[clamp(24px,2.6vw,36px)] font-semibold leading-tight tracking-[-0.03em]">Tem outra ideia? Vamos conversar sobre o seu projeto.</span>
+            <span className="grid h-12 w-12 shrink-0 place-items-center rounded-lg bg-lime text-ink transition-transform duration-500 ease-out-expo group-hover:translate-x-1.5">
+              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" /></svg>
+            </span>
+          </a>
+        </Reveal>
       </div>
     </section>
   );

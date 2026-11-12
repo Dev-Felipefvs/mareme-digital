@@ -1,17 +1,14 @@
 import type { Metadata, Viewport } from "next";
-import { Inter_Tight, Instrument_Serif } from "next/font/google";
+import { Archivo } from "next/font/google";
 import "./globals.css";
 import { site } from "@/data/site";
 import { Providers } from "@/components/Providers";
 import { Preloader } from "@/components/Preloader";
-import { ScrollProgress } from "@/components/ScrollProgress";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { LandingFooter } from "@/components/landing/Chrome";
 
-const interTight = Inter_Tight({ subsets: ["latin"], variable: "--font-inter-tight", display: "swap" });
-const instrument = Instrument_Serif({ subsets: ["latin"], weight: "400", style: ["normal", "italic"], variable: "--font-instrument", display: "swap" });
+const archivo = Archivo({ subsets: ["latin"], axes: ["wdth"], variable: "--font-archivo", display: "swap" });
 
-const title = "MAREME Digital — Sites e experiências digitais de alto padrão";
+const title = "MAREME Digital — Seu site pronto antes de você fechar";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -33,10 +30,11 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#101010",
+  themeColor: "#0a1300",
   colorScheme: "dark",
   width: "device-width",
   initialScale: 1,
+  viewportFit: "cover",
 };
 
 const jsonLd = {
@@ -54,7 +52,7 @@ const introScript = `try{if(sessionStorage.getItem('mareme-intro')||/[?&]nointro
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" className={`${interTight.variable} ${instrument.variable}`} suppressHydrationWarning>
+    <html lang="pt-BR" className={archivo.variable} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: introScript }} />
         <style>{`html.intro-skip .preloader{display:none}`}</style>
@@ -66,12 +64,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </a>
         <Providers>
           <Preloader />
-          <ScrollProgress />
-          <Header />
           {children}
-          <Footer />
+          <LandingFooter />
         </Providers>
-        <div className="grain" aria-hidden="true" />
       </body>
     </html>
   );
