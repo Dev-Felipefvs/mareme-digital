@@ -1,7 +1,7 @@
 "use client";
 
 import { Reveal } from "../Reveal";
-import { PhoneMockup } from "../DeviceMockup";
+import { PhoneStack, Connector, TiltCard } from "./Interactive";
 import { projects, statusLabel } from "@/data/projects";
 import { site } from "@/data/site";
 import { asset } from "@/lib/asset";
@@ -16,17 +16,7 @@ export function DemoProof() {
     <section id="como" className="relative isolate scroll-mt-20 overflow-hidden py-24 sm:py-32">
       <div aria-hidden="true" className="absolute left-[-10%] top-1/2 -z-10 h-[620px] w-[620px] -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgb(197_242_119/0.16),transparent_65%)]" />
       <div className="container-x grid items-center gap-16 lg:grid-cols-12 lg:gap-10">
-        <Reveal className="relative mx-auto h-[420px] w-full max-w-[460px] sm:h-[540px] lg:col-span-5 lg:mx-0">
-          <div className="absolute left-0 top-[10%] w-[38%] -rotate-[10deg] opacity-50 blur-[1.5px]">
-            <PhoneMockup src={phones[1].mobile} alt="" />
-          </div>
-          <div className="absolute right-0 top-[14%] w-[38%] rotate-[9deg] opacity-50 blur-[1.5px]">
-            <PhoneMockup src={phones[2].mobile} alt="" />
-          </div>
-          <div className="absolute left-1/2 top-0 w-[50%] -translate-x-1/2 -rotate-[4deg] drop-shadow-[0_0_60px_rgb(197_242_119/0.28)]">
-            <PhoneMockup src={phones[0].mobile} alt={`Versão para celular do site ${phones[0].name}`} />
-          </div>
-        </Reveal>
+        <PhoneStack front={phones[0]} left={phones[1]} right={phones[2]} />
 
         <div className="lg:col-span-6 lg:col-start-7">
           <Reveal>
@@ -94,9 +84,9 @@ export function Benefits() {
         <div className="relative mx-auto mt-16 max-w-[980px]">
           {/* Conectores (desktop) */}
           <div aria-hidden="true" className="pointer-events-none absolute inset-0 hidden lg:block">
-            <div className="absolute right-[2%] top-[56px] h-[150px] w-[16%] border-r-2 border-t-2 border-lime/70" />
+            <Connector from="left" className="absolute right-[2%] top-[56px] h-[150px] w-[16%] border-r-2 border-t-2 border-lime/70" />
             <div className="absolute right-[2%] top-[203px] h-0 w-0 border-x-[7px] border-t-[10px] border-x-transparent border-t-lime/70" style={{ transform: "translateX(6px)" }} />
-            <div className="absolute left-[2%] top-[262px] h-[150px] w-[16%] border-l-2 border-t-2 border-lime/70" />
+            <Connector from="right" className="absolute left-[2%] top-[262px] h-[150px] w-[16%] border-l-2 border-t-2 border-lime/70" />
             <div className="absolute left-[2%] top-[409px] h-0 w-0 border-x-[7px] border-t-[10px] border-x-transparent border-t-lime/70" style={{ transform: "translateX(-6px)" }} />
           </div>
 
@@ -144,11 +134,12 @@ export function Works() {
           {projects.map((p, i) => (
             <li key={p.slug} className="min-w-0">
               <Reveal delay={(i % 3) * 0.06}>
+                <TiltCard>
                 <a
                   href={p.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group block overflow-hidden rounded-[12px] border border-paper/10 bg-[#161616] transition-[border-color,transform] duration-500 ease-out-expo [@media(hover:hover)]:hover:-translate-y-1 [@media(hover:hover)]:hover:border-lime/50"
+                  className="group block overflow-hidden rounded-[12px] border border-paper/10 bg-[#161616] transition-[border-color] duration-500 [@media(hover:hover)]:hover:border-lime/50"
                 >
                   <div className="relative aspect-[16/10] overflow-hidden">
                     <img
@@ -172,6 +163,7 @@ export function Works() {
                     </span>
                   </div>
                 </a>
+                </TiltCard>
               </Reveal>
             </li>
           ))}

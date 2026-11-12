@@ -1,22 +1,37 @@
+"use client";
+
+import { motion } from "motion/react";
 import type { ReactNode } from "react";
 import { contactLink } from "@/data/site";
+import { spring } from "@/lib/springs";
 
 export const WA_MSG = "Olá, Emerson! Vim pelo site da MAREME e quero um site para a minha empresa.";
 
-/** Botão principal da página: bloco lima, caixa alta, leva ao WhatsApp. */
+/**
+ * Botão principal: bloco lima, caixa alta, leva ao WhatsApp.
+ * Resposta imediata ao apertar (no pointer-down) e molas interrompíveis no hover.
+ */
 export function CtaButton({ children, className = "", message = WA_MSG }: { children: ReactNode; className?: string; message?: string }) {
   return (
-    <a
+    <motion.a
       href={contactLink(message)}
       target="_blank"
       rel="noopener noreferrer"
-      className={`group relative inline-flex h-[60px] items-center justify-center gap-3 overflow-hidden rounded-[6px] bg-gradient-to-b from-[#d6fb92] to-lime px-10 font-display text-[15px] font-extrabold uppercase tracking-[0.04em] text-ink shadow-[0_18px_50px_-14px_rgb(197_242_119/0.55)] transition-[transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:shadow-[0_22px_60px_-12px_rgb(197_242_119/0.75)] active:translate-y-0 ${className}`}
+      whileHover={{ y: -2 }}
+      whileTap={{ scale: 0.97, y: 0, transition: spring.press }}
+      transition={spring.ui}
+      className={`group relative inline-flex h-[60px] items-center justify-center gap-3 overflow-hidden rounded-[6px] bg-gradient-to-b from-[#d6fb92] to-lime px-10 font-display text-[15px] font-extrabold uppercase tracking-[0.04em] text-ink shadow-[0_18px_50px_-14px_rgb(197_242_119/0.55)] transition-shadow duration-300 [@media(hover:hover)]:hover:shadow-[0_22px_60px_-12px_rgb(197_242_119/0.75)] ${className}`}
     >
+      {/* Brilho que atravessa o botão no hover */}
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 -skew-x-12 bg-gradient-to-r from-transparent via-white/50 to-transparent opacity-0 transition-[transform,opacity] duration-700 ease-out group-hover:translate-x-[420%] group-hover:opacity-100 motion-reduce:hidden"
+      />
       <span className="relative">{children}</span>
-      <svg viewBox="0 0 24 24" className="relative h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth="2.4" aria-hidden="true">
+      <svg viewBox="0 0 24 24" className="relative h-4 w-4 transition-transform duration-300 ease-out group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth="2.4" aria-hidden="true">
         <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
-    </a>
+    </motion.a>
   );
 }
 

@@ -4,10 +4,9 @@ import { useRef } from "react";
 import { gsap, useGSAP } from "@/lib/gsap";
 import { INTRO_EVENT } from "../Preloader";
 import { site } from "@/data/site";
-import { projects } from "@/data/projects";
 import { asset } from "@/lib/asset";
 import { CtaButton, Hi, IconCheck } from "./ui";
-import { LogoMark } from "../Logo";
+import { LiveFeed } from "./LiveFeed";
 
 const BULLETS = [
   "Site pronto antes de você fechar",
@@ -24,8 +23,8 @@ export function LandingHero() {
       mm.add("(prefers-reduced-motion: no-preference)", () => {
         const tl = gsap.timeline({ paused: true, defaults: { ease: "expo.out", duration: 1 } });
         tl.from(".lh-photo", { opacity: 0, scale: 1.06, duration: 1.8, ease: "power2.out" })
-          .from(".lh-in", { opacity: 0, y: 26, stagger: 0.08 }, 0.15)
-          .from(".lh-note", { opacity: 0, x: 40, stagger: 0.12, duration: 0.9 }, 0.5);
+          .from(".lh-in", { opacity: 0, y: 26, filter: "blur(8px)", stagger: 0.08 }, 0.15)
+          .from(".lh-feed", { opacity: 0, y: 24, filter: "blur(10px)", duration: 1.1 }, 0.45);
         const play = () => tl.play();
         if (document.documentElement.dataset.intro === "done") play();
         else window.addEventListener(INTRO_EVENT, play, { once: true });
@@ -105,38 +104,12 @@ export function LandingHero() {
             />
             <div className="absolute inset-0 bg-lime mix-blend-multiply opacity-90" />
           </div>
-          <ul className="absolute inset-x-5 bottom-2 grid gap-2.5">
-            {projects.slice(0, 2).map((p, i) => (
-              <li key={p.slug} className={`flex items-center gap-3 rounded-[14px] border border-paper/10 bg-ink/80 p-3 backdrop-blur-md ${i ? "ml-6 opacity-80" : "mr-6"}`}>
-                <LogoMark className="h-9 w-9 shrink-0" />
-                <div className="min-w-0 flex-1">
-                  <p className="truncate text-[13px] font-semibold text-paper">{p.name}</p>
-                  <p className="truncate text-[12px] text-paper/60">Site publicado · {p.segment}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
+          <LiveFeed count={2} compact className="absolute inset-x-5 bottom-2" />
         </figure>
 
         {/* Notificações: sites reais publicados */}
-        <div className="relative hidden lg:col-span-5 lg:col-start-8 lg:block" aria-label="Sites publicados pela MAREME">
-          <ul className="ml-auto grid max-w-[360px] gap-3">
-            {projects.slice(0, 4).map((p, i) => (
-              <li
-                key={p.slug}
-                className="lh-note flex items-center gap-3 rounded-[14px] border border-paper/10 bg-ink/70 p-3.5 shadow-[0_20px_40px_-20px_rgb(0_0_0/0.9)] backdrop-blur-md"
-                style={{ opacity: 1 - i * 0.18, transform: `translateX(${i % 2 ? 28 : 0}px)` }}
-              >
-                <LogoMark className="h-10 w-10 shrink-0" />
-                <div className="min-w-0 flex-1">
-                  <p className="flex items-center justify-between gap-3 text-[13px] font-semibold text-paper">
-                    <span className="truncate">{p.name}</span> <span className="shrink-0 text-[11px] font-normal text-paper/45">agora</span>
-                  </p>
-                  <p className="truncate text-[12.5px] text-paper/60">Site publicado · {p.segment}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
+        <div className="lh-feed relative hidden lg:col-span-5 lg:col-start-8 lg:block" aria-label="Sites publicados pela MAREME">
+          <LiveFeed count={4} className="ml-auto max-w-[360px]" />
         </div>
       </div>
     </section>

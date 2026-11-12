@@ -1,17 +1,22 @@
 "use client";
 
-import { motion, type HTMLMotionProps } from "motion/react";
+import { motion, useReducedMotion, type HTMLMotionProps } from "motion/react";
+import { spring } from "@/lib/springs";
 
 type Props = HTMLMotionProps<"div"> & { delay?: number; y?: number };
 
-/** Entrada suave ao rolar (fade + subida). */
-export function Reveal({ delay = 0, y = 32, children, ...rest }: Props) {
+/**
+ * Entrada ao rolar: o conteúdo "materializa" (desfoque + opacidade + subida) com mola sem overshoot.
+ * Com movimento reduzido, vira um fade simples.
+ */
+export function Reveal({ delay = 0, y = 28, children, ...rest }: Props) {
+  const reduce = useReducedMotion();
   return (
     <motion.div
-      initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={reduce ? { opacity: 0 } : { opacity: 0, y, filter: "blur(8px)" }}
+      whileInView={reduce ? { opacity: 1 } : { opacity: 1, y: 0, filter: "blur(0px)" }}
       viewport={{ once: true, margin: "0px 0px -12% 0px" }}
-      transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay }}
+      transition={reduce ? { duration: 0.25, delay } : { ...spring.reveal, delay, filter: { duration: 0.5, delay } }}
       {...rest}
     >
       {children}
