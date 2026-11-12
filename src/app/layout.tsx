@@ -1,17 +1,15 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Archivo } from "next/font/google";
 import "./globals.css";
 import { site } from "@/data/site";
 import { Providers } from "@/components/Providers";
 import { Preloader } from "@/components/Preloader";
 import { ScrollProgress } from "@/components/ScrollProgress";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { LandingHeader, LandingFooter } from "@/components/landing/Chrome";
 
-const geist = Geist({ subsets: ["latin"], variable: "--font-geist", display: "swap" });
-const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono", display: "swap" });
+const archivo = Archivo({ subsets: ["latin"], axes: ["wdth"], variable: "--font-archivo", display: "swap" });
 
-const title = "MAREME Digital — Sites e experiências digitais de alto padrão";
+const title = "MAREME Digital — Seu site pronto antes de você fechar";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -54,7 +52,7 @@ const introScript = `try{if(sessionStorage.getItem('mareme-intro')||/[?&]nointro
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" className={`${geist.variable} ${geistMono.variable}`} suppressHydrationWarning>
+    <html lang="pt-BR" className={archivo.variable} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: introScript }} />
         <style>{`html.intro-skip .preloader{display:none}`}</style>
@@ -67,9 +65,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Providers>
           <Preloader />
           <ScrollProgress />
-          <Header />
+          <LandingHeader />
           {children}
-          <Footer />
+          <LandingFooter />
         </Providers>
       </body>
     </html>

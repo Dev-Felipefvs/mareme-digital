@@ -17,3 +17,12 @@ FIRST VIEWPORT: nav bar (logo left, text links, small lime CTA). The left 7 colu
 FORM: canon, the category standard (the standing exit chosen by the user over an assigned "Fachada Acesa" world). seed: 2a8dcf0d0bdff26f
 Signature interaction: the hero browser frame cycles through the real demo sites with a crossfade and a mono URL ticker. Motion grammar: short 0.6–0.9s expo-out entrances; no scroll-jacking.
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
+
+## Update 2026-11-12: user-pinned direction (supersedes the canon contract above)
+The user asked to rebuild the whole site as a conversion landing page, with the Behance project "Página de Vendas — Desafio O Grande Salto" as the main reference. This is pinned by the user and beats the roll. The reference sets the composition only; no texts, logos or numbers were copied.
+- Ground: ink #101010 with lime radial glows. The founder photo gets a lime duotone (grayscale multiplied by lime).
+- Type: Archivo with its width axis, extra-bold and slightly wide for display.
+- CTAs: lime blocks in caps that go to WhatsApp.
+- Sections, in order: hero (promise with lime highlight, 3 checks, big CTA, stacked "site published" cards of real projects); demo-before-sign proof (tilted phones + 3 steps); "O que você recebe" (3 zigzag cards with lime connectors + CTA); real sites grid; "Conheça quem vai criar o seu site: Emerson" (photo + thumbs); final caps CTA band; slim footer.
+- Removed from the page: Agency, Services, Process and the contact form.
+- The canon version is kept on branch redesign-canon.
