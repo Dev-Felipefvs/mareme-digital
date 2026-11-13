@@ -60,15 +60,15 @@ section{position:relative;scroll-margin-top:80px}
 
 
 /* ================= HEADER FLUTUANTE ================= */
-.nav{position:fixed;top:14px;left:50%;z-index:80;display:flex;align-items:center;gap:6px;padding:6px 6px 6px 18px;border-radius:999px;background:rgb(10 13 19/.72);border:1px solid rgb(255 255 255/.1);-webkit-backdrop-filter:blur(18px) saturate(160%);backdrop-filter:blur(18px) saturate(160%);box-shadow:0 14px 40px rgb(0 0 0/.45);transform:translateX(-50%);transition:transform .5s var(--ease)}
+.nav{position:fixed;top:14px;left:50%;z-index:80;display:flex;align-items:center;gap:2px;padding:5px 5px 5px 16px;border-radius:999px;background:rgb(10 13 19/.72);border:1px solid rgb(255 255 255/.1);-webkit-backdrop-filter:blur(18px) saturate(160%);backdrop-filter:blur(18px) saturate(160%);box-shadow:0 14px 40px rgb(0 0 0/.45);transform:translateX(-50%);transition:transform .5s var(--ease)}
 .nav.hide{transform:translate(-50%,-140%)}
-.nav__brand{font-family:var(--head);font-weight:600;font-size:15px;letter-spacing:.08em;margin-right:10px;white-space:nowrap}
+.nav__brand{font-family:var(--head);font-weight:600;font-size:14px;letter-spacing:.06em;margin-right:4px;white-space:nowrap}
 .nav ul{display:flex;gap:2px;list-style:none}
-.nav ul a{display:block;padding:9px 14px;border-radius:999px;font-size:14px;color:#cfd8e6;transition:background .3s,color .3s}
+.nav ul a{display:block;padding:8px 10px;border-radius:999px;font-size:13.5px;color:#cfd8e6;transition:background .3s,color .3s}
 .nav ul a:hover{color:#fff}
 .nav ul a.on{background:rgb(255 255 255/.1);color:#fff}
-.nav__cta{display:inline-flex;align-items:center;min-height:38px;padding:0 18px;margin-left:6px;border-radius:999px;background:linear-gradient(180deg,#4a9dff,#1766e6);font-family:var(--head);font-weight:500;font-size:14px;white-space:nowrap;box-shadow:0 8px 24px rgb(31 124 255/.4)}
-@media(max-width:860px){.nav ul{display:none}.nav{width:calc(100% - 28px);justify-content:space-between}}
+.nav__cta{display:inline-flex;align-items:center;min-height:36px;padding:0 16px;margin-left:4px;border-radius:999px;background:linear-gradient(180deg,#4a9dff,#1766e6);font-family:var(--head);font-weight:500;font-size:14px;white-space:nowrap;box-shadow:0 8px 24px rgb(31 124 255/.4)}
+@media(max-width:860px){.nav ul{display:none}.nav{gap:10px}}
 .hero{padding-top:clamp(90px,10vw,110px)!important}
 
 /* ================= HERO ================= */
@@ -270,6 +270,7 @@ section{position:relative;scroll-margin-top:80px}
 .perks{list-style:none;display:grid;gap:18px;text-align:left;max-width:340px;margin:0 auto}
 .perks li{display:flex;gap:12px;align-items:flex-start;font-size:15px;color:#e6eefb}
 .perks li::before{content:"";flex:none;width:20px;height:20px;margin-top:1px;border-radius:6px;background:rgb(31 124 255/.18) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233d9bff' stroke-width='3.2'%3E%3Cpath d='m6 12 4 4 8-8'/%3E%3C/svg%3E") center/13px no-repeat}
+.perks li.g::before{background-color:rgb(37 211 102/.18);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2325d366' stroke-width='3.2'%3E%3Cpath d='m6 12 4 4 8-8'/%3E%3C/svg%3E")}
 .terms{max-width:640px;margin:34px auto 0;font-size:13px;color:var(--dim);line-height:1.6}
 
 /* ================= FAQ (2 colunas) ================= */
@@ -520,8 +521,8 @@ section{position:relative;scroll-margin-top:80px}
         <li>Adaptado para celular e computador</li>
         <li>Contato direto pelo WhatsApp</li>
         <li>Apresentação dos seus serviços</li>
-        <li>Domínio incluído no primeiro ano*</li>
-        <li>Hospedagem incluída conforme condições*</li>
+        <li class="g">Domínio incluído no primeiro ano*</li>
+        <li class="g">Hospedagem incluída conforme condições*</li>
       </ul>
     </div>
     <p class="terms rv">* Condições de domínio, hospedagem, renovação e eventuais custos adicionais informadas antes da contratação. Funcionalidades extras podem exigir orçamento separado.</p>
