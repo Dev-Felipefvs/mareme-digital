@@ -98,8 +98,8 @@ section{position:relative;scroll-margin-top:80px}
 .checks{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 20px;margin-top:20px;font-size:14px;color:var(--dim);list-style:none}
 .checks li{display:flex;align-items:center;gap:8px}
 .checks li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--blue2);box-shadow:0 0 10px var(--blue2)}
-.stage{position:relative;width:min(820px,92%);margin:56px auto 0;perspective:1600px}
-.lap3d{display:block;margin:-14% auto -12%}
+.stage{position:relative;width:min(560px,88%);margin:40px auto 0;perspective:1600px}
+.lap3d{display:block;margin:-14% 0 -12% -30%;max-width:none;pointer-events:none}
 .stage.is3d .device{display:none}
 .device{position:relative;transform-style:preserve-3d;will-change:transform}
 .device__img{display:block;width:100%;height:auto;filter:drop-shadow(0 40px 60px rgb(0 0 0/.6))}
@@ -115,11 +115,11 @@ section{position:relative;scroll-margin-top:80px}
 .float i svg{width:20px;height:20px}
 .float strong{display:block;font-family:var(--head);font-size:clamp(24px,2.8vw,34px);font-weight:500;line-height:1}
 .float>span{display:block;font-size:13px;color:var(--mute);margin-top:6px}
-.float--a{left:-8%;top:44%}
-.floor{position:relative;height:190px;margin-top:-30px}
+.float--a{left:-14%;top:16%}
+.floor{position:relative;height:150px;margin-top:-30px}
 .floor::before{content:"";position:absolute;left:50%;top:0;width:min(1000px,120%);height:calc(100% - 16px);transform:translateX(-50%);background:radial-gradient(closest-side,rgb(61 155 255/.7),rgb(31 124 255/.25) 45%,transparent);pointer-events:none}
 .floor .chev{position:absolute;left:50%;top:63px;transform:translateX(-50%)}
-@media(max-width:700px){.floor{height:150px}.float{padding:12px 14px;width:auto}.float i{display:none}.float--a{left:-2%;top:auto;bottom:-34%}.group{flex-direction:column;width:100%;border-radius:28px}.group a,.group .btn{width:100%;justify-content:center}}
+@media(max-width:700px){.floor{height:100px}.float{padding:12px 14px;width:auto}.float i{display:none}.float--a{left:-2%;top:6%;bottom:auto}.group{flex-direction:column;width:100%;border-radius:28px}.group a,.group .btn{width:100%;justify-content:center}}
 
 
 /* ================= PRÓXIMO NÍVEL ================= */
@@ -958,6 +958,6 @@ section{position:relative;scroll-margin-top:80px}
 })();
 </script>
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
-<script type="module" src="laptop3d.js?v=3"></script>
+<script type="module" src="laptop3d.js?v=5"></script>
 </body>
 </html>

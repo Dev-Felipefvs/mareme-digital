@@ -91,7 +91,7 @@ function start() {
   body.position.set(0, 0, .25);
 
   /* ---------- tamanho ---------- */
-  function resize() { const w = stage.clientWidth, h = Math.round(w * .92); renderer.setSize(w, h, false); canvas.style.width = w + 'px'; canvas.style.height = h + 'px'; camera.aspect = w / h; const z = w < 600 ? 7.6 : 6.6; camera.position.set(0, 2.9 * z / 6.6, z); camera.lookAt(0, .8, 0); camera.updateProjectionMatrix(); }
+  function resize() { const w = Math.round(stage.clientWidth * 1.6), h = Math.round(stage.clientWidth * .92); renderer.setSize(w, h, false); canvas.style.width = w + 'px'; canvas.style.height = h + 'px'; camera.aspect = w / h; const z = (stage.clientWidth < 500 ? 7.6 : 6.6) * 1.0; camera.position.set(0, 2.9 * z / 6.6, z); camera.lookAt(0, .8, 0); camera.updateProjectionMatrix(); }
   stage.prepend(canvas); stage.classList.add('is3d'); resize(); addEventListener('resize', resize);
 
   /* ---------- movimento: rolagem + ciclo automático + ponteiro ---------- */
