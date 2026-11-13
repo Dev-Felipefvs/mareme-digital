@@ -24,9 +24,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Rethink+Sans:wght@400;500;600&family=Cormorant+Garamond:ital,wght@1,500&display=swap" rel="stylesheet">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"MAREME WEB DESIGNER","url":"https://mareme.com.br/","description":"Criação de sites profissionais para empresas e profissionais.","areaServed":"BR","address":{"@type":"PostalAddress","addressLocality":"Maceió","addressRegion":"AL","addressCountry":"BR"},"founder":{"@type":"Person","name":"Emerson"},"makesOffer":[{"@type":"Offer","name":"Site profissional","price":"297","priceCurrency":"BRL"}]}</script>
 <style>
-:root{--bg:#030509;--panel:#0c0f16;--panel2:#11151e;--blue:#1f7cff;--blue2:#3d9bff;--cyan:#6cc6ff;--text:#fff;--mute:#b6bdc9;--dim:#9ea6b4;--line:rgb(255 255 255/.08);--g:clamp(18px,4vw,40px);--ease:cubic-bezier(.16,1,.3,1);--head:"Rethink Sans",system-ui,sans-serif}
+:root{--sy:clamp(48px,5.5vw,80px);--gap-in:clamp(36px,4vw,48px);--bg:#030509;--panel:#0c0f16;--panel2:#11151e;--blue:#1f7cff;--blue2:#3d9bff;--cyan:#6cc6ff;--text:#fff;--mute:#b6bdc9;--dim:#9ea6b4;--line:rgb(255 255 255/.08);--g:clamp(18px,4vw,40px);--ease:cubic-bezier(.16,1,.3,1);--head:"Rethink Sans",system-ui,sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
-html{background:var(--bg);color:var(--text);scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html{background:var(--bg);color:var(--text);color-scheme:dark;scroll-behavior:smooth;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:rgb(61 155 255/.2)}
+a,button,summary{touch-action:manipulation}
 body{background:var(--bg);font:400 15.5px/1.65 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit;text-decoration:none}
@@ -49,12 +50,12 @@ h2{font-size:clamp(28px,4.2vw,50px)}
 .btn svg{width:20px;height:20px;flex:none}
 .btn--dark{background:linear-gradient(180deg,#141924,#0a0d13);box-shadow:0 0 0 1px rgb(110 160 255/.28) inset,0 14px 40px rgb(0 0 0/.5)}
 .btn--dark:hover{box-shadow:0 0 0 1px rgb(110 160 255/.55) inset,0 18px 50px rgb(31 124 255/.25)}
-.cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:42px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:var(--gap-in)}
 .rv{opacity:0;transform:translateY(26px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
 .rv.in{opacity:1;transform:none}
 .pop{opacity:0;transform:scale(.6)}
 section{position:relative;scroll-margin-top:80px}
-.sec{padding:clamp(80px,10vw,130px) 0}
+.sec{padding:var(--sy) 0}
 .chev{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:#0a0e15;border:1px solid rgb(110 160 255/.35);color:var(--blue2)}
 .chev svg{width:18px;height:18px}
 
@@ -116,11 +117,11 @@ section{position:relative;scroll-margin-top:80px}
 .floor{position:relative;height:190px;margin-top:-40px}
 .floor::before{content:"";position:absolute;left:50%;top:0;width:min(1000px,120%);height:170px;transform:translateX(-50%);background:radial-gradient(closest-side,rgb(61 155 255/.7),rgb(31 124 255/.25) 45%,transparent);pointer-events:none}
 .floor .chev{position:absolute;left:50%;top:63px;transform:translateX(-50%)}
-@media(max-width:700px){.float{padding:12px 14px;width:auto}.float i{display:none}.float--a{left:-2%;bottom:10%}.float--b{right:-2%;top:-10%}.group{flex-direction:column;width:100%;border-radius:28px}.group a,.group .btn{width:100%;justify-content:center}}
+@media(max-width:700px){.floor{height:150px}.float{padding:12px 14px;width:auto}.float i{display:none}.float--a{left:-2%;bottom:10%}.float--b{right:-2%;top:-10%}.group{flex-direction:column;width:100%;border-radius:28px}.group a,.group .btn{width:100%;justify-content:center}}
 
 
 /* ================= PRÓXIMO NÍVEL ================= */
-.lvl{padding:clamp(50px,7vw,90px) 0 clamp(40px,6vw,70px);background:radial-gradient(40% 45% at 50% 55%,rgb(31 124 255/.18),transparent 70%),var(--bg);overflow:hidden}
+.lvl{padding:0 0 var(--sy);background:radial-gradient(40% 45% at 50% 55%,rgb(31 124 255/.18),transparent 70%),var(--bg);overflow:hidden}
 .lvl h2{font-size:clamp(30px,4.4vw,52px)}
 .circuit{position:relative;height:160px;margin:10px auto 0;max-width:900px;display:grid;place-items:center}
 .circuit>svg{position:absolute;top:0;width:34%;height:100%;fill:none;stroke:rgb(140 180 255/.22);stroke-width:1.5}
@@ -138,7 +139,7 @@ section{position:relative;scroll-margin-top:80px}
 .counter__box svg{width:24px;height:24px;color:#e6eefb}
 
 /* ================= ABERTURA + ÍCONES ================= */
-.prep{padding:clamp(50px,7vw,90px) 0 clamp(50px,7vw,80px);background:radial-gradient(45% 50% at 50% 30%,rgb(31 124 255/.18),transparent 70%),var(--bg)}
+.prep{padding:var(--sy) 0;background:radial-gradient(45% 50% at 50% 30%,rgb(31 124 255/.18),transparent 70%),var(--bg)}
 .prep h2{max-width:15em;margin:0 auto}
 .tiles{display:flex;justify-content:center;gap:16px;margin-top:40px}
 .tile{display:grid;place-items:center;width:clamp(64px,8vw,84px);aspect-ratio:1;border-radius:22px;background:linear-gradient(160deg,#4fa6ff,#1458d6 60%,#0b3a9a);box-shadow:inset 0 2px 0 rgb(255 255 255/.35),inset 0 -6px 14px rgb(0 0 0/.25),0 18px 40px rgb(31 124 255/.4)}
@@ -152,9 +153,9 @@ section{position:relative;scroll-margin-top:80px}
 .counter div>span{display:block;color:var(--mute);font-size:14px}
 
 /* ================= PORTFÓLIO (carrossel) ================= */
-.work{padding:30px 0 clamp(80px,10vw,120px);overflow:hidden}
+.work{padding:var(--sy) 0;overflow:hidden}
 .work h2{max-width:14em;margin:0 auto}
-.reel{position:relative;margin-top:50px;overflow:hidden;cursor:grab;touch-action:pan-y;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.reel{position:relative;margin-top:var(--gap-in);overflow:hidden;cursor:grab;touch-action:pan-y;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
 .reel.dragging{cursor:grabbing}
 .reel+.reel{margin-top:18px}
 .track{display:flex;gap:18px;width:max-content;will-change:transform}
@@ -172,7 +173,7 @@ section{position:relative;scroll-margin-top:80px}
 .hint svg{width:16px;height:16px}
 
 /* ================= BENEFÍCIOS ================= */
-.feat{padding:clamp(80px,10vw,130px) 0;overflow:hidden;background:radial-gradient(40% 40% at 100% 40%,rgb(31 124 255/.14),transparent 70%),var(--bg)}
+.feat{padding:var(--sy) 0;overflow:hidden;background:radial-gradient(40% 40% at 100% 40%,rgb(31 124 255/.14),transparent 70%),var(--bg)}
 .rot{position:relative;padding:10px 0}
 .rot__bg{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-family:var(--head);font-size:clamp(90px,18vw,260px);font-weight:600;letter-spacing:-.05em;white-space:nowrap;color:transparent;-webkit-text-stroke:1px rgb(90 160 255/.12);pointer-events:none}
 .rot p{position:relative;font-family:var(--head);font-size:clamp(34px,6vw,80px);letter-spacing:-.03em;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:0 .28em;line-height:1.15}
@@ -181,7 +182,7 @@ section{position:relative;scroll-margin-top:80px}
 .words span.on{transform:none;opacity:1}
 .words span.out{transform:translateY(-110%);opacity:0}
 .measure{position:absolute;visibility:hidden;white-space:nowrap;font-family:var(--head);letter-spacing:-.03em}
-.ticker{display:grid;align-items:center;gap:14px 24px;max-width:880px;margin:40px auto 0;padding:16px 26px;border-radius:999px;background:linear-gradient(180deg,#10141c,#0a0d13);border:1px solid var(--line);box-shadow:0 20px 60px rgb(0 0 0/.5);text-align:left}
+.ticker{display:grid;align-items:center;gap:14px 24px;max-width:880px;margin:var(--gap-in) auto 0;padding:16px 26px;border-radius:999px;background:linear-gradient(180deg,#10141c,#0a0d13);border:1px solid var(--line);box-shadow:0 20px 60px rgb(0 0 0/.5);text-align:left}
 @media(min-width:720px){.ticker{grid-template-columns:1.1fr 1fr 1fr}}
 @media(max-width:719px){.ticker{border-radius:24px}}
 .ticker>p{font-size:14px;color:#e6eefb;line-height:1.45}
@@ -193,7 +194,7 @@ section{position:relative;scroll-margin-top:80px}
 .ping i svg{width:13px;height:13px}
 .ping i.g{background:rgb(37 211 102/.18);color:#25d366}
 .ping b{color:var(--blue2);font-weight:500}
-.cols{display:grid;gap:18px;margin-top:40px;text-align:left}
+.cols{display:grid;gap:18px;margin-top:var(--gap-in);text-align:left}
 @media(min-width:900px){.cols{grid-template-columns:repeat(3,1fr);gap:24px}}
 .col{position:relative;display:flex;flex-direction:column;border-top:1px solid var(--line);padding-top:26px}
 .vis{position:relative;height:250px;border-radius:24px;display:grid;place-items:center;overflow:hidden;background:radial-gradient(60% 70% at 50% 100%,rgb(31 124 255/.2),transparent 70%)}
@@ -233,7 +234,7 @@ section{position:relative;scroll-margin-top:80px}
 .v-dev__ph{position:absolute;right:0;bottom:-6px;width:27%;aspect-ratio:390/844;border-radius:14px;padding:4px;background:#0b0d12;border:1px solid rgb(255 255 255/.2);box-shadow:-10px 10px 30px rgb(0 0 0/.5)}
 
 /* ================= SOBRE (painel que sobe) ================= */
-.me{padding:0 0 clamp(80px,10vw,120px)}
+.me{padding:var(--sy) 0}
 .panel{position:relative;display:grid;gap:30px;align-items:end;padding:clamp(54px,6vw,70px) clamp(24px,5vw,60px) 0;border-radius:36px;background:linear-gradient(180deg,#141820,#0b0e14);border:1px solid var(--line);overflow:hidden}
 .panel::after{content:"";position:absolute;left:0;right:0;bottom:0;height:70px;background:linear-gradient(180deg,transparent,rgb(31 124 255/.55));pointer-events:none}
 .panel::before{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);z-index:2}
@@ -250,7 +251,7 @@ section{position:relative;scroll-margin-top:80px}
 .panel__photo img{position:relative;width:100%}
 
 /* ================= 3 PASSOS ================= */
-.steps{display:grid;gap:18px;margin-top:54px;list-style:none;text-align:left}
+.steps{display:grid;gap:18px;margin-top:var(--gap-in);list-style:none;text-align:left}
 @media(min-width:900px){.steps{grid-template-columns:repeat(3,1fr)}}
 .step{position:relative;display:flex;flex-direction:column;border-radius:26px;background:linear-gradient(180deg,var(--panel) 55%,#0c1a33);border:1px solid var(--line);overflow:hidden;will-change:transform}
 .step::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,transparent,var(--blue2),transparent)}
@@ -280,7 +281,7 @@ section{position:relative;scroll-margin-top:80px}
 
 /* ================= PREÇO (3 colunas) ================= */
 .price{background:radial-gradient(45% 45% at 50% 55%,rgb(31 124 255/.2),transparent 70%),var(--bg)}
-.price__grid{display:grid;gap:34px;align-items:center;margin-top:56px}
+.price__grid{display:grid;gap:34px;align-items:center;margin-top:var(--gap-in)}
 @media(min-width:980px){.price__grid{grid-template-columns:1fr 1.05fr 1fr;gap:44px}}
 .brand{text-align:center}
 @media(min-width:980px){.brand{text-align:left}}
@@ -310,7 +311,7 @@ section{position:relative;scroll-margin-top:80px}
 .faq__head h2{min-height:1.15em}
 .caret{display:inline-block;width:2px;height:.9em;margin-left:4px;background:var(--blue2);vertical-align:-.08em;animation:blink 1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
-.acc{display:grid;gap:12px;margin-top:40px;align-items:start}
+.acc{display:grid;gap:12px;margin-top:var(--gap-in);align-items:start}
 @media(min-width:900px){.acc{grid-template-columns:1fr 1fr;gap:12px 18px}}
 .acc__col{display:grid;gap:12px;align-content:start}
 .acc details{border-radius:16px;background:var(--panel);border:1px solid var(--line);transition:border-color .3s}
@@ -323,7 +324,7 @@ section{position:relative;scroll-margin-top:80px}
 .acc details p{color:var(--mute);padding:0 20px 20px;font-size:15px}
 
 /* ================= FINAL ================= */
-.end{padding:clamp(80px,10vw,120px) 0 0;overflow:hidden}
+.end{padding:var(--sy) 0 0;overflow:hidden}
 .end__grid{display:grid;gap:30px;align-items:center}
 @media(min-width:900px){.end__grid{grid-template-columns:1.1fr .9fr}}
 .end h2{max-width:13em}
@@ -334,7 +335,7 @@ section{position:relative;scroll-margin-top:80px}
 .obj__b::after{content:"";position:absolute;left:18%;top:8%;width:46%;height:22%;border-radius:50%;background:linear-gradient(180deg,rgb(255 255 255/.7),transparent);filter:blur(2px)}
 .obj__b svg{width:52%;height:52%;color:#fff;filter:drop-shadow(0 6px 10px rgb(0 0 0/.35))}
 .obj__glow{position:absolute;left:50%;bottom:0;width:120%;height:90px;transform:translateX(-50%);background:radial-gradient(closest-side,rgb(61 155 255/.7),transparent)}
-.gridfloor{position:relative;height:200px;margin-top:20px;perspective:400px;overflow:hidden}
+.gridfloor{position:relative;height:170px;margin-top:10px;perspective:400px;overflow:hidden}
 .gridfloor::before{content:"";position:absolute;left:-50%;right:-50%;bottom:-40px;height:420px;transform:rotateX(62deg);transform-origin:50% 100%;background-image:linear-gradient(rgb(110 160 255/.22) 1px,transparent 1px),linear-gradient(90deg,rgb(110 160 255/.22) 1px,transparent 1px);background-size:60px 60px;-webkit-mask-image:linear-gradient(transparent,#000 60%);mask-image:linear-gradient(transparent,#000 60%)}
 .gridfloor::after{content:"";position:absolute;left:50%;bottom:0;width:min(900px,120%);height:160px;transform:translateX(-50%);background:radial-gradient(50% 100% at 50% 100%,rgb(61 155 255/.75),rgb(31 124 255/.22) 40%,transparent 70%)}
 .gridfloor .chev{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);z-index:2}
@@ -521,7 +522,7 @@ section{position:relative;scroll-margin-top:80px}
 </section>
 
 <!-- COMO FUNCIONA -->
-<section class="sec" id="como-funciona" aria-labelledby="t-how" style="padding-top:0">
+<section class="sec" id="como-funciona" aria-labelledby="t-how">
   <div class="wrap c">
     <span class="label rv">Como funciona</span>
     <h2 id="t-how" class="rv">Seu site pronto <span class="hl">em 3 passos.</span></h2>
@@ -570,7 +571,7 @@ section{position:relative;scroll-margin-top:80px}
 </section>
 
 <!-- FAQ -->
-<section class="sec" id="perguntas" aria-labelledby="t-faq" style="padding-top:0">
+<section class="sec" id="perguntas" aria-labelledby="t-faq">
   <div class="wrap">
     <div class="faq__head">
       <span class="label">FAQ</span>
