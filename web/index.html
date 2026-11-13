@@ -115,13 +115,13 @@ section{position:relative;scroll-margin-top:80px}
 .float--a{left:-9%;bottom:6%}
 .float--b{right:-9%;top:-4%}
 .floor{position:relative;height:190px;margin-top:-40px}
-.floor::before{content:"";position:absolute;left:50%;top:0;width:min(1000px,120%);height:170px;transform:translateX(-50%);background:radial-gradient(closest-side,rgb(61 155 255/.7),rgb(31 124 255/.25) 45%,transparent);pointer-events:none}
+.floor::before{content:"";position:absolute;left:50%;top:0;width:min(1000px,120%);height:calc(100% - 16px);transform:translateX(-50%);background:radial-gradient(closest-side,rgb(61 155 255/.7),rgb(31 124 255/.25) 45%,transparent);pointer-events:none}
 .floor .chev{position:absolute;left:50%;top:63px;transform:translateX(-50%)}
 @media(max-width:700px){.floor{height:150px}.float{padding:12px 14px;width:auto}.float i{display:none}.float--a{left:-2%;bottom:10%}.float--b{right:-2%;top:-10%}.group{flex-direction:column;width:100%;border-radius:28px}.group a,.group .btn{width:100%;justify-content:center}}
 
 
 /* ================= PRÓXIMO NÍVEL ================= */
-.lvl{padding:0 0 var(--sy);background:radial-gradient(closest-side at 50% 55%,rgb(31 124 255/.16),transparent);overflow:hidden}
+.lvl{padding:clamp(36px,5vw,64px) 0 var(--sy);background:radial-gradient(closest-side at 50% 55%,rgb(31 124 255/.16),transparent);overflow:hidden}
 .lvl h2{font-size:clamp(30px,4.4vw,52px)}
 .circuit{position:relative;height:160px;margin:10px auto 0;max-width:900px;display:grid;place-items:center}
 .circuit>svg{position:absolute;top:0;width:34%;height:100%;fill:none;stroke:rgb(140 180 255/.22);stroke-width:1.5}
