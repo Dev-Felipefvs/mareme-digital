@@ -783,7 +783,7 @@ section{position:relative;scroll-margin-top:80px}
       base = 6 - 6 * k; rx.target(base + tiltX);
       sc.target(Math.min(1, Math.max(0, scrollY / (innerHeight * 0.9))));
     }
-    addEventListener('scroll', onScroll, { passive: true }); onScroll(); rx.jump(rx.to); sc.jump(sc.to);
+    rx.jump(base); sc.jump(0); /* sem efeito de rolagem no hero */
     if (fine) {
       var hero = document.querySelector('.hero');
       hero.addEventListener('pointermove', function(e){ var nx = e.clientX / innerWidth - .5, ny = e.clientY / innerHeight - .5; tiltX = -ny * 3; rx.target(base + tiltX); ry.target(nx * 6); px.target(nx); py.target(ny); });
@@ -958,6 +958,6 @@ section{position:relative;scroll-margin-top:80px}
 })();
 </script>
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
-<script type="module" src="laptop3d.js"></script>
+<script type="module" src="laptop3d.js?v=3"></script>
 </body>
 </html>

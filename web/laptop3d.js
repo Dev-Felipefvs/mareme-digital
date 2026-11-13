@@ -103,7 +103,7 @@ function start() {
   const ease = (t) => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 
   function scrollP() { return Math.min(1, Math.max(0, scrollY / (innerHeight * .85))); }
-  addEventListener('scroll', () => { sp.to = scrollP(); }, { passive: true }); sp.x = sp.to = scrollP();
+  sp.x = sp.to = 0; /* independente da rolagem */
   if (fine) {
     const hero = document.querySelector('.hero');
     hero.addEventListener('pointermove', (e) => { px.to = e.clientX / innerWidth - .5; py.to = e.clientY / innerHeight - .5; });
