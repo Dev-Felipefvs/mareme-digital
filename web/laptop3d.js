@@ -1,6 +1,5 @@
 /* Notebook 3D do hero (three.js)
-   - Rolando a página: o notebook gira de lado e a tampa fecha (como na referência). Voltando: abre.
-   - Parado no topo: a cada projeto ele fecha, gira e abre já mostrando o próximo site.
+   - Sozinho (sem depender da rolagem): a cada projeto ele fecha, gira e abre já mostrando o próximo site.
    - Sem WebGL ou com "reduzir movimento": fica a foto do notebook (fallback em HTML). */
 import * as THREE from 'three';
 import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
@@ -100,7 +99,7 @@ function start() {
   const spring = (x, k = 120, c = 22) => ({ x, v: 0, to: x, k, c, step(dt) { const a = -this.k * (this.x - this.to) - this.c * this.v; this.v += a * dt; this.x += this.v * dt; } });
   const sp = spring(0), px = spring(0, 60, 15.5), py = spring(0, 60, 15.5);
   let auto = 1, spin = 0, phase = 'hold', phaseT = 0;
-  const HOLD = 3.4, CLOSE = .7, SPIN = 1.0, OPENT = .75;
+  const HOLD = 1.8, CLOSE = .5, SPIN = .75, OPENT = .55;
   const ease = (t) => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 
   function scrollP() { return Math.min(1, Math.max(0, scrollY / (innerHeight * .85))); }
@@ -122,12 +121,12 @@ function start() {
 
     // ciclo automático só quando está lá no topo
     phaseT += dt;
-    if (phase === 'hold') { auto = 1; if (phaseT > HOLD && p < .08) { phase = 'close'; phaseT = 0; } }
+    if (phase === 'hold') { auto = 1; if (phaseT > HOLD) { phase = 'close'; phaseT = 0; } }
     else if (phase === 'close') { auto = 1 - ease(Math.min(1, phaseT / CLOSE)); if (phaseT >= CLOSE) { phase = 'spin'; phaseT = 0; } }
     else if (phase === 'spin') { spinNow = ease(Math.min(1, phaseT / SPIN)); if (phaseT >= SPIN) { spin += Math.PI * 2; spinNow = 0; fadeFrom = cur; cur = (cur + 1) % PROJECTS.length; fadeT = 1; fadeFrom = -1; paintScreen(); phase = 'open'; phaseT = 0; } }
     else if (phase === 'open') { auto = ease(Math.min(1, phaseT / OPENT)); if (phaseT >= OPENT) { phase = 'hold'; phaseT = 0; } }
 
-    const s = ease(p);                                   // 0 = aberto de frente; 1 = fechado e virado
+    const s = 0;                                          // animação independente da rolagem
     hinge.rotation.x = -OPEN * auto * (1 - s);
     laptop.rotation.y = spin + (phase === 'spin' ? spinNow * Math.PI * 2 : 0) - .62 * s + px.x * .32;
     laptop.rotation.x = .38 * s + py.x * .1;
