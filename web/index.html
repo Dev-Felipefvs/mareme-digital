@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>MAREME WEB DESIGNER — Criação de sites profissionais em Maceió</title>
+<title>MAREME WEB DESIGNER — Sites de alta conversão em WordPress</title>
 <meta name="description" content="Tenha um site profissional que valoriza seu negócio, transmite confiança e facilita o contato de novos clientes. Site profissional por R$ 297, com atendimento direto.">
 <link rel="canonical" href="https://mareme.com.br/">
 <meta name="robots" content="index, follow">
@@ -11,7 +11,7 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="MAREME WEB DESIGNER">
 <meta property="og:url" content="https://mareme.com.br/">
-<meta property="og:title" content="MAREME WEB DESIGNER — Seu próximo cliente pode estar procurando por você agora">
+<meta property="og:title" content="MAREME WEB DESIGNER — Chega de perder clientes por não ter um site de alta conversão">
 <meta property="og:description" content="Sites profissionais para negócios que querem fortalecer sua presença digital. Site profissional por R$ 297.">
 <meta property="og:image" content="https://mareme.com.br/og.jpg">
 <meta property="og:image:width" content="1200">
@@ -151,6 +151,14 @@ section{position:relative;scroll-margin-top:80px}
 .counter svg{width:26px;height:26px;color:var(--blue2)}
 .counter strong{font-family:var(--head);font-size:clamp(30px,3.4vw,40px);font-weight:500;line-height:1;color:var(--blue2)}
 .counter div>span{display:block;color:var(--mute);font-size:14px}
+
+.why{display:grid;gap:16px;margin-top:var(--gap-in);text-align:left}
+@media(min-width:860px){.why{grid-template-columns:repeat(3,1fr)}}
+.why__c{padding:26px 24px 28px;border-radius:22px;background:linear-gradient(180deg,var(--panel) 60%,#0c1a33);border:1px solid var(--line)}
+.why__c i{display:grid;place-items:center;width:44px;height:44px;margin-bottom:18px;border-radius:12px;background:rgb(31 124 255/.14);color:var(--blue2)}
+.why__c i svg{width:22px;height:22px}
+.why__c h3{font-size:20px;margin-bottom:8px}
+.why__c p{color:var(--mute);font-size:15px}
 
 /* ================= PORTFÓLIO (carrossel) ================= */
 .work{padding:var(--sy) 0;overflow:hidden}
@@ -299,7 +307,8 @@ section{position:relative;scroll-margin-top:80px}
 .val-note{font-size:13.5px;color:var(--mute);letter-spacing:.06em;text-transform:uppercase}
 .offer .btn{width:100%;margin-top:28px;padding:0 16px;white-space:nowrap;font-size:15.5px}
 .perks{list-style:none;display:grid;gap:18px;text-align:left;max-width:340px;margin:0 auto}
-.perks li{display:flex;gap:12px;align-items:flex-start;font-size:15px;color:#e6eefb}
+.perks li{display:flex;gap:12px;align-items:flex-start;font-size:15px;color:var(--mute)}
+.perks b{color:#fff;font-weight:600}
 .perks li::before{content:"";flex:none;width:20px;height:20px;margin-top:1px;border-radius:6px;background:rgb(31 124 255/.18) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233d9bff' stroke-width='3.2'%3E%3Cpath d='m6 12 4 4 8-8'/%3E%3C/svg%3E") center/13px no-repeat}
 .perks li.g::before{background-color:rgb(37 211 102/.18);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2325d366' stroke-width='3.2'%3E%3Cpath d='m6 12 4 4 8-8'/%3E%3C/svg%3E")}
 .terms{max-width:640px;margin:34px auto 0;font-size:13px;color:var(--dim);line-height:1.6}
@@ -412,8 +421,8 @@ section{position:relative;scroll-margin-top:80px}
   <div class="wrap c">
     <div class="hero__copy" id="heroCopy">
       <span class="label rv">MAREME WEB DESIGNER</span>
-      <h1 id="t-hero" class="rv">Seu próximo cliente pode estar <span class="hl">procurando</span> por você <span class="hl">agora.</span></h1>
-      <p class="sub rv">Tenha um site profissional que valoriza seu negócio, transmite confiança e facilita o contato de novos clientes.</p>
+      <h1 id="t-hero" class="rv">Chega de <span class="hl">perder clientes</span> por não ter um site de <span class="hl">alta conversão</span></h1>
+      <p class="sub rv">Tenha um site profissional que valoriza seu negócio, transmite confiança e leva seu cliente a contratar o seu serviço.</p>
       <div class="cta rv" style="margin-top:36px"><a class="btn btn--hero js-wa" data-msg="hero" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.4 14.2c-.2.6-1.3 1.2-1.8 1.3-.5 0-1 .3-3.4-.7-2.9-1.2-4.7-4.1-4.8-4.3-.1-.2-1.2-1.6-1.2-3s.7-2.2 1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.5c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3.1.2.1.7-.1 1.2Z"/></svg>Quero meu site agora</a></div>
       <ul class="checks rv"><li>Site personalizado</li><li>Pronto para celular</li><li>Atendimento direto</li></ul>
     </div>
@@ -426,15 +435,15 @@ section{position:relative;scroll-margin-top:80px}
       <div class="float float--b"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M17 6.5c0-1.9-2.2-3.5-5-3.5S7 4.6 7 6.5 9.2 9.6 12 10s5 1.7 5 3.5-2.2 3.5-5 3.5-5-1.6-5-3.5"/></svg></i><strong>R$ 297</strong><span>pagamento único</span></div>
     </div>
   </div>
-  <div class="floor"><a class="chev" href="#mais" aria-label="Ir para a próxima seção"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></a></div>
+  <div class="floor" aria-hidden="true"></div>
 </section>
 
 <!-- PRÓXIMO NÍVEL -->
 <section class="lvl" id="nivel" aria-labelledby="t-lvl">
   <div class="wrap c">
     <h2 id="t-lvl" class="rv">Prepare-se para<br>conhecer o próximo nível</h2>
-    <p class="sub rv">Esquece Claude e Lovable, estamos em outro patamar!</p>
-    <span class="label rv" style="margin-top:44px">100% SOB MEDIDA</span>
+    <p class="sub rv">Esquece o Claude e o Lovable: aqui construímos sites 100% WordPress!</p>
+    <span class="label rv" style="margin-top:44px">100% WORDPRESS</span>
     <div class="circuit" aria-hidden="true">
       <svg class="circuit__l" viewBox="0 0 300 160" preserveAspectRatio="none"><path d="M0 20H120q20 0 20 20v40M0 140H90q20 0 20-20V80M0 80H300"/></svg>
       <svg class="circuit__r" viewBox="0 0 300 160" preserveAspectRatio="none"><path d="M300 20H180q-20 0-20 20v40M300 140H210q-20 0-20-20V80M300 80H0"/></svg>
@@ -444,7 +453,7 @@ section{position:relative;scroll-margin-top:80px}
         <span class="tile tile--wp pop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" style="width:58%;height:58%"><circle cx="12" cy="12" r="9.5"/><path d="M6.3 8.6 9.3 16.8 12 10.6 14.7 16.8 17.7 8.6" stroke-linejoin="round" stroke-linecap="round"/></svg></span>
       </div>
     </div>
-    <div class="counter rv"><span class="counter__box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span><div><strong>+<span class="js-count" data-to="5">0</span></strong><span>anos de mercado</span></div></div>
+    <div class="counter rv"><span class="counter__box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span><div><strong>+<span class="js-count" data-to="3">0</span></strong><span>anos de mercado</span></div></div>
   </div>
 </section>
 
@@ -452,8 +461,8 @@ section{position:relative;scroll-margin-top:80px}
 <section class="work" id="projetos" aria-labelledby="t-port">
   <div class="wrap c">
     <span class="label rv">Portfólio</span>
-    <h2 id="t-port" class="rv">Veja o que podemos criar <span class="hl">para sua empresa.</span></h2>
-    <p class="sub rv">Conheça projetos desenvolvidos pela MAREME para diferentes profissionais e negócios.</p>
+    <h2 id="t-port" class="rv">Não precisa imaginar. <span class="hl">Veja o que já criamos.</span></h2>
+    <p class="sub rv">Clínicas, escritórios, arquitetos, corretores e advogados. Cada site com identidade própria, feito para o negócio de quem vai usar.</p>
   </div>
   <div class="reel" data-dir="-1"><div class="track" id="trackA"></div></div>
   <div class="reel" data-dir="1"><div class="track" id="trackB"></div></div>
@@ -467,31 +476,32 @@ section{position:relative;scroll-margin-top:80px}
 <!-- BENEFÍCIOS -->
 <section class="feat" id="beneficios" aria-labelledby="t-feat">
   <div class="wrap c">
+    <h2 class="rv" style="max-width:22em;margin:0 auto 10px;font-size:clamp(20px,2.2vw,28px);color:var(--mute)">Um site com a estrutura certa <span class="hl">pode mudar o seu jogo</span></h2>
     <div class="rot">
       <div class="rot__bg" id="rotbg" aria-hidden="true">clientes</div>
       <p id="t-feat"><span>Mais</span><span class="words" id="words"><span class="on">clientes</span><span>confiança</span><span>visibilidade</span><span>autoridade</span><span>contatos</span></span><span>para o seu negócio</span></p>
       <span class="measure" id="measure" aria-hidden="true"></span>
     </div>
     <div class="ticker rv" aria-hidden="true">
-      <p>Com o site certo, seu negócio fica disponível 24h por dia.</p>
+      <p>Com a estrutura certa, seu site trabalha por você 24h por dia.</p>
       <div class="ping" id="pingA"></div>
       <div class="ping" id="pingB"></div>
     </div>
     <div class="cols">
       <article class="col rv">
         <div class="vis" aria-hidden="true"><div class="v-id"><div class="sw" id="sw"><i></i><i></i><i></i><i></i></div><div class="typo"><b id="aa">Aa</b><span>Suas cores,<br>fontes e fotos</span></div></div></div>
-        <h3>Um site com sua identidade</h3><p>Design personalizado com as cores, imagens e informações da sua empresa.</p>
+        <h3>Com a cara da sua marca</h3><p>Cores, fotos e textos do seu negócio. Nada de modelo pronto que deixa sua empresa igual a todas as outras.</p>
       </article>
       <article class="col rv">
         <div class="vis" aria-hidden="true"><div class="v-wa"><div class="v-wa__top"><i><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Z"/></svg></i><div>Seu WhatsApp<small>online</small></div></div><div class="v-wa__body" id="waBody"></div></div></div>
-        <h3>Direto para seu WhatsApp</h3><p>Seus visitantes entram em contato com você com apenas um clique.</p>
+        <h3>Cliente chamando no WhatsApp</h3><p>Botões estratégicos levam o visitante direto para a conversa, com a mensagem já escrita.</p>
       </article>
       <article class="col rv">
         <div class="vis" aria-hidden="true"><div class="v-dev"><div class="v-dev__lap"><div id="devL"></div></div><div class="v-dev__ph"><div id="devP"></div></div></div></div>
-        <h3>Perfeito em qualquer tela</h3><p>Seu site adaptado para celulares, tablets e computadores.</p>
+        <h3>Perfeito em qualquer tela</h3><p>É no celular que seu cliente pesquisa. Seu site fica bonito e fácil de usar no celular, tablet e computador.</p>
       </article>
     </div>
-    <div class="cta rv"><a class="btn btn--dark js-wa" data-msg="ben" href="#" target="_blank" rel="noopener">Quero meu site agora</a></div>
+    <div class="cta rv"><a class="btn btn--dark js-wa" data-msg="ben" href="#" target="_blank" rel="noopener">Quero um site que converte</a></div>
   </div>
 </section>
 
@@ -516,8 +526,13 @@ section{position:relative;scroll-margin-top:80px}
 <!-- ABERTURA -->
 <section class="prep" id="mais" aria-labelledby="t-prep">
   <div class="wrap c">
-    <h2 id="t-prep" class="rv">Sua empresa merece mais do que <span class="hl">um perfil nas redes sociais.</span></h2>
-    <p class="sub rv">Tenha um espaço profissional para apresentar seus serviços e facilitar o contato com quem procura seu negócio.</p>
+    <h2 id="t-prep" class="rv">Não basta ser bonito. <span class="hl">Seu site precisa fazer o cliente agir.</span></h2>
+    <p class="sub rv">Sua empresa merece mais do que um perfil nas redes sociais: um espaço profissional que apresenta seus serviços e facilita o contato com quem procura seu negócio.</p>
+    <div class="why">
+      <article class="why__c rv"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 12a9 9 0 0 1-13.4 7.9L3 21l1.2-4.4A9 9 0 1 1 21 12Z"/><path d="M8.5 10.5h7M8.5 13.5h4.5"/></svg></i><h3>Contato na hora certa</h3><p>O botão aparece no momento em que a pessoa decide. Um toque e ela já está falando com você.</p></article>
+      <article class="why__c rv"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.4 7.5 9.5 4.3-1.1 7.5-4.9 7.5-9.5V6z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg></i><h3>Confiança à primeira vista</h3><p>Serviços, fotos e informações organizados de um jeito que passa a credibilidade que o seu trabalho tem.</p></article>
+      <article class="why__c rv"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></i><h3>Pronto para ser encontrado</h3><p>Estrutura preparada para os mecanismos de busca, com seu endereço, horário e serviços sempre à vista.</p></article>
+    </div>
   </div>
 </section>
 
@@ -546,7 +561,7 @@ section{position:relative;scroll-margin-top:80px}
 <!-- PREÇO -->
 <section class="sec price" id="preco" aria-labelledby="t-price">
   <div class="wrap c">
-    <h2 id="t-price" class="rv">Seu site profissional <span class="hl">por um preço acessível.</span></h2>
+    <h2 id="t-price" class="rv">Um site profissional <span class="hl">que cabe no seu bolso.</span></h2>
     <div class="price__grid">
       <div class="brand rv"><b>MAREME WEB DESIGNER</b><p>Sites profissionais para negócios que querem fortalecer sua presença digital.</p></div>
       <div class="offer rv">
@@ -558,10 +573,10 @@ section{position:relative;scroll-margin-top:80px}
         <a class="btn js-wa" data-msg="price" href="#" target="_blank" rel="noopener">Quero meu site por R$ 297</a>
       </div>
       <ul class="perks rv">
-        <li>Design personalizado</li>
-        <li>Adaptado para celular e computador</li>
-        <li>Contato direto pelo WhatsApp</li>
-        <li>Apresentação dos seus serviços</li>
+        <li><span><b>Exclusividade:</b> um design único, que só a sua empresa terá</span></li>
+        <li><span><b>Responsividade:</b> perfeito no celular, tablet e computador</span></li>
+        <li><span><b>WhatsApp integrado:</b> botões que levam o cliente direto para a conversa</span></li>
+        <li><span><b>Seus serviços em destaque:</b> apresentação clara do que você oferece</span></li>
         <li class="g">Domínio incluído no primeiro ano*</li>
         <li class="g">Hospedagem incluída conforme condições*</li>
       </ul>
@@ -575,7 +590,7 @@ section{position:relative;scroll-margin-top:80px}
   <div class="wrap">
     <div class="faq__head">
       <span class="label">FAQ</span>
-      <h2 id="t-faq"><span class="sr">Ainda tem dúvidas?</span><span id="typeFaq" aria-hidden="true"></span><span class="caret" aria-hidden="true"></span></h2>
+      <h2 id="t-faq"><span class="sr">Perguntas frequentes</span><span id="typeFaq" aria-hidden="true"></span><span class="caret" aria-hidden="true"></span></h2>
     </div>
     <div class="acc" id="faq"></div>
   </div>
@@ -586,10 +601,10 @@ section{position:relative;scroll-margin-top:80px}
   <div class="wrap">
     <div class="end__grid">
       <div>
-        <h2 id="t-end" class="rv">Seu negócio merece uma <span class="hl">presença digital profissional.</span></h2>
-        <p class="sub rv">Vamos criar um site que valorize seu trabalho e facilite o contato com seus clientes?</p>
-        <div class="cta rv" style="justify-content:flex-start;margin-top:30px"><a class="btn js-wa" data-msg="end" href="#" target="_blank" rel="noopener">Quero começar meu site</a></div>
-        <p class="end__note rv">Atendimento direto com Emerson, fundador da MAREME.</p>
+        <h2 id="t-end" class="rv">Ainda restam <span class="hl">dúvidas?</span></h2>
+        <p class="sub rv">Estou à disposição para te responder. Fale diretamente comigo pelo WhatsApp e tire todas as dúvidas antes de contratar.</p>
+        <div class="cta rv" style="justify-content:flex-start;margin-top:30px"><a class="btn js-wa" data-msg="end" href="#" target="_blank" rel="noopener">Falar com o Emerson</a></div>
+        <p class="end__note rv">Atendimento direto com quem faz o seu site.</p>
       </div>
       <div class="obj" aria-hidden="true"><div class="obj__glow"></div><div class="obj__b" id="obj"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.4 14.2c-.2.6-1.3 1.2-1.8 1.3-.5 0-1 .3-3.4-.7-2.9-1.2-4.7-4.1-4.8-4.3-.1-.2-1.2-1.6-1.2-3s.7-2.2 1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.5c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3.1.2.1.7-.1 1.2Z"/></svg></div></div>
     </div>
@@ -625,12 +640,12 @@ section{position:relative;scroll-margin-top:80px}
   var WA = '5582987797962';
   var waUrl = function(t){ return 'https://wa.me/' + WA + '?text=' + encodeURIComponent(t); };
   var M = {
-    hero: 'Olá, Emerson! Quero meu site agora. Pode me explicar como funciona?',
+    hero: 'Olá, Emerson! Quero um site de alta conversão para o meu negócio. Como funciona?',
     port: 'Olá, Emerson! Vi os projetos do seu portfólio e quero um site como esses.',
-    ben: 'Olá, Emerson! Quero um site profissional para o meu negócio.',
+    ben: 'Olá, Emerson! Quero um site que converte para o meu negócio.',
     me: 'Olá, Emerson! Quero conversar com você sobre um site para o meu negócio.',
     price: 'Olá, Emerson! Tenho interesse no site profissional de R$ 297. Pode me passar os detalhes?',
-    end: 'Olá, Emerson! Quero começar meu site. Vamos conversar sobre a minha empresa?',
+    end: 'Olá, Emerson! Ainda tenho algumas dúvidas sobre o site. Pode me ajudar?',
     float: 'Olá, Emerson! Vim pelo site da MAREME e quero saber mais.'
   };
   document.querySelectorAll('.js-wa').forEach(function(a){ a.href = waUrl(M[a.dataset.msg] || M.float); });
@@ -840,12 +855,14 @@ section{position:relative;scroll-margin-top:80px}
 
   /* ---------- FAQ: 2 colunas, mola na altura, interrompível ---------- */
   var FAQ = [
-    ['Quanto tempo demora para ficar pronto?','Projetos simples podem ser desenvolvidos rapidamente. O prazo é confirmado conforme as informações recebidas e o escopo contratado.',['quanto tempo','tempo','prazo','demora','pronto','quando','rapido','dias','horas','entrega']],
-    ['Preciso pagar mensalidade?','Não há mensalidade obrigatória de desenvolvimento. Oferecemos suporte opcional por R$ 97 mensais. Condições de domínio e hospedagem são informadas separadamente.',['mensalidade','mensal','suporte','manutencao','97','todo mes']],
-    ['O site funciona no celular?','Sim. Todos os sites são desenvolvidos para funcionar em celulares, tablets e computadores.',['celular','mobile','tablet','responsivo','computador']],
-    ['Posso solicitar alterações?','Sim. Os ajustes previstos no projeto são realizados na etapa de revisão. Alterações adicionais podem ser orçadas separadamente.',['alteracao','alterar','mudar','mudanca','ajuste','revisao','editar','trocar']],
-    ['Meu site vai aparecer no Google?','O site pode ser preparado para indexação, mas a exibição e o posicionamento nos resultados dependem do Google.',['google','aparecer','busca','pesquisa','seo','primeira pagina']],
-    ['Como faço para contratar?','Basta clicar no botão de WhatsApp e conversar diretamente comigo.',['contratar','comecar','fechar','como faco','quero um site','quero meu site','orcamento']]
+    ['Em quanto tempo meu site fica pronto?','Projetos simples podem ser desenvolvidos rapidamente. O prazo é confirmado antes de começar, conforme as informações recebidas e o escopo contratado.',[]],
+    ['Como funciona do começo ao fim?','Você me conta sobre o seu negócio e me envia informações, fotos e serviços. Eu desenvolvo o site, você confere, alinhamos os ajustes previstos e eu coloco o site no ar.',[]],
+    ['Vocês escrevem os textos ou eu preciso mandar tudo pronto?','Não precisa mandar tudo pronto. Eu ajudo a organizar as informações que você já tem e oriento sobre o que falta. Conteúdos extras, quando necessários, são combinados antes.',[]],
+    ['E se eu precisar de ajustes depois de pronto?','Os ajustes previstos são feitos na etapa de revisão. Depois da entrega, existe o suporte opcional de R$ 97 por mês, que inclui pequenas alterações mensais.',[]],
+    ['Preciso já ter domínio e hospedagem?','Não. O domínio está incluído no primeiro ano e a hospedagem está incluída conforme as condições, que são explicadas antes da contratação.',[]],
+    ['Serve pro meu tipo de negócio?','Sim. Já criamos sites para clínicas, consultórios, escritórios de advocacia, arquitetos e corretores. Se o seu cliente pesquisa antes de contratar, o site serve pra você.',[]],
+    ['Preciso pagar mensalidade?','Não há mensalidade obrigatória. O desenvolvimento é pago uma única vez; o suporte de R$ 97 por mês é opcional.',[]],
+    ['Já vem com o WhatsApp?','Sim. O site vem com botões que levam o visitante direto para o seu WhatsApp, com a mensagem já escrita.',[]]
   ];
   var EXTRA = [
     ['','O site profissional custa R$ 297, pagamento único pelo desenvolvimento. Inclui design personalizado, adaptação para celular e computador, contato direto pelo WhatsApp e apresentação dos seus serviços. Funcionalidades extras podem exigir orçamento separado.',['quanto custa','custa','preco','valor','297','investimento','o que inclui','o que vem']],
@@ -856,7 +873,7 @@ section{position:relative;scroll-margin-top:80px}
   var chevSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>';
   var acc = document.getElementById('faq');
   function faqHtml(f, i){ return '<details'+(i === 0 ? ' open' : '')+'><summary>'+f[0]+chevSvg+'</summary><div class="acc__body"><p>'+f[1]+'</p></div></details>'; }
-  acc.innerHTML = '<div class="acc__col">' + FAQ.slice(0, 3).map(faqHtml).join('') + '</div><div class="acc__col">' + FAQ.slice(3).map(function(f, i){ return faqHtml(f, i + 3); }).join('') + '</div>';
+  acc.innerHTML = '<div class="acc__col">' + FAQ.slice(0, 4).map(faqHtml).join('') + '</div><div class="acc__col">' + FAQ.slice(4).map(function(f, i){ return faqHtml(f, i + 4); }).join('') + '</div>';
   (function(){
     var items = [].slice.call(acc.querySelectorAll('details'));
     items.forEach(function(d){
@@ -919,7 +936,7 @@ section{position:relative;scroll-margin-top:80px}
   once(document.getElementById('formMock'), function(){ playForm(); if (!reduce) setInterval(playForm, 5000); });
   once(document.getElementById('build'), function(){ playBuild(); if (!reduce) setInterval(playBuild, 5000); });
   once(document.getElementById('panel'), function(){ var p = document.getElementById('panel'); if (p._enter) p._enter(); }, '0px 0px -5% 0px');
-  once(document.getElementById('typeFaq'), function(){ typeIt(document.getElementById('typeFaq'), 'Ainda tem dúvidas?'); });
+  once(document.getElementById('typeFaq'), function(){ typeIt(document.getElementById('typeFaq'), 'Perguntas frequentes'); });
 })();
 </script>
 </body>
