@@ -99,6 +99,8 @@ section{position:relative;scroll-margin-top:80px}
 .checks li{display:flex;align-items:center;gap:8px}
 .checks li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--blue2);box-shadow:0 0 10px var(--blue2)}
 .stage{position:relative;width:min(820px,92%);margin:56px auto 0;perspective:1600px}
+.lap3d{display:block;margin:-14% auto -12%}
+.stage.is3d .device{display:none}
 .device{position:relative;transform-style:preserve-3d;will-change:transform}
 .device__img{display:block;width:100%;height:auto;filter:drop-shadow(0 40px 60px rgb(0 0 0/.6))}
 .device__screen{position:absolute;left:0;top:0;width:1000px;height:625px;transform-origin:0 0;overflow:hidden;background:#000}
@@ -955,5 +957,7 @@ section{position:relative;scroll-margin-top:80px}
   once(document.getElementById('typeFaq'), function(){ typeIt(document.getElementById('typeFaq'), 'Perguntas frequentes'); });
 })();
 </script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<script type="module" src="laptop3d.js"></script>
 </body>
 </html>
