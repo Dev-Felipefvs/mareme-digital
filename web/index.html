@@ -62,12 +62,13 @@ section{position:relative;scroll-margin-top:80px}
 /* ================= HEADER FLUTUANTE ================= */
 .nav{position:fixed;top:14px;left:50%;z-index:80;display:flex;align-items:center;gap:2px;padding:5px 5px 5px 16px;border-radius:999px;background:rgb(10 13 19/.72);border:1px solid rgb(255 255 255/.1);-webkit-backdrop-filter:blur(18px) saturate(160%);backdrop-filter:blur(18px) saturate(160%);box-shadow:0 14px 40px rgb(0 0 0/.45);transform:translateX(-50%);transition:transform .5s var(--ease)}
 .nav.hide{transform:translate(-50%,-140%)}
-.nav__brand{font-family:var(--head);font-weight:600;font-size:14px;letter-spacing:.06em;margin-right:4px;white-space:nowrap}
+.nav__brand{display:flex;align-items:center;margin-right:6px}
+.nav__brand .logo{width:34px;height:auto}
 .nav ul{display:flex;gap:2px;list-style:none}
 .nav ul a{display:block;padding:8px 10px;border-radius:999px;font-size:13.5px;color:#cfd8e6;transition:background .3s,color .3s}
 .nav ul a:hover{color:#fff}
 .nav ul a.on{background:rgb(255 255 255/.1);color:#fff}
-.nav__cta{display:inline-flex;align-items:center;min-height:36px;padding:0 16px;margin-left:4px;border-radius:999px;background:linear-gradient(180deg,#4a9dff,#1766e6);font-family:var(--head);font-weight:500;font-size:14px;white-space:nowrap;box-shadow:0 8px 24px rgb(31 124 255/.4)}
+.nav__cta{display:inline-flex;align-items:center;min-height:36px;padding:0 16px;margin-left:4px;border-radius:999px;background:linear-gradient(180deg,#4a9dff,#1766e6);font-family:var(--head);font-weight:600;font-size:13px;letter-spacing:.08em;white-space:nowrap;box-shadow:0 8px 24px rgb(31 124 255/.4)}
 @media(max-width:860px){.nav ul{display:none}.nav{gap:10px}}
 .hero{padding-top:clamp(90px,10vw,110px)!important}
 
@@ -106,6 +107,20 @@ section{position:relative;scroll-margin-top:80px}
 .floor::before{content:"";position:absolute;left:50%;top:0;width:min(1000px,120%);height:170px;transform:translateX(-50%);background:radial-gradient(closest-side,rgb(61 155 255/.7),rgb(31 124 255/.25) 45%,transparent);pointer-events:none}
 .floor .chev{position:absolute;left:50%;top:63px;transform:translateX(-50%)}
 @media(max-width:700px){.float{padding:12px 14px;width:auto}.float i{display:none}.float--a{left:-2%;bottom:10%}.float--b{right:-2%;top:-10%}.group{flex-direction:column;width:100%;border-radius:28px}.group a,.group .btn{width:100%;justify-content:center}}
+
+
+/* ================= PRÓXIMO NÍVEL ================= */
+.lvl{padding:clamp(50px,7vw,90px) 0 clamp(40px,6vw,70px);background:radial-gradient(40% 45% at 50% 55%,rgb(31 124 255/.18),transparent 70%),var(--bg);overflow:hidden}
+.lvl h2{font-size:clamp(30px,4.4vw,52px)}
+.circuit{position:relative;height:160px;margin:10px auto 0;max-width:900px;display:grid;place-items:center}
+.circuit svg{position:absolute;top:0;width:34%;height:100%;fill:none;stroke:rgb(140 180 255/.22);stroke-width:1.5}
+.circuit__l{left:0}.circuit__r{right:0}
+.beam{position:absolute;left:18%;right:18%;top:50%;height:2px;margin-top:-1px;background:linear-gradient(90deg,transparent,#6cc6ff,transparent);box-shadow:0 0 18px #3d9bff}
+.tiles{position:relative;display:flex;justify-content:center;gap:18px}
+.tile .logo{width:62%;height:auto}
+.tile--d{background:linear-gradient(160deg,#2a3242,#0d1119 60%,#05070b);box-shadow:inset 0 2px 0 rgb(255 255 255/.18),inset 0 -6px 14px rgb(0 0 0/.4),0 0 0 1px rgb(61 155 255/.35),0 18px 40px rgb(31 124 255/.35)}
+.counter__box{display:grid;place-items:center;width:58px;height:58px;border-radius:16px;border:1px solid rgb(255 255 255/.14);background:rgb(255 255 255/.03)}
+.counter__box svg{width:24px;height:24px;color:#e6eefb}
 
 /* ================= ABERTURA + ÍCONES ================= */
 .prep{padding:clamp(50px,7vw,90px) 0 clamp(50px,7vw,80px);background:radial-gradient(45% 50% at 50% 30%,rgb(31 124 255/.18),transparent 70%),var(--bg)}
@@ -362,7 +377,7 @@ section{position:relative;scroll-margin-top:80px}
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
 <header>
 <nav class="nav" id="nav" aria-label="Navegação principal">
-  <a class="nav__brand" href="#inicio">MAREME</a>
+  <a class="nav__brand" href="#inicio" aria-label="MAREME — início"><svg class="logo" viewBox="215 340 825 650" role="img" aria-label="MAREME"><path fill="#f7f8fa" d="M232 357 628 632 1022 357V548L632 820 378 632V942H232Z"/><path fill="#1f7cff" d="M596 972C700 820 860 680 1022 604V770Z"/></svg></a>
   <ul>
     <li><a href="#projetos">Projetos</a></li>
     <li><a href="#sobre">Sobre</a></li>
@@ -370,7 +385,7 @@ section{position:relative;scroll-margin-top:80px}
     <li><a href="#preco">Preço</a></li>
     <li><a href="#perguntas">FAQ</a></li>
   </ul>
-  <a class="nav__cta js-wa" data-msg="hero" href="#" target="_blank" rel="noopener">Quero meu site</a>
+  <a class="nav__cta" href="#projetos">PORTFÓLIO</a>
 </nav>
 </header>
 <main id="conteudo">
@@ -401,17 +416,30 @@ section{position:relative;scroll-margin-top:80px}
   <div class="floor"><a class="chev" href="#mais" aria-label="Ir para a próxima seção"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></a></div>
 </section>
 
+<!-- PRÓXIMO NÍVEL -->
+<section class="lvl" id="nivel" aria-labelledby="t-lvl">
+  <div class="wrap c">
+    <h2 id="t-lvl" class="rv">Prepare-se para<br>conhecer o próximo nível</h2>
+    <p class="sub rv">Esquece Claude e Lovable, estamos em outro patamar!</p>
+    <span class="label rv" style="margin-top:44px">100% SOB MEDIDA</span>
+    <div class="circuit" aria-hidden="true">
+      <svg class="circuit__l" viewBox="0 0 300 160" preserveAspectRatio="none"><path d="M0 20H120q20 0 20 20v40M0 140H90q20 0 20-20V80M0 80H300"/></svg>
+      <svg class="circuit__r" viewBox="0 0 300 160" preserveAspectRatio="none"><path d="M300 20H180q-20 0-20 20v40M300 140H210q-20 0-20-20V80M300 80H0"/></svg>
+      <div class="beam"></div>
+      <div class="tiles">
+        <span class="tile tile--d pop"><svg class="logo" aria-hidden="true" viewBox="215 340 825 650"><path fill="#f7f8fa" d="M232 357 628 632 1022 357V548L632 820 378 632V942H232Z"/><path fill="#1f7cff" d="M596 972C700 820 860 680 1022 604V770Z"/></svg></span>
+        <span class="tile tile--g pop"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.4 14.2c-.2.6-1.3 1.2-1.8 1.3-.5 0-1 .3-3.4-.7-2.9-1.2-4.7-4.1-4.8-4.3-.1-.2-1.2-1.6-1.2-3s.7-2.2 1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.5c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3.1.2.1.7-.1 1.2Z"/></svg></span>
+      </div>
+    </div>
+    <div class="counter rv"><span class="counter__box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span><div><strong>+ de <span class="js-count" data-to="14">0</span></strong><span>sites publicados</span></div></div>
+  </div>
+</section>
+
 <!-- ABERTURA -->
 <section class="prep" id="mais" aria-labelledby="t-prep">
   <div class="wrap c">
     <h2 id="t-prep" class="rv">Sua empresa merece mais do que <span class="hl">um perfil nas redes sociais.</span></h2>
     <p class="sub rv">Tenha um espaço profissional para apresentar seus serviços e facilitar o contato com quem procura seu negócio.</p>
-    <div class="tiles" aria-hidden="true">
-      <span class="tile pop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
-      <span class="tile tile--w pop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span>
-      <span class="tile tile--g pop"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.4 14.2c-.2.6-1.3 1.2-1.8 1.3-.5 0-1 .3-3.4-.7-2.9-1.2-4.7-4.1-4.8-4.3-.1-.2-1.2-1.6-1.2-3s.7-2.2 1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.5c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3.1.2.1.7-.1 1.2Z"/></svg></span>
-    </div>
-    <div class="counter rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg><div><strong>+<span class="js-count" data-to="14">0</span></strong><span>sites publicados no portfólio</span></div></div>
   </div>
 </section>
 
