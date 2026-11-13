@@ -151,12 +151,13 @@ section{position:relative;scroll-margin-top:80px}
 .words span.on{transform:none;opacity:1}
 .words span.out{transform:translateY(-110%);opacity:0}
 .measure{position:absolute;visibility:hidden;white-space:nowrap;font-family:var(--head);letter-spacing:-.03em}
-.ticker{display:grid;align-items:center;gap:14px 24px;max-width:720px;margin:40px auto 0;padding:16px 26px;border-radius:999px;background:linear-gradient(180deg,#10141c,#0a0d13);border:1px solid var(--line);box-shadow:0 20px 60px rgb(0 0 0/.5);text-align:left}
+.ticker{display:grid;align-items:center;gap:14px 24px;max-width:880px;margin:40px auto 0;padding:16px 26px;border-radius:999px;background:linear-gradient(180deg,#10141c,#0a0d13);border:1px solid var(--line);box-shadow:0 20px 60px rgb(0 0 0/.5);text-align:left}
 @media(min-width:720px){.ticker{grid-template-columns:1.1fr 1fr 1fr}}
 @media(max-width:719px){.ticker{border-radius:24px}}
 .ticker>p{font-size:14px;color:#e6eefb;line-height:1.45}
 .ping{position:relative;height:40px;overflow:hidden}
-.ping div{position:absolute;inset:0;display:flex;align-items:center;gap:10px;font-size:13.5px;color:#e6eefb;transition:transform .7s var(--ease),opacity .7s}
+.ping div{position:absolute;inset:0;display:flex;align-items:center;gap:10px;font-size:13.5px;color:#e6eefb;transition:transform .6s var(--ease),opacity .35s}
+.ping div span{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .ping div small{margin-left:auto;font-size:12px;color:var(--dim)}
 .ping i{flex:none;display:grid;place-items:center;width:24px;height:24px;border-radius:7px;background:rgb(31 124 255/.18);color:var(--blue2)}
 .ping i svg{width:13px;height:13px}
@@ -764,17 +765,21 @@ window.MAREME_CHAT_ENDPOINT = window.MAREME_CHAT_ENDPOINT || '';
     e: '<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="3"/><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12Z"/></svg></i>',
     m: '<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 21s7-6.2 7-11a7 7 0 0 0-14 0c0 4.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></i>'
   };
-  var PA = [[ico.w, 'Nova conversa no <b>WhatsApp</b>'], [ico.m, 'Alguém abriu sua <b>localização</b>']];
-  var PB = [[ico.e, 'Visitante viu seus <b>serviços</b>'], [ico.w, 'Pedido de <b>orçamento</b>']];
+  var PA = [[ico.w, 'Nova conversa no <b>WhatsApp</b>'], [ico.m, 'Abriram sua <b>localização</b>']];
+  var PB = [[ico.e, 'Viram seus <b>serviços</b>'], [ico.w, 'Novo <b>orçamento</b>']];
   function pinger(el, list, offset){
     var i = 0;
     function make(n){ var d = document.createElement('div'); d.innerHTML = list[n][0] + '<span>' + list[n][1] + '</span><small>agora</small>'; return d; }
     var cur = make(0); el.appendChild(cur);
     if (reduce) return;
     setTimeout(function loop(){
-      i = (i + 1) % list.length; var nx = make(i); nx.style.transform = 'translateY(100%)'; nx.style.opacity = 0; el.appendChild(nx);
-      requestAnimationFrame(function(){ requestAnimationFrame(function(){ cur.style.transform = 'translateY(-100%)'; cur.style.opacity = 0; nx.style.transform = ''; nx.style.opacity = ''; }); });
-      var old = cur; cur = nx; setTimeout(function(){ old.remove(); }, 800);
+      i = (i + 1) % list.length;
+      var old = cur; old.style.transform = 'translateY(-60%)'; old.style.opacity = 0;
+      setTimeout(function(){
+        old.remove();
+        var nx = make(i); nx.style.transition = 'none'; nx.style.transform = 'translateY(60%)'; nx.style.opacity = 0; el.appendChild(nx);
+        nx.getBoundingClientRect(); nx.style.transition = ''; nx.style.transform = 'none'; nx.style.opacity = 1; cur = nx;
+      }, 380);
       setTimeout(loop, 3200);
     }, 1600 + offset);
   }
