@@ -121,7 +121,7 @@ section{position:relative;scroll-margin-top:80px}
 
 
 /* ================= PRÓXIMO NÍVEL ================= */
-.lvl{padding:0 0 var(--sy);background:radial-gradient(40% 45% at 50% 55%,rgb(31 124 255/.18),transparent 70%),var(--bg);overflow:hidden}
+.lvl{padding:0 0 var(--sy);background:radial-gradient(closest-side at 50% 55%,rgb(31 124 255/.16),transparent);overflow:hidden}
 .lvl h2{font-size:clamp(30px,4.4vw,52px)}
 .circuit{position:relative;height:160px;margin:10px auto 0;max-width:900px;display:grid;place-items:center}
 .circuit>svg{position:absolute;top:0;width:34%;height:100%;fill:none;stroke:rgb(140 180 255/.22);stroke-width:1.5}
@@ -139,7 +139,7 @@ section{position:relative;scroll-margin-top:80px}
 .counter__box svg{width:24px;height:24px;color:#e6eefb}
 
 /* ================= ABERTURA + ÍCONES ================= */
-.prep{padding:var(--sy) 0;background:radial-gradient(45% 50% at 50% 30%,rgb(31 124 255/.18),transparent 70%),var(--bg)}
+.prep{padding:var(--sy) 0;background:radial-gradient(closest-side at 50% 50%,rgb(31 124 255/.14),transparent)}
 .prep h2{max-width:15em;margin:0 auto}
 .tiles{display:flex;justify-content:center;gap:16px;margin-top:40px}
 .tile{display:grid;place-items:center;width:clamp(64px,8vw,84px);aspect-ratio:1;border-radius:22px;background:linear-gradient(160deg,#4fa6ff,#1458d6 60%,#0b3a9a);box-shadow:inset 0 2px 0 rgb(255 255 255/.35),inset 0 -6px 14px rgb(0 0 0/.25),0 18px 40px rgb(31 124 255/.4)}
@@ -173,7 +173,7 @@ section{position:relative;scroll-margin-top:80px}
 .hint svg{width:16px;height:16px}
 
 /* ================= BENEFÍCIOS ================= */
-.feat{padding:var(--sy) 0;overflow:hidden;background:radial-gradient(40% 40% at 100% 40%,rgb(31 124 255/.14),transparent 70%),var(--bg)}
+.feat{padding:var(--sy) 0;overflow:hidden;background:radial-gradient(closest-side at 100% 45%,rgb(31 124 255/.12),transparent)}
 .rot{position:relative;padding:10px 0}
 .rot__bg{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-family:var(--head);font-size:clamp(90px,18vw,260px);font-weight:600;letter-spacing:-.05em;white-space:nowrap;color:transparent;-webkit-text-stroke:1px rgb(90 160 255/.12);pointer-events:none}
 .rot p{position:relative;font-family:var(--head);font-size:clamp(34px,6vw,80px);letter-spacing:-.03em;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:0 .28em;line-height:1.15}
@@ -280,7 +280,7 @@ section{position:relative;scroll-margin-top:80px}
 @keyframes pulse{50%{opacity:.35}}
 
 /* ================= PREÇO (3 colunas) ================= */
-.price{background:radial-gradient(45% 45% at 50% 55%,rgb(31 124 255/.2),transparent 70%),var(--bg)}
+.price{background:radial-gradient(closest-side at 50% 55%,rgb(31 124 255/.18),transparent)}
 .price__grid{display:grid;gap:34px;align-items:center;margin-top:var(--gap-in)}
 @media(min-width:980px){.price__grid{grid-template-columns:1fr 1.05fr 1fr;gap:44px}}
 .brand{text-align:center}
@@ -448,14 +448,6 @@ section{position:relative;scroll-margin-top:80px}
   </div>
 </section>
 
-<!-- ABERTURA -->
-<section class="prep" id="mais" aria-labelledby="t-prep">
-  <div class="wrap c">
-    <h2 id="t-prep" class="rv">Sua empresa merece mais do que <span class="hl">um perfil nas redes sociais.</span></h2>
-    <p class="sub rv">Tenha um espaço profissional para apresentar seus serviços e facilitar o contato com quem procura seu negócio.</p>
-  </div>
-</section>
-
 <!-- PORTFÓLIO -->
 <section class="work" id="projetos" aria-labelledby="t-port">
   <div class="wrap c">
@@ -518,6 +510,14 @@ section{position:relative;scroll-margin-top:80px}
       </div>
       <div class="panel__photo"><img src="img/emerson.png" width="821" height="1556" alt="Emerson, desenvolvedor web e fundador da MAREME" loading="lazy"></div>
     </div>
+  </div>
+</section>
+
+<!-- ABERTURA -->
+<section class="prep" id="mais" aria-labelledby="t-prep">
+  <div class="wrap c">
+    <h2 id="t-prep" class="rv">Sua empresa merece mais do que <span class="hl">um perfil nas redes sociais.</span></h2>
+    <p class="sub rv">Tenha um espaço profissional para apresentar seus serviços e facilitar o contato com quem procura seu negócio.</p>
   </div>
 </section>
 
