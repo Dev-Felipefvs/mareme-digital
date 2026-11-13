@@ -154,11 +154,11 @@ section{position:relative;scroll-margin-top:80px}
 
 .why{display:grid;gap:16px;margin-top:var(--gap-in);text-align:left}
 @media(min-width:860px){.why{grid-template-columns:repeat(3,1fr)}}
-.why__c{padding:26px 24px 28px;border-radius:22px;background:linear-gradient(180deg,var(--panel) 60%,#0c1a33);border:1px solid var(--line)}
-.why__c i{display:grid;place-items:center;width:44px;height:44px;margin-bottom:18px;border-radius:12px;background:rgb(31 124 255/.14);color:var(--blue2)}
+.why__c{display:grid;grid-template-columns:44px 1fr;column-gap:14px;align-items:center;padding:26px 24px 28px;border-radius:22px;background:linear-gradient(180deg,var(--panel) 60%,#0c1a33);border:1px solid var(--line)}
+.why__c i{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:rgb(31 124 255/.14);color:var(--blue2)}
 .why__c i svg{width:22px;height:22px}
-.why__c h3{font-size:20px;margin-bottom:8px}
-.why__c p{color:var(--mute);font-size:15px}
+.why__c h3{font-size:19px;margin:0}
+.why__c p{grid-column:1/-1;margin-top:14px;color:var(--mute);font-size:15px}
 
 /* ================= PORTFÓLIO (carrossel) ================= */
 .work{padding:var(--sy) 0;overflow:hidden}
