@@ -98,26 +98,36 @@ section{position:relative;scroll-margin-top:80px}
 .checks{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 20px;margin-top:20px;font-size:14px;color:var(--dim);list-style:none}
 .checks li{display:flex;align-items:center;gap:8px}
 .checks li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--blue2);box-shadow:0 0 10px var(--blue2)}
-.stage{position:relative;width:min(880px,94%);margin:64px auto 0;perspective:1600px}
-.laptop{position:relative;transform:rotateX(18deg);transform-origin:50% 100%;will-change:transform}
-.laptop__screen{position:relative;aspect-ratio:16/10;border-radius:20px 20px 0 0;padding:13px 13px 0;background:#0b0d12;border:1px solid rgb(255 255 255/.14);border-bottom:0}
-.laptop__screen::before{content:"";position:absolute;left:50%;top:0;width:14%;height:12px;transform:translateX(-50%);border-radius:0 0 8px 8px;background:#0b0d12;z-index:2}
-.laptop__view{position:relative;height:100%;border-radius:8px 8px 0 0;overflow:hidden;background:#111}
-.laptop__view img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;opacity:0;transition:opacity 1s ease}
+.stage{position:relative;width:min(760px,88%);margin:70px auto 0;perspective:1700px;perspective-origin:50% 0%}
+.tilt{position:relative;transform-style:preserve-3d;will-change:transform}
+.lt{position:relative;aspect-ratio:16/10.3;transform-style:preserve-3d;transition:transform 1s cubic-bezier(.65,0,.35,1)}
+.lt__lid{position:absolute;inset:0;transform-style:preserve-3d;transform-origin:50% 100%;transform:rotateX(10deg);transition:transform .7s cubic-bezier(.65,0,.35,1)}
+.lt__lid.closed{transform:rotateX(-89deg)}
+.lt__face,.lt__back{position:absolute;inset:0;border-radius:18px 18px 4px 4px;-webkit-backface-visibility:hidden;backface-visibility:hidden}
+.lt__face{padding:12px 12px 16px;background:#0b0d12;border:1px solid rgb(255 255 255/.16)}
+.lt__face::before{content:"";position:absolute;left:50%;top:0;width:14%;height:11px;transform:translateX(-50%);border-radius:0 0 8px 8px;background:#0b0d12;z-index:2}
+.lt__back{transform:rotateY(180deg);display:grid;place-items:center;background:linear-gradient(160deg,#e3e7ee,#b9c0cb 55%,#9aa2ae);border:1px solid rgb(255 255 255/.3)}
+.lt__back svg{width:14%;opacity:.9}
+.laptop__view{position:relative;height:100%;border-radius:6px;overflow:hidden;background:#111}
+.laptop__view img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;opacity:0;transition:opacity .4s ease}
 .laptop__view img.on{opacity:1}
-.laptop__base{position:relative;height:20px;margin:0 -7%;border-radius:0 0 26px 26px;background:linear-gradient(#d9dee7,#8a919d 70%,#5d636d)}
-.laptop__base::before{content:"";position:absolute;left:50%;top:0;width:15%;height:7px;transform:translateX(-50%);border-radius:0 0 10px 10px;background:#9aa1ad}
+.lt__deck{position:absolute;left:-5%;top:100%;width:110%;height:82%;transform-origin:50% 0;transform:rotateX(90deg);border-radius:4px 4px 22px 22px;background:linear-gradient(180deg,#c5ccd6,#e4e8ee 40%,#cdd3dc);box-shadow:inset 0 2px 0 rgb(255 255 255/.6),inset 0 -3px 0 rgb(0 0 0/.12);display:flex;flex-direction:column;align-items:center;padding:4% 8% 0}
+.keys{display:grid;grid-template-columns:repeat(14,1fr);gap:3px;width:100%;padding:6px;border-radius:8px;background:#9aa2ae}
+.keys i{aspect-ratio:1.35;border-radius:3px;background:linear-gradient(180deg,#2a2f38,#15181e);box-shadow:inset 0 1px 0 rgb(255 255 255/.12)}
+.keys i.w2{grid-column:span 2;aspect-ratio:auto}
+.keys i.sp{grid-column:span 6;aspect-ratio:auto}
+.pad{width:30%;aspect-ratio:1.8;margin-top:3.5%;border-radius:8px;background:linear-gradient(180deg,#d6dbe2,#c3c9d2);box-shadow:inset 0 0 0 1px rgb(0 0 0/.08)}
+.stage__shadow{position:absolute;left:4%;right:4%;bottom:-40%;height:30%;background:radial-gradient(closest-side,rgb(0 0 0/.6),transparent);filter:blur(8px);transform:translateZ(-1px)}
 .float{position:absolute;z-index:4;width:clamp(150px,19vw,210px);padding:18px 20px;border-radius:22px;background:linear-gradient(160deg,rgb(30 36 48/.85),rgb(12 15 22/.85));border:1px solid rgb(255 255 255/.12);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 24px 60px rgb(0 0 0/.55);text-align:left;will-change:transform}
 .float i{display:grid;place-items:center;width:40px;height:40px;margin-bottom:16px;border-radius:12px;background:rgb(31 124 255/.15);border:1px solid rgb(61 155 255/.3);color:var(--blue2)}
 .float i svg{width:20px;height:20px}
 .float strong{display:block;font-family:var(--head);font-size:clamp(24px,2.8vw,34px);font-weight:500;line-height:1}
 .float>span{display:block;font-size:13px;color:var(--mute);margin-top:6px}
-.float--a{left:-9%;bottom:6%}
-.float--b{right:-9%;top:-4%}
-.floor{position:relative;height:190px;margin-top:-40px}
+.float--a{left:-13%;top:42%}
+.floor{position:relative;height:190px;margin-top:clamp(80px,14vw,170px)}
 .floor::before{content:"";position:absolute;left:50%;top:0;width:min(1000px,120%);height:calc(100% - 16px);transform:translateX(-50%);background:radial-gradient(closest-side,rgb(61 155 255/.7),rgb(31 124 255/.25) 45%,transparent);pointer-events:none}
 .floor .chev{position:absolute;left:50%;top:63px;transform:translateX(-50%)}
-@media(max-width:700px){.floor{height:150px}.float{padding:12px 14px;width:auto}.float i{display:none}.float--a{left:-2%;bottom:10%}.float--b{right:-2%;top:-10%}.group{flex-direction:column;width:100%;border-radius:28px}.group a,.group .btn{width:100%;justify-content:center}}
+@media(max-width:700px){.floor{height:150px}.float{padding:12px 14px;width:auto}.float i{display:none}.float--a{left:-2%;top:auto;bottom:-34%}.group{flex-direction:column;width:100%;border-radius:28px}.group a,.group .btn{width:100%;justify-content:center}}
 
 
 /* ================= PRÓXIMO NÍVEL ================= */
@@ -427,12 +437,16 @@ section{position:relative;scroll-margin-top:80px}
       <ul class="checks rv"><li>Site personalizado</li><li>Pronto para celular</li><li>Atendimento direto</li></ul>
     </div>
     <div class="stage" aria-hidden="true">
-      <div class="laptop">
-        <div class="laptop__screen"><div class="laptop__view" id="screen"></div></div>
-        <div class="laptop__base"></div>
+      <div class="tilt" id="tilt">
+        <div class="lt" id="lt">
+          <div class="lt__deck"><div class="keys"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="w2"></i><i class="w2"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="w2"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="w2"></i><i class="w2"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="w2"></i><i></i><i></i><i></i><i></i><i class="sp"></i><i></i><i></i><i></i><i></i></div><div class="pad"></div></div>
+          <div class="lt__lid" id="lid">
+            <div class="lt__face"><div class="laptop__view" id="screen"></div></div>
+            <div class="lt__back"><svg viewBox="215 340 825 650" aria-hidden="true"><path fill="#cfd5de" d="M232 357 628 632 1022 357V548L632 820 378 632V942H232Z"/><path fill="#1f7cff" d="M596 972C700 820 860 680 1022 604V770Z"/></svg></div>
+          </div>
+        </div>
       </div>
-      <div class="float float--a"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></i><strong>+<span class="js-count" data-to="14">0</span></strong><span>projetos no ar</span></div>
-      <div class="float float--b"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M17 6.5c0-1.9-2.2-3.5-5-3.5S7 4.6 7 6.5 9.2 9.6 12 10s5 1.7 5 3.5-2.2 3.5-5 3.5-5-1.6-5-3.5"/></svg></i><strong>R$ 297</strong><span>pagamento único</span></div>
+      <div class="float float--a"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></i><strong>+<span class="js-count" data-to="3">0</span></strong><span>anos de mercado</span></div>
     </div>
   </div>
   <div class="floor" aria-hidden="true"></div>
@@ -742,33 +756,44 @@ section{position:relative;scroll-margin-top:80px}
     reel.addEventListener('click', function(e){ if (moved > 8) { e.preventDefault(); e.stopPropagation(); } }, true);
   });
 
-  /* ---------- notebook do hero ---------- */
+  /* ---------- notebook do hero: fecha, gira e abre o próximo projeto ---------- */
   var scr = document.getElementById('screen'), L = ['kamylla','tania','odontovida','mikaelle','juliana','thiago'];
   scr.innerHTML = L.map(function(s, i){ return '<img src="img/'+s+'-d.jpg" width="1080" height="675" alt=""'+(i ? ' loading="lazy"' : ' class="on" fetchpriority="high"')+'>'; }).join('');
-  var li = 0;
-  if (!reduce) setInterval(function(){ scr.children[li].classList.remove('on'); li = (li + 1) % L.length; scr.children[li].classList.add('on'); }, 3000);
   (function(){
-    var stage = document.querySelector('.stage'), lap = document.querySelector('.laptop'), copy = document.getElementById('heroCopy');
-    if (reduce) { lap.style.transform = 'rotateX(6deg)'; return; }
-    var fa = document.querySelector('.float--a'), fb = document.querySelector('.float--b');
-    var rx = new Fluid.Spring(18, { response: .7 }), ry = new Fluid.Spring(0, { response: .7 }), px = new Fluid.Spring(0, { response: .6 }), py = new Fluid.Spring(0, { response: .6 }), sc = new Fluid.Spring(0, { response: .5 });
-    var base = 18, tiltX = 0;
+    var lt = document.getElementById('lt'), lid = document.getElementById('lid'), li = 0, spin = 0;
+    function swap(){ scr.children[li].classList.remove('on'); li = (li + 1) % L.length; scr.children[li].classList.add('on'); }
+    if (reduce) { setInterval(swap, 3500); return; }
+    (function cycle(){
+      setTimeout(function(){
+        lid.classList.add('closed');
+        setTimeout(function(){
+          spin += 360; lt.style.transform = 'rotateY(' + spin + 'deg)';
+          setTimeout(function(){ swap(); lid.classList.remove('closed'); setTimeout(cycle, 700); }, 1000);
+        }, 700);
+      }, 2600);
+    })();
+  })();
+  (function(){
+    var tilt = document.getElementById('tilt'), copy = document.getElementById('heroCopy'), stage = document.querySelector('.stage');
+    if (reduce) { tilt.style.transform = 'rotateX(-24deg)'; return; }
+    var fa = document.querySelector('.float--a');
+    var rx = new Fluid.Spring(-30, { response: .7 }), ry = new Fluid.Spring(0, { response: .7 }), px = new Fluid.Spring(0, { response: .6 }), py = new Fluid.Spring(0, { response: .6 }), sc = new Fluid.Spring(0, { response: .5 });
+    var base = -30, tiltX = 0;
     function draw(){
-      lap.style.transform = 'translate3d(0,' + (-sc.x * 40).toFixed(1) + 'px,0) rotateX(' + rx.x.toFixed(2) + 'deg) rotateY(' + ry.x.toFixed(2) + 'deg)';
-      if (fa) fa.style.transform = 'translate3d(' + (-px.x * 16).toFixed(1) + 'px,' + (-py.x * 10 - sc.x * 70).toFixed(1) + 'px,0)';
-      if (fb) fb.style.transform = 'translate3d(' + (px.x * 20).toFixed(1) + 'px,' + (py.x * 12 - sc.x * 110).toFixed(1) + 'px,0)';
+      tilt.style.transform = 'translate3d(0,' + (-sc.x * 40).toFixed(1) + 'px,0) rotateX(' + rx.x.toFixed(2) + 'deg) rotateY(' + ry.x.toFixed(2) + 'deg)';
+      if (fa) fa.style.transform = 'translate3d(' + (px.x * 18).toFixed(1) + 'px,' + (py.x * 12 - sc.x * 90).toFixed(1) + 'px,0)';
       copy.style.transform = 'translate3d(0,' + (-sc.x * 60).toFixed(1) + 'px,0)'; copy.style.opacity = (1 - sc.x * 0.85).toFixed(3);
     }
     [rx, ry, px, py, sc].forEach(function(s){ s.on(draw); });
     function onScroll(){
       var r = stage.getBoundingClientRect(), k = Math.min(1, Math.max(0, (innerHeight - r.top) / (innerHeight * 0.8)));
-      base = 18 - 16 * k; rx.target(base + tiltX);
+      base = -30 + 8 * k; rx.target(base + tiltX);
       sc.target(Math.min(1, Math.max(0, scrollY / (innerHeight * 0.9))));
     }
     addEventListener('scroll', onScroll, { passive: true }); onScroll(); rx.jump(rx.to); sc.jump(sc.to);
     if (fine) {
       var hero = document.querySelector('.hero');
-      hero.addEventListener('pointermove', function(e){ var nx = e.clientX / innerWidth - .5, ny = e.clientY / innerHeight - .5; tiltX = -ny * 5; rx.target(base + tiltX); ry.target(nx * 7); px.target(nx); py.target(ny); });
+      hero.addEventListener('pointermove', function(e){ var nx = e.clientX / innerWidth - .5, ny = e.clientY / innerHeight - .5; tiltX = -ny * 4; rx.target(base + tiltX); ry.target(nx * 10); px.target(nx); py.target(ny); });
       hero.addEventListener('pointerleave', function(){ tiltX = 0; rx.target(base); ry.target(0); px.target(0); py.target(0); });
     }
   })();
